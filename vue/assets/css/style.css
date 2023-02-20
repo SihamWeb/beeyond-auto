@@ -206,7 +206,6 @@ header {
    ---------------------------------------- */
 
 .header-top img {
-	display: inline-block;
 	height: 30px;
 }
 
@@ -366,7 +365,7 @@ h1 {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	gap: 33px;
+	gap: 38px;
 }
 
 #brands img {
@@ -552,7 +551,7 @@ h1 {
 	padding: 40px;
 	border-radius: 10px;
 	text-align: left;
-	transition: 0.2s ease-in-out;
+	transition: 0.4s ease-in-out;
 }
 
 .purchase {
@@ -577,7 +576,7 @@ h1 {
 	margin-bottom: 40px;
 	opacity: 0.8;
 	background: #e8e9ed43;
-	transition: 0.2s ease-in-out;
+	transition: 0.4s ease-in-out;
 }
 
 .rent img {
@@ -680,11 +679,23 @@ h3 {
    ---------------------------------------- */
 
 #map {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 10vw;
 	padding: 80px 7vw 80px 7vw;
+}
+
+#map .blurry-circle {
+	top: 62%;
+	opacity: 0.2;
+}
+
+#map .line {
+	right: -8%;
+	top: 15%;
+	opacity: 0.3;
 }
 
 .map-left {
@@ -831,6 +842,18 @@ footer {
 	color: rgba(232, 233, 237, 0.7);
 	font-size: 1.1rem;
 }
+
+footer a:hover {
+	color: #e8e9ed;
+}
+
+.tippy-box[data-theme~='socials-tippy'] {
+    background: linear-gradient(to right, rgba(255, 193, 69, 0.9), rgba(252, 234, 114, 0.9));
+	color: #2a2e34;
+	font-size: 12px;
+	font-weight: 400;
+	margin-left: 8px;
+  }
 
 #footer-right {
 	flex: 0 0 60%;

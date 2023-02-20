@@ -33,4 +33,15 @@ $(document).ready(function(){
         $('#map-idf').css("display", "none");
         $('#logo-map').css({top: "38%", left: "31%"});
     });
+
+
+    //Tippy tooltips
+    tippy('[data-tippy-content]', {
+        placement: 'right-start',
+        animation: 'scale',
+        duration: [300,0],
+        followCursor: true,
+        arrow: false,
+        theme: 'socials-tippy',
+    });
 })

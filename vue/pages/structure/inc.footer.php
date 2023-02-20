@@ -3,10 +3,10 @@
         <div id="footer-left">
             <img src="vue/assets/images/logo.png" alt="Logo">
             <div id="socials">
-                <a href="#" title="Facebook"><i class="cp cp-facebook-o"></i></a>
-                <a href="#" title="Instagram"><i class="cp cp-instagram"></i></a>
-                <a href="#" title="Twitter"><i class="cp cp-twitter"></i></a>
-                <a href="#" title="LinkedIn"><i class="cp cp-linkedin"></i></a>
+                <a href="#" data-tippy-content="Facebook"><i class="cp cp-facebook-o"></i></a>
+                <a href="#" data-tippy-content="Instagram"><i class="cp cp-instagram"></i></a>
+                <a href="#" data-tippy-content="Twitter"><i class="cp cp-twitter"></i></a>
+                <a href="#" data-tippy-content="LinkedIn"><i class="cp cp-linkedin"></i></a>
             </div>
         </div>
         <div id="footer-right">
