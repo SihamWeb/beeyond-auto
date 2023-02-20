@@ -502,8 +502,8 @@ h1 {
 }
 
 #presentation-right {
-	flex: 0 0 50%;
-	max-width: 50%;
+	flex: 0 0 40%;
+	max-width: 40%;
 }
 
 .blurry-circle-2 {

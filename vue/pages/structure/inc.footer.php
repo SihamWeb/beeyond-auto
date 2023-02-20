@@ -1,7 +1,7 @@
 <footer>
     <div id="footer-top">
         <div id="footer-left">
-            <img src="vue/assets/images/logo.png" alt="Logo">
+            <img src="/groupe2/vue/assets/images/logo.png" alt="Logo">
             <div id="socials">
                 <a href="#" data-tippy-content="Facebook"><i class="cp cp-facebook-o"></i></a>
                 <a href="#" data-tippy-content="Instagram"><i class="cp cp-instagram"></i></a>
@@ -13,8 +13,8 @@
             <div>
                 <h2>Plan du site</h2>
                 <ul>
-                    <li><a href="index.php">Accueil</a></li>
-                    <li><a href="#">Acheter</a></li>
+                    <li><a href="/groupe2/vue/pages/index.php">Accueil</a></li>
+                    <li><a href="/groupe2/vue/pages/templates/achat.php">Acheter</a></li>
                     <li><a href="#">Vendre</a></li>
                     <li><a href="#">Louer</a></li>
                 </ul>

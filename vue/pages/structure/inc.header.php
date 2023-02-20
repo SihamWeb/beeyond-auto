@@ -5,9 +5,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/png" href="vue/assets/images/favicon.png">
-		<link href="vue/assets/css/style.css" rel="stylesheet">
-		<script src="vue/assets/js/jquery-3.6.1.min.js"></script>
-		<script src="vue/assets/js/script.js"></script>
+		<link href="/groupe2/vue/assets/css/style.css" rel="stylesheet">
+		<script src="/groupe2/vue/assets/js/jquery-3.6.1.min.js"></script>
+		<script src="/groupe2/vue/assets/js/script.js"></script>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
 		<!--Icons-->
