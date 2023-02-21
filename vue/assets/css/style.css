@@ -994,7 +994,7 @@ footer a:hover {
 .main {
 	width: 76%;
 	min-height: 300px;
-	padding: 12px 0;
+	padding: 12px 0 0 0;
 }
 
 .results {
@@ -1056,4 +1056,21 @@ footer a:hover {
 	padding: 10px;
 	background-color: rgba(0, 0, 0, 0.15);
 	border-radius: 10px;
+}
+
+.page-nav {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	padding: 30px 0 10px 0;
+}
+
+.page-nav i {
+	padding: 15px;
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+}
+
+.page-nbr {
+	text-align: center;
 }

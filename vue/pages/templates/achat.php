@@ -76,7 +76,7 @@
 		<div class="main">
 			33 résultat(s)
 			<div class="results">
-				<div class="result">
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -96,8 +96,8 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
-				<div class="result">
+				</a>
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -117,8 +117,8 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
-				<div class="result">
+				</a>
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -138,8 +138,8 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
-				<div class="result">
+				</a>
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -159,8 +159,8 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
-				<div class="result">
+				</a>
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -180,8 +180,8 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
-				<div class="result">
+				</a>
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -201,8 +201,8 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
-				<div class="result">
+				</a>
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -222,8 +222,8 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
-				<div class="result">
+				</a>
+				<a href="" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -243,8 +243,14 @@
 							6 vitesses
 						</div>
 					</div>
-				</div>
+				</a>
 			</div>
+			<div class="page-nav">
+				<i class="fa-solid fa-arrow-left-long"></i>
+				<i class="fa-solid fa-arrow-right-long"></i>
+				
+			</div>
+			<div class="page-nbr">Page 1 de 1</div>
 		</div>
 	</div>
 	
