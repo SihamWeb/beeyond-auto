@@ -4,7 +4,7 @@
 		<title>Beeyond Auto</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
-		<link rel="icon" type="image/png" href="/groupe2/vue/assets/images/favicon.png">
+		<link rel="icon" type="image/png" href="/groupe2/vue/assets/images/logos/favicon.png">
 		<link href="/groupe2/vue/assets/css/style.css" rel="stylesheet">
 		<script src="/groupe2/vue/assets/js/jquery-3.6.1.min.js"></script>
 		<script src="/groupe2/vue/assets/js/script.js"></script>
