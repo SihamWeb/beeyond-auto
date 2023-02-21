@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 20 fév. 2023 à 23:20
+-- Généré le : mar. 21 fév. 2023 à 18:47
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.12
 
@@ -151,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `vehicules_location` (
   `anneedesortie` year NOT NULL,
   `prix_hebdomadaire` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vehicules_location`
@@ -160,11 +160,29 @@ CREATE TABLE IF NOT EXISTS `vehicules_location` (
 INSERT INTO `vehicules_location` (`id`, `marque`, `modelFamily`, `modelRange`, `modelVariant`, `type`, `carburant`, `puissance_ch`, `boitedevitesse`, `nombredeportes`, `nombredeplaces`, `anneedesortie`, `prix_hebdomadaire`) VALUES
 (1, 'BENTLEY', 'BENTAYGA', 'BENTAYGA', 'OD', 'SUV', 'ESSENCE', 545, 'AUTOMATIQUE', 5, 5, 2020, 1345),
 (2, 'BENTLEY', 'FLYING-SPUR', 'FLYING-SPUR', 'SA', 'LUXE', 'ESSENCE', 625, 'AUTOMATIQUE', 4, 5, 2020, 2099),
-(3, 'SMART', 'FORTWO', 'FORTWO', 'MC', 'CABRIOLET', 'ESSENCE', 90, 'AUTOMATIQUE', 2, 4, 2019, 46),
+(3, 'SMART', 'FORTWO', 'FORTWO', 'MC', 'CABRIOLET', 'DIESEL', 90, 'MANUELLE', 2, 4, 2019, 46),
 (4, 'LAMBORGHINI', 'HURACAN', 'HURACAN-EVO', 'CO', 'LUXE', 'ESSENCE', 639, 'AUTOMATIQUE', 2, 2, 2019, 3299),
 (5, 'MASERATI', 'GHIBLI', 'GHIBLI', 'SA', 'LUXE', 'ESSENCE', 580, 'AUTOMATIQUE', 4, 5, 2021, 1299),
 (6, 'MCLAREN', 'ARTURA', 'ARTURA', 'CO', 'LUXE', 'HYBRIDE', 680, 'AUTOMATIQUE', 2, 2, 2022, 1499),
-(7, 'PORSHE', 'CAYENNE-COUPE', 'CAYENNE-COUPE', 'OD', 'COUPE', 'HYBRIDE', 462, 'AUTOMATIQUE', 5, 5, 2020, 699);
+(7, 'PORSHE', 'CAYENNE-COUPE', 'CAYENNE-COUPE', 'OD', 'COUPE', 'HYBRIDE', 462, 'AUTOMATIQUE', 5, 5, 2020, 699),
+(8, 'AUDI', 'R8', 'R8', 'CA', 'CABRIOLET', 'DIESEL', 570, 'AUTOMATIQUE', 2, 2, 2021, 350),
+(9, 'CITROEN', 'SPACETOURER', 'E-SPACETOURER', 'FW', 'MONOSPACE', 'ELECTRIQUE', 136, 'MANUELLE', 5, 7, 2021, 50),
+(10, 'CITROEN', 'JUMPER', 'E-JUMPER', 'PV', 'UTILITAIRES', 'DIESEL', 120, 'MANUELLE', 4, 3, 2021, 32),
+(11, 'CITROEN', 'NEMO', 'NEMO', 'CV', 'UTILITAIRES', 'DIESEL', 80, 'MANUELLE', 3, 2, 2016, 19),
+(12, 'CITROEN', 'C-ZERO', 'C-ZERO', 'MC', 'BERLINE', 'ELECTRIQUE', 67, 'AUTOMATIQUE', 5, 4, 2018, 29),
+(13, 'MERCEDES', 'VITO', 'E-VITO', 'CC', 'MONOSPACE', 'DIESEL', 120, 'AUTOMATIQUE', 4, 7, 2020, 42),
+(14, 'MERCEDES', 'SPRINTER', 'E-SPRINTER', 'PV', 'UTILITAIRES', 'DIESEL', 143, 'MANUELLE', 2, 3, 2019, 20),
+(15, 'FIAT', 'TALENTO', 'TALENTO', 'CC', 'MONOSPACE', 'DIESEL', 145, 'MANUELLE', 5, 9, 2020, 33),
+(16, 'FIAT', 'TORO', 'TORO', 'PU', 'JUMPER', 'DIESEL', 170, 'MANUELLE', 4, 5, 2020, 39),
+(17, 'FIAT', 'DOBLO-CARGO', 'DOBLO-CARGO', 'CV', 'SOCIETE', 'DIESEL', 90, 'MANUELLE', 3, 3, 2016, 17),
+(18, 'FORD', 'MUSTANG', 'MACH-1', 'CO', 'COUPE', 'ESSENCE', 450, 'MANUELLE', 2, 4, 2021, 98),
+(19, 'FORD', 'FIESTA', 'FIESTA', 'CH', 'BERLINE', 'DIESEL', 85, 'MANUELLE', 3, 5, 2020, 54),
+(20, 'FORD', 'TOURNEO', 'TOURNEO-CONNECT', 'MM', 'MONOSPACE', 'HYBRIDE', 85, 'MANUELLE', 5, 7, 2022, 125),
+(21, 'JEEP', 'RENEGADE', 'RENEGADE', 'CH', 'SUV', 'ESSENCE', 114, 'MANUELLE', 5, 5, 2019, 110),
+(22, 'JEEP', 'WRANGLER', 'WRANGLER', 'OD', 'JUMPER', 'ESSENCE', 272, 'AUTOMATIQUE', 4, 4, 2021, 132),
+(23, 'DS', 'DS-3', 'DS-3', 'CA', 'CITADINE', 'ESSENCE', 111, 'MANUELLE', 3, 5, 2018, 70),
+(24, 'SEAT', 'IBIZA', 'IBIZA', 'HA', 'CITADINE', 'ESSENCE', 110, 'AUTOMATIQUE', 5, 5, 2022, 139),
+(25, 'BMW', 'XM', 'XM', 'OD', 'SUV', 'HYBRIDE', 748, 'AUTOMATIQUE', 5, 5, 2023, 875);
 
 -- --------------------------------------------------------
 
