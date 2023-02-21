@@ -250,7 +250,7 @@
 				<i class="fa-solid fa-arrow-right-long"></i>
 				
 			</div>
-			<div class="page-nbr">Page 1 de 1</div>
+			<div class="page-nbr">Page 1 sur 1</div>
 		</div>
 	</div>
 	
