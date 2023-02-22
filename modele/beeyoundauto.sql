@@ -2,9 +2,9 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mar. 21 fév. 2023 à 18:47
--- Version du serveur : 8.0.31
+-- Hôte : 127.0.0.1
+-- Généré le : mer. 22 fév. 2023 à 16:08
+-- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `beeyondauto`
+-- Base de données : `beeyoundauto`
 --
 
 -- --------------------------------------------------------
@@ -27,15 +27,11 @@ SET time_zone = "+00:00";
 -- Structure de la table `achat`
 --
 
-DROP TABLE IF EXISTS `achat`;
-CREATE TABLE IF NOT EXISTS `achat` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `idvehicule` int NOT NULL,
-  `dateachat` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idvehicule` (`idvehicule`),
-  KEY `username` (`username`)
+CREATE TABLE `achat` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `idvehicule` int(11) NOT NULL,
+  `dateachat` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -44,16 +40,12 @@ CREATE TABLE IF NOT EXISTS `achat` (
 -- Structure de la table `location`
 --
 
-DROP TABLE IF EXISTS `location`;
-CREATE TABLE IF NOT EXISTS `location` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `idvehicule` int NOT NULL,
+CREATE TABLE `location` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `idvehicule` int(11) NOT NULL,
   `debutlocation` datetime NOT NULL,
-  `finlocation` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`),
-  KEY `location_ibfk_1` (`idvehicule`)
+  `finlocation` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -62,15 +54,13 @@ CREATE TABLE IF NOT EXISTS `location` (
 -- Structure de la table `utilisateurs`
 --
 
-DROP TABLE IF EXISTS `utilisateurs`;
-CREATE TABLE IF NOT EXISTS `utilisateurs` (
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mail` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `motdepasse` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photodeprofil` longblob NOT NULL,
-  PRIMARY KEY (`username`)
+CREATE TABLE `utilisateurs` (
+  `username` varchar(255) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `motdepasse` varchar(30) NOT NULL,
+  `photodeprofil` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -79,24 +69,22 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 -- Structure de la table `vehicules`
 --
 
-DROP TABLE IF EXISTS `vehicules`;
-CREATE TABLE IF NOT EXISTS `vehicules` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `marque` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modelFamily` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modelRange` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modelVariant` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `carburant` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `puissance_ch` int NOT NULL,
-  `boitedevitesse` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nombredeportes` int NOT NULL,
-  `nombredeplaces` int NOT NULL,
-  `anneedesortie` year NOT NULL,
-  `stock` int NOT NULL,
-  `prix_vente` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `vehicules` (
+  `id` int(11) NOT NULL,
+  `marque` varchar(50) NOT NULL,
+  `modelFamily` varchar(50) NOT NULL,
+  `modelRange` varchar(50) NOT NULL,
+  `modelVariant` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `carburant` varchar(50) NOT NULL,
+  `puissance_ch` int(11) NOT NULL,
+  `boitedevitesse` varchar(11) NOT NULL,
+  `nombredeportes` int(11) NOT NULL,
+  `nombredeplaces` int(11) NOT NULL,
+  `anneedesortie` year(4) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `prix_vente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vehicules`
@@ -127,7 +115,35 @@ INSERT INTO `vehicules` (`id`, `marque`, `modelFamily`, `modelRange`, `modelVari
 (22, 'JAGUAR', 'F-PACE', 'F-PACE', 'OD', 'SUV', 'ESSENCE', 250, 'AUTOMATIQUE', 5, 5, 2020, 2, 47250),
 (23, 'JAGUAR', 'XE', 'XE', 'SA', 'BERLINE', 'DIESEL', 180, 'AUTOMATIQUE', 5, 5, 2019, 2, 32999),
 (24, 'ASTON-MARTIN', 'RAPIDE', 'RAPIDE-S', 'CO', 'LUXE', 'ESSENCE', 560, 'AUTOMATIQUE', 4, 4, 2015, 1, 139899),
-(25, 'FIAT', '500X', '500X', 'OD', 'SUV', 'HYBRIDE', 131, 'AUTOMATIQUE', 5, 5, 2022, 13, 35370);
+(25, 'FIAT', '500X', '500X', 'OD', 'SUV', 'HYBRIDE', 131, 'AUTOMATIQUE', 5, 5, 2022, 13, 35370),
+(26, 'ALPHA-ROMEO', '4C', '4C', 'CO', 'COUPÉ', 'Essence ', 157, 'Automatique', 3, 2, 2018, 1, 63200),
+(27, 'CITROEN ', 'AMI', 'AMI', 'MC', 'CITADINE', 'ELECTRIQUE', 90, 'AUTOMATIQUE', 2, 2, 2021, 3, 6900),
+(28, 'CITROEN', 'BERLINGO', 'BERLINGO', 'CV', 'UTILITAIRE', 'ELECTRIQUE', 135, 'AUTOMATIQUE', 5, 3, 2019, 5, 39240),
+(29, 'CITROEN ', 'JUMPY', 'JUMPY', 'BU', 'MONOSPACE', 'ELECTRIQUE', 200, 'AUTOMATIQUE', 5, 7, 2020, 2, 51400),
+(30, 'CUPRA', 'ATECA', 'ATECA', 'OD', 'SUV', 'ESSENCE', 300, 'AUTOMATIQUE', 5, 5, 2019, 2, 42500),
+(31, 'CITROEN', 'BERLINGO', 'BERLINGO', 'CV', 'UTILITAIRE', 'ELECTRIQUE', 135, 'AUTOMATIQUE', 5, 3, 2019, 5, 39240),
+(32, 'CITROEN ', 'JUMPY', 'JUMPY', 'BU', 'MONOSPACE', 'ELECTRIQUE', 200, 'AUTOMATIQUE', 5, 7, 2020, 2, 51400),
+(33, 'CUPRA', 'ATECA', 'ATECA', 'OD', 'SUV', 'ESSENCE', 300, 'AUTOMATIQUE', 5, 5, 2019, 2, 42500),
+(34, 'CUPRA ', 'FORMENTOR', 'FORMENTOR', 'OD', 'SUV', 'ESSENCE ', 500, 'AUTOMATIQUE', 5, 5, 2021, 2, 63755),
+(35, 'CUPRA', 'LEON', 'LEON', 'ES', 'SUV', 'ESSENCE', 200, 'AUTOMATIQUE', 5, 5, 2021, 3, 39480),
+(36, 'HONDA', 'CIVIC', 'CIVIC', 'CO', 'BERLINE', 'ESSENCE', 230, 'AUTOMATIQUE', 3, 5, 2020, 3, 32400),
+(37, 'VOLVO', 'V60', 'V60', 'CE', 'SUV', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2020, 1, 70500),
+(38, 'VOLVO', 'XC90', 'XC90', 'OD', 'SUV', 'DIESEL', 420, 'AUTOMATIQUE', 5, 5, 2020, 1, 90532),
+(39, 'VOLKSWAGEN', 'POLO', 'POLO', 'CH', 'COMPACTE', 'ESSENCE', 220, 'AUTOMATIQUE', 5, 5, 2020, 6, 35000),
+(40, 'VOLKSWAGEN ', 'ARTEON', 'ARTEON', 'ES', 'BREAK', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2021, 2, 55200),
+(41, 'JEEP', 'AVENGER', 'AVENGER', 'OD', 'SUV', 'ELECTRIQUE', 420, 'AUTOMATIQUE', 5, 5, 2023, 0, 65320),
+(42, 'HYUNDAI', 'VELOSTER', 'VELOSTER', 'CO', 'COUP', 'ESSENCE', 190, 'AUTOMATIQUE', 3, 5, 2019, 2, 23320),
+(43, 'KIA ', 'SPORTAGE', 'SPORTAGE', 'OD', 'SUV', 'DIESEL', 250, 'AUTOMATIQUE', 5, 5, 2022, 1, 41500),
+(44, 'CUPRA ', 'FORMENTOR', 'FORMENTOR', 'OD', 'SUV', 'ESSENCE ', 500, 'AUTOMATIQUE', 5, 5, 2021, 2, 63755),
+(45, 'CUPRA', 'LEON', 'LEON', 'ES', 'SUV', 'ESSENCE', 200, 'AUTOMATIQUE', 5, 5, 2021, 3, 39480),
+(46, 'HONDA', 'CIVIC', 'CIVIC', 'CO', 'BERLINE', 'ESSENCE', 230, 'AUTOMATIQUE', 3, 5, 2020, 3, 32400),
+(47, 'VOLVO', 'V60', 'V60', 'CE', 'SUV', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2020, 1, 70500),
+(48, 'VOLVO', 'XC90', 'XC90', 'OD', 'SUV', 'DIESEL', 420, 'AUTOMATIQUE', 5, 5, 2020, 1, 90532),
+(49, 'VOLKSWAGEN', 'POLO', 'POLO', 'CH', 'COMPACTE', 'ESSENCE', 220, 'AUTOMATIQUE', 5, 5, 2020, 6, 35000),
+(50, 'VOLKSWAGEN ', 'ARTEON', 'ARTEON', 'ES', 'BREAK', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2021, 2, 55200),
+(51, 'JEEP', 'AVENGER', 'AVENGER', 'OD', 'SUV', 'ELECTRIQUE', 420, 'AUTOMATIQUE', 5, 5, 2023, 0, 65320),
+(52, 'HYUNDAI', 'VELOSTER', 'VELOSTER', 'CO', 'COUP', 'ESSENCE', 190, 'AUTOMATIQUE', 3, 5, 2019, 2, 23320),
+(53, 'KIA ', 'SPORTAGE', 'SPORTAGE', 'OD', 'SUV', 'DIESEL', 250, 'AUTOMATIQUE', 5, 5, 2022, 1, 41500);
 
 -- --------------------------------------------------------
 
@@ -135,23 +151,21 @@ INSERT INTO `vehicules` (`id`, `marque`, `modelFamily`, `modelRange`, `modelVari
 -- Structure de la table `vehicules_location`
 --
 
-DROP TABLE IF EXISTS `vehicules_location`;
-CREATE TABLE IF NOT EXISTS `vehicules_location` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `marque` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modelFamily` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modelRange` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modelVariant` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `carburant` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `puissance_ch` int NOT NULL,
-  `boitedevitesse` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nombredeportes` int NOT NULL,
-  `nombredeplaces` int NOT NULL,
-  `anneedesortie` year NOT NULL,
-  `prix_hebdomadaire` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `vehicules_location` (
+  `id` int(11) NOT NULL,
+  `marque` varchar(50) NOT NULL,
+  `modelFamily` varchar(50) NOT NULL,
+  `modelRange` varchar(50) NOT NULL,
+  `modelVariant` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `carburant` varchar(50) NOT NULL,
+  `puissance_ch` int(11) NOT NULL,
+  `boitedevitesse` varchar(11) NOT NULL,
+  `nombredeportes` int(11) NOT NULL,
+  `nombredeplaces` int(11) NOT NULL,
+  `anneedesortie` year(4) NOT NULL,
+  `prix_hebdomadaire` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vehicules_location`
@@ -190,24 +204,100 @@ INSERT INTO `vehicules_location` (`id`, `marque`, `modelFamily`, `modelRange`, `
 -- Structure de la table `vehicules_occasion`
 --
 
-DROP TABLE IF EXISTS `vehicules_occasion`;
-CREATE TABLE IF NOT EXISTS `vehicules_occasion` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `marque` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modele` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `carburant` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `puissance` int NOT NULL,
-  `boitedevitesse` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nombredeportes` int NOT NULL,
-  `nombredeplaces` int NOT NULL,
-  `anneedesortie` year NOT NULL,
-  `prix_vente` int NOT NULL,
-  `image` blob NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`)
+CREATE TABLE `vehicules_occasion` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `marque` varchar(50) NOT NULL,
+  `modele` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `carburant` varchar(50) NOT NULL,
+  `puissance` int(11) NOT NULL,
+  `boitedevitesse` varchar(11) NOT NULL,
+  `nombredeportes` int(11) NOT NULL,
+  `nombredeplaces` int(11) NOT NULL,
+  `anneedesortie` year(4) NOT NULL,
+  `prix_vente` int(11) NOT NULL,
+  `image` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `achat`
+--
+ALTER TABLE `achat`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idvehicule` (`idvehicule`),
+  ADD KEY `username` (`username`);
+
+--
+-- Index pour la table `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`),
+  ADD KEY `location_ibfk_1` (`idvehicule`);
+
+--
+-- Index pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Index pour la table `vehicules`
+--
+ALTER TABLE `vehicules`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `vehicules_location`
+--
+ALTER TABLE `vehicules_location`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `vehicules_occasion`
+--
+ALTER TABLE `vehicules_occasion`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `achat`
+--
+ALTER TABLE `achat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `location`
+--
+ALTER TABLE `location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `vehicules`
+--
+ALTER TABLE `vehicules`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5350;
+
+--
+-- AUTO_INCREMENT pour la table `vehicules_location`
+--
+ALTER TABLE `vehicules_location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT pour la table `vehicules_occasion`
+--
+ALTER TABLE `vehicules_occasion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -217,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `vehicules_occasion` (
 -- Contraintes pour la table `vehicules_occasion`
 --
 ALTER TABLE `vehicules_occasion`
-  ADD CONSTRAINT `vehicules_occasion_ibfk_1` FOREIGN KEY (`username`) REFERENCES `utilisateurs` (`username`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `vehicules_occasion_ibfk_1` FOREIGN KEY (`username`) REFERENCES `utilisateurs` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
