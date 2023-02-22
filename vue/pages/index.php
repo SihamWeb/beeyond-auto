@@ -10,9 +10,9 @@
 			<nav>
 				<ul>
 					<li><a href="index.php" class="active">Accueil</a></li>
-					<li><a href="templates/achat.php">Acheter</a></li>
-					<li><a href="templates/vente.php">Vendre</a></li>
-					<li><a href="templates/location.php">Louer</a></li>
+					<li><a href="/groupe2/vue/pages/templates/achat.php">Acheter</a></li>
+					<li><a href="/groupe2/vue/pages/templates/vente.php">Vendre</a></li>
+					<li><a href="/groupe2/vue/pages/templates/location.php">Louer</a></li>
 				</ul>
 			</nav>
 			<a href="#" title="Nous contacter" class="btn">Contactez-nous</a>

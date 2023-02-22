@@ -6,7 +6,7 @@
 	<!--Header-->
 	<header class="header-height">
 		<div class="header-top">
-			<a href="../index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logo.png" alt="Logo"></a>
+			<a href="../index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logos/logo.png" alt="Logo"></a>
 			<nav>
 				<ul>
 					<li><a href="../index.php">Accueil</a></li>
@@ -25,7 +25,10 @@
 			</div>
 		</div>
 	</header>
+	<!--Form-->
+	<form>
 		
+	</form>
 
 <?php
 	include '../structure/inc.footer.php';
