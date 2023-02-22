@@ -246,8 +246,8 @@
 				</a>
 			</div>
 			<div class="page-nav">
-				<i class="fa-solid fa-arrow-left-long"></i>
-				<i class="fa-solid fa-arrow-right-long"></i>
+				<a href=""><i class="fa-solid fa-arrow-left-long"></i></a>
+				<a href=""><i class="fa-solid fa-arrow-right-long"></i></a>
 				
 			</div>
 			<div class="page-nbr">Page 1 sur 1</div>
