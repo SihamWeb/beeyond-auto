@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 22 fév. 2023 à 16:08
+-- Généré le : mer. 22 fév. 2023 à 19:55
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
 
@@ -164,14 +164,14 @@ CREATE TABLE `vehicules_location` (
   `nombredeportes` int(11) NOT NULL,
   `nombredeplaces` int(11) NOT NULL,
   `anneedesortie` year(4) NOT NULL,
-  `prix_hebdomadaire` int(11) NOT NULL
+  `prix_journalier` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vehicules_location`
 --
 
-INSERT INTO `vehicules_location` (`id`, `marque`, `modelFamily`, `modelRange`, `modelVariant`, `type`, `carburant`, `puissance_ch`, `boitedevitesse`, `nombredeportes`, `nombredeplaces`, `anneedesortie`, `prix_hebdomadaire`) VALUES
+INSERT INTO `vehicules_location` (`id`, `marque`, `modelFamily`, `modelRange`, `modelVariant`, `type`, `carburant`, `puissance_ch`, `boitedevitesse`, `nombredeportes`, `nombredeplaces`, `anneedesortie`, `prix_journalier`) VALUES
 (1, 'BENTLEY', 'BENTAYGA', 'BENTAYGA', 'OD', 'SUV', 'ESSENCE', 545, 'AUTOMATIQUE', 5, 5, 2020, 1345),
 (2, 'BENTLEY', 'FLYING-SPUR', 'FLYING-SPUR', 'SA', 'LUXE', 'ESSENCE', 625, 'AUTOMATIQUE', 4, 5, 2020, 2099),
 (3, 'SMART', 'FORTWO', 'FORTWO', 'MC', 'CABRIOLET', 'DIESEL', 90, 'MANUELLE', 2, 4, 2019, 46),
