@@ -25,7 +25,6 @@
 			</div>
 		</div>
 	</header>
-
 	<div class="content">
 		<!--Sidebar-->
 		<div class="sidebar">

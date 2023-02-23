@@ -105,9 +105,25 @@
 				<input type="submit" value="">
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>
+			<!--Form feedback messages-->
+			<div class="feedback-msg validate">
+				<i class="cp cp-check-mark"></i>
+				Votre demande sera traitée dans les plus brefs délais. Nous vous contacterons pour plus d'informations.
+			</div>
+			<div class="feedback-msg error">
+				<i class="cp cp-cross"></i>
+				Message d'erreur ici
+			</div>
 		</form>
-
-		<!--Votre demande sera traitée dans les plus brefs délais.-->
+		<!--Signed out message
+		<div class="signed-out">
+			<p class="desc section-desc">/ Connectez-vous pour commencer à vendre</p>
+			<h2 class="to-left">Toujours pas inscrit ?<br>Créez-vous un compte en 2 minutes !</h2>
+			<div>
+				<a href="#services" title="En savoir plus" class="btn btn-outline" data="S'inscrire"></a>
+				<a href="#" title="Nous contacter" class="btn">Connexion</a>
+			</div>
+		</div>-->
 	</div>
 
 <?php
