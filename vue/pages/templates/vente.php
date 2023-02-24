@@ -1,5 +1,29 @@
 <?php
 	include '../structure/inc.header.php';
+	include '../../../modele/inc.connexion.php';
+
+	if($_POST && count($_POST)){
+		$oQInsert = $o_bdd->prepare("
+			INSERT INTO vehicules_occasion 
+				(username, marque , modele, type, carburant , boitedevitesse, nombredeportes, nombredeplaces, anneedesortie, prix_vente )
+			VALUES
+				(DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+		");
+		
+		$oQInsert->execute([ 
+			$_POST['marque'], 
+			$_POST['modele'],
+			$_POST['type'],
+			$_POST['moteur'],
+			$_POST['boitedevitesse'],
+			$_POST['nombredeportes'],
+			$_POST['nombredeplaces'],
+			$_POST['anneedesortie'],
+			$_POST['prix_vente'],
+		]);
+
+		
+	}
 ?>
 
 <body>
@@ -31,7 +55,7 @@
 			<p class="desc section-desc">/ Commencez par remplir notre formulaire</p>
 			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
 		</div>
-		<form action="vente-form.php" method="post" autocomplete="off">
+		<form action="vente.php" method="post" autocomplete="off">
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-tags"></i>Marque</legend>
@@ -48,7 +72,7 @@
 				<fieldset class="category">
 					<legend><i class="cp cp-calendar"></i>Année</legend>
 					<label for="year">Année</label>
-					<input type="number" id="year" min="1900" max="2023" step="1" value="2016" required>
+					<input type="number" name="anneedesortie" id="year" min="1900" max="2023" step="1" value="2016" required>
 				</fieldset>
 				<fieldset class="category">
 					<legend><i class="cp cp-info-alt"></i>Type</legend>

@@ -2,9 +2,9 @@
 	// Paramètres de connexion
 	$_db = array(
 		'host'		=>	'localhost',
-		'dbname'	=>	'database',
-		'user'		=>	'user',
-		'passwd'	=>	'motdepasse'
+		'dbname'	=>	'beeyoundauto',
+		'user'		=>	'root',
+		'passwd'	=>	''
 	);
 
 	// Connexion à la base de données
