@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 24 fév. 2023 à 22:38
+-- Généré le : dim. 26 fév. 2023 à 14:20
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.12
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
   `image_occasion` blob NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vehicules`
@@ -144,9 +144,6 @@ INSERT INTO `vehicules` (`id`, `username`, `marque`, `modelFamily`, `modelRange`
 (28, '', 'CITROEN', 'BERLINGO', 'BERLINGO', 'CV', 'UTILITAIRE', 'ELECTRIQUE', 135, 'AUTOMATIQUE', 5, 3, 2019, 5, 39240, 'NEUF', ''),
 (29, '', 'CITROEN ', 'JUMPY', 'JUMPY', 'BU', 'MONOSPACE', 'ELECTRIQUE', 200, 'AUTOMATIQUE', 5, 7, 2020, 2, 51400, 'NEUF', ''),
 (30, '', 'CUPRA', 'ATECA', 'ATECA', 'OD', 'SUV', 'ESSENCE', 300, 'AUTOMATIQUE', 5, 5, 2019, 2, 42500, 'NEUF', ''),
-(31, '', 'CITROEN', 'BERLINGO', 'BERLINGO', 'CV', 'UTILITAIRE', 'ELECTRIQUE', 135, 'AUTOMATIQUE', 5, 3, 2019, 5, 39240, 'NEUF', ''),
-(32, '', 'CITROEN ', 'JUMPY', 'JUMPY', 'BU', 'MONOSPACE', 'ELECTRIQUE', 200, 'AUTOMATIQUE', 5, 7, 2020, 2, 51400, 'NEUF', ''),
-(33, '', 'CUPRA', 'ATECA', 'ATECA', 'OD', 'SUV', 'ESSENCE', 300, 'AUTOMATIQUE', 5, 5, 2019, 2, 42500, 'NEUF', ''),
 (34, '', 'CUPRA ', 'FORMENTOR', 'FORMENTOR', 'OD', 'SUV', 'ESSENCE ', 500, 'AUTOMATIQUE', 5, 5, 2021, 2, 63755, 'NEUF', ''),
 (35, '', 'CUPRA', 'LEON', 'LEON', 'ES', 'SUV', 'ESSENCE', 200, 'AUTOMATIQUE', 5, 5, 2021, 3, 39480, 'NEUF', ''),
 (36, '', 'HONDA', 'CIVIC', 'CIVIC', 'CO', 'BERLINE', 'ESSENCE', 230, 'AUTOMATIQUE', 3, 5, 2020, 3, 32400, 'NEUF', ''),
@@ -156,17 +153,7 @@ INSERT INTO `vehicules` (`id`, `username`, `marque`, `modelFamily`, `modelRange`
 (40, '', 'VOLKSWAGEN ', 'ARTEON', 'ARTEON', 'ES', 'BREAK', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2021, 2, 55200, 'NEUF', ''),
 (41, '', 'JEEP', 'AVENGER', 'AVENGER', 'OD', 'SUV', 'ELECTRIQUE', 420, 'AUTOMATIQUE', 5, 5, 2023, 0, 65320, 'NEUF', ''),
 (42, '', 'HYUNDAI', 'VELOSTER', 'VELOSTER', 'CO', 'COUP', 'ESSENCE', 190, 'AUTOMATIQUE', 3, 5, 2019, 2, 23320, 'NEUF', ''),
-(43, '', 'KIA ', 'SPORTAGE', 'SPORTAGE', 'OD', 'SUV', 'DIESEL', 250, 'AUTOMATIQUE', 5, 5, 2022, 1, 41500, 'NEUF', ''),
-(44, '', 'CUPRA ', 'FORMENTOR', 'FORMENTOR', 'OD', 'SUV', 'ESSENCE ', 500, 'AUTOMATIQUE', 5, 5, 2021, 2, 63755, 'NEUF', ''),
-(45, '', 'CUPRA', 'LEON', 'LEON', 'ES', 'SUV', 'ESSENCE', 200, 'AUTOMATIQUE', 5, 5, 2021, 3, 39480, 'NEUF', ''),
-(46, '', 'HONDA', 'CIVIC', 'CIVIC', 'CO', 'BERLINE', 'ESSENCE', 230, 'AUTOMATIQUE', 3, 5, 2020, 3, 32400, 'NEUF', ''),
-(47, '', 'VOLVO', 'V60', 'V60', 'CE', 'SUV', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2020, 1, 70500, 'NEUF', ''),
-(48, '', 'VOLVO', 'XC90', 'XC90', 'OD', 'SUV', 'DIESEL', 420, 'AUTOMATIQUE', 5, 5, 2020, 1, 90532, 'NEUF', ''),
-(49, '', 'VOLKSWAGEN', 'POLO', 'POLO', 'CH', 'COMPACTE', 'ESSENCE', 220, 'AUTOMATIQUE', 5, 5, 2020, 6, 35000, 'NEUF', ''),
-(50, '', 'VOLKSWAGEN ', 'ARTEON', 'ARTEON', 'ES', 'BREAK', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2021, 2, 55200, 'NEUF', ''),
-(51, '', 'JEEP', 'AVENGER', 'AVENGER', 'OD', 'SUV', 'ELECTRIQUE', 420, 'AUTOMATIQUE', 5, 5, 2023, 0, 65320, 'NEUF', ''),
-(52, '', 'HYUNDAI', 'VELOSTER', 'VELOSTER', 'CO', 'COUP', 'ESSENCE', 190, 'AUTOMATIQUE', 3, 5, 2019, 2, 23320, 'NEUF', ''),
-(53, '', 'KIA ', 'SPORTAGE', 'SPORTAGE', 'OD', 'SUV', 'DIESEL', 250, 'AUTOMATIQUE', 5, 5, 2022, 1, 41500, 'NEUF', '');
+(43, '', 'KIA ', 'SPORTAGE', 'SPORTAGE', 'OD', 'SUV', 'DIESEL', 250, 'AUTOMATIQUE', 5, 5, 2022, 1, 41500, 'NEUF', '');
 
 -- --------------------------------------------------------
 
