@@ -75,7 +75,7 @@
 		<div class="main">
 			33 résultat(s)
 			<div class="results">
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -96,7 +96,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -117,7 +117,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -138,7 +138,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -159,7 +159,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -180,7 +180,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -201,7 +201,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>
@@ -222,7 +222,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
 						<p>Marque Modèle Année<p>
 						<p>Prix €</p>

@@ -939,7 +939,7 @@ footer a:hover {
 }
 
 /* ----------------------------------------
-   achat.php
+   achat.php, location.php
    ---------------------------------------- */
 
 .content {
@@ -1188,4 +1188,162 @@ form .btn-outline:before {
 	display: flex;
 	gap: 20px;
 	margin-top: 40px;
+}
+
+/* ----------------------------------------
+   car-page.php
+   ---------------------------------------- */
+
+.car-content {
+	flex-direction: column;
+	gap: 40px;
+}
+
+.car {
+	display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+	gap: 80px;
+}
+
+/* Left 
+   ---------------------------------------- */
+
+.car-left {
+	position: relative;
+	display: flex;
+}
+
+.car-left h2 {
+	position: absolute;
+	top: -2%;
+	right: 0;
+	margin: 0;
+	color: #e8e9ed;
+}
+
+.car-left span {
+	font-size: 1.1rem;
+	font-weight: 400;
+	color: rgba(232, 233, 237, 0.7);
+}
+
+.car-left div {
+	position: absolute;
+	bottom: -2%;
+}
+
+.car-left h1 {
+	font-size: 1.5rem;
+	line-height: normal;
+	margin-bottom: 0;
+}
+
+.car-left p {
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.car-left .car-img {
+	width: 100%;
+	align-self: center;
+}
+
+.car-left .blurry-circle {
+	top: 220px;
+	left: 30%;
+}
+
+.car-left .line {
+	top: 50px;
+	left: 10%;
+}
+
+/* Right
+   ---------------------------------------- */
+
+.car-right {
+	flex: 0 0 540px;
+	max-width: 540px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.car-infos {
+	display: flex;
+	justify-content: space-between;
+}
+
+.car-column {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.car-info {
+	padding: 25px;
+	border-radius: 20px;
+	background: #2a2e34;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-weight: 400;
+}
+
+.ci-bg {
+	width: 160px;
+	height: 160px;
+}
+
+.ci-sm {
+	width: 160px;
+	height: 120px;
+}
+
+.ci-accent {
+	background: linear-gradient(230deg, #fcea72, #ffcc66);
+	color: #2a2e34;
+}
+
+.ci-accent img {
+	filter:saturate(100%) brightness(0);
+}
+
+.ci-yellow {
+	border: 1px solid rgb(255, 193, 69, 0.125);
+    background-color: rgb(255, 193, 69, 0.1);
+}
+
+.ci-white {
+	border: 1px solid rgb(186, 191, 209, 0.125);
+    background-color: rgba(186, 191, 209, 0.1);
+}
+
+.ci-black {
+	border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.car-info img {
+	display: block;
+	width: 45px;
+	margin-bottom: 10px;
+	padding: 11px;
+	background-color: rgba(0, 0, 0, 0.13);
+	border-radius: 30%;
+	opacity: 0.8;
+}
+
+.car-btns {
+	display: flex;
+	justify-content: space-between;
+}
+
+.car-btns a {
+	width: 48%;
+	justify-content: center;
 }
