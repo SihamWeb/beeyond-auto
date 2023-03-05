@@ -15,7 +15,10 @@
 					<li><a href="location.php" class="active">Louer</a></li>
 				</ul>
 			</nav>
-			<a href="#" title="Nous contacter" class="btn">Contactez-nous</a>
+			<div id="header-top-right">
+				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+				<a href="" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+			</div>
 		</div>
 		<div id="header-img-container">
 			<img class="header-img-sm" src="/groupe2/vue/assets/images/header-img3.jpg" alt="Intérieur de voiture">

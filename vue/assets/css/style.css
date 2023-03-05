@@ -186,6 +186,21 @@ header {
 	align-items: center;
 }
 
+#header-top-right {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+#header-top-right .btn:first-child {
+	width: 37px;
+	justify-content: center;
+}
+
+#header-top-right .btn:last-child {
+	padding: 0 20px;
+}
+
 .blurry-circle {
 	position: absolute;
     max-width: 100%;
@@ -509,6 +524,14 @@ h1 {
 #presentation-right {
 	flex: 0 0 40%;
 	max-width: 40%;
+}
+
+#presentation h2 {
+	margin-top: 0;
+}
+
+#presentation .desc {
+	margin-bottom: 33px;
 }
 
 .blurry-circle-2 {
@@ -978,7 +1001,7 @@ footer a:hover {
 	padding: 0 5px;
 }
 
-.category .cp {
+.category i {
 	margin-right: 7px;
 }
 
@@ -1099,7 +1122,7 @@ footer a:hover {
 	margin-top: 20px;
 }
 
-form {
+.form-vente {
 	min-width: 670px;
 	padding: 40px;
 	border-radius: 10px;
@@ -1110,7 +1133,8 @@ form label {
 	display: none;
 }
 
-form input, form select {
+form input,
+form select {
 	width: 100%;
 	margin-top: 10px;
 	background: transparent;
@@ -1121,7 +1145,9 @@ form input, form select {
     color: rgba(232, 233, 237, 0.7);
 }
 
-textarea:focus, form input:focus, form select:focus {
+textarea:focus,
+form input:focus,
+form select:focus {
     outline: none;
 }
 
@@ -1346,4 +1372,60 @@ form .btn-outline:before {
 .car-btns a {
 	width: 48%;
 	justify-content: center;
+}
+
+/* ----------------------------------------
+   mon-compte.php
+   ---------------------------------------- */
+
+.account-sidebar {
+	min-height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.sidebar-top div {
+	display: flex;
+	gap: 17px;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.account-sidebar img {
+	width: 30%;
+	border-radius: 50%;
+}
+
+.account-sidebar span {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	font-size: 0.9rem;
+}
+
+.account-sidebar ul li {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	padding: 9px 12px;
+	margin-bottom: 7px;
+	border-radius: 5px;
+	transition: 0.3s ease-in-out;
+}
+
+.account-sidebar ul li i {
+	font-size: 15px;
+}
+
+.acc-active, .account-sidebar ul li:hover {
+	background: rgba(232, 233, 237, 0.2);
+}
+
+.sidebar-bottom i {
+	margin-right: 15px;
+	margin-left: 12px;
+}
+
+.settings-content {
+	display: none;
 }

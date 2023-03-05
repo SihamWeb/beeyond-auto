@@ -34,7 +34,6 @@ $(document).ready(function(){
         $('#logo-map').css({top: "38%", left: "31%"});
     });
 
-
     //Tippy tooltips
     tippy('[data-tippy-content]', {
         placement: 'right-start',
@@ -43,5 +42,20 @@ $(document).ready(function(){
         followCursor: true,
         arrow: false,
         theme: 'socials-tippy',
+    });
+
+    //Account sidebar toggle
+    $('#favs').click(function() {
+        $('.favs-content').css("display", "unset");
+        $('.settings-content').css("display", "none");
+        $('#favs').addClass('acc-active');
+        $('#settings').removeClass('acc-active');
+    });
+
+    $('#settings').click(function() {
+        $('.settings-content').css("display", "unset");
+        $('.favs-content').css("display", "none");
+        $('#settings').addClass('acc-active');
+        $('#favs').removeClass('acc-active');
     });
 })

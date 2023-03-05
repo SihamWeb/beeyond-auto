@@ -15,7 +15,10 @@
 					<li><a href="location.php">Louer</a></li>
 				</ul>
 			</nav>
-			<a href="#" title="Nous contacter" class="btn">Contactez-nous</a>
+			<div id="header-top-right">
+				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+				<a href="" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+			</div>
 		</div>
 		<div id="header-img-container">
 			<img class="header-img-sm" src="/groupe2/vue/assets/images/header-img3.jpg" alt="Intérieur de voiture">
@@ -31,7 +34,7 @@
 			<p class="desc section-desc">/ Commencez par remplir notre formulaire</p>
 			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
 		</div>
-		<form action="vente-form.php" method="post" autocomplete="off">
+		<form action="vente-form.php" method="post" autocomplete="off" class="form-vente">
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-tags"></i>Marque</legend>
