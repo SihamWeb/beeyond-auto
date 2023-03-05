@@ -47,6 +47,7 @@
         </div>
     </div>
 </footer>
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/groupe2/controleur/script.js"></script>
 </body>
 </html>

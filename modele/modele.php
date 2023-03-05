@@ -1,6 +1,37 @@
 <?php
-	require_once 'inc.connexion.php';
+require_once 'inc.connexion.php';
 
+// PAGE ACHAT
 	
+	// SIDEBAR CHOIX DE NAVIGATION
+		
+		require_once 'choix_navigation/choix_navigation_achat.php';
+	
+	// NAVIGATION A FACETTES
 
+		require_once 'navigation_facettes/facettes_achat.php';
+
+	// RESULTATS
+
+		require_once 'pagination/pagination_achat.php';
+
+		require_once 'tri/tri_achatModele.php';
+		
+
+
+// PAGE LOCATION
+	
+	// SIDEBAR CHOIX DE NAVIGATION
+		
+		require_once 'choix_navigation/choix_navigation_location.php';
+	
+	// NAVIGATION A FACETTES
+
+		require_once 'navigation_facettes/facettes_location.php';
+
+	// RESULTATS
+
+		require_once 'pagination/pagination_location.php';
+
+		require_once 'tri/tri_locationModele.php';
 ?>

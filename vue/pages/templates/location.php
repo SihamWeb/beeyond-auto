@@ -1,5 +1,6 @@
 <?php
 	include '../structure/inc.header.php';
+	include '../../../modele/modele.php';
 ?>
 
 <body>
@@ -32,227 +33,88 @@
 		<!--Sidebar-->
 		<div class="sidebar">
 			<fieldset class="category">
-				<legend><i class="cp cp-new"></i>État</legend>
-				<ul>
-					<li>Neuf</li>
-					<li>Occasion</li>
-				</ul>
-			</fieldset>
-			<fieldset class="category">
 				<legend><i class="cp cp-tags"></i>Marque</legend>
+				<?php foreach($_SESSION['louer_marque'] as $requete){ ?>
 				<ul>
-					<li>Audi</li>
-					<li>Abarth</li>
-					<li>BMW</li>
-					<li>Ford</li>
+					<li><?php echo $requete; ?></li>
 				</ul>
+				<?php } ?>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-car"></i>Type</legend>
+				<?php foreach($_SESSION['louer_type'] as $requete){ ?>
 				<ul>
-					<li>SUV</li>
-					<li>Berline</li>
-					<li>Électrique</li>
-					<li>Cabriolet</li>
+					<li><?php echo $requete; ?></li>
 				</ul>
+				<?php } ?>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-user"></i>Capacité</legend>
+				<?php foreach($_SESSION['louer_place'] as $requete){ ?>
 				<ul>
-					<li>2 places</li>
-					<li>4 places</li>
-					<li>5 places</li>
-					<li>6 places</li>
+					<li><?php echo $requete; ?></li>
 				</ul>
+				<?php } ?>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-enter"></i>Portes</legend>
+				<?php foreach($_SESSION['louer_porte'] as $requete){ ?>
 				<ul>
-					<li>2</li>
-					<li>4</li>
-					<li>5</li>
+					<li><?php echo $requete; ?></li>
 				</ul>
+				<?php } ?>
 			</fieldset>
 		</div>
 		<!--Results-->
 		<div class="main">
-			33 résultat(s)
+		<?php echo $nb_vehicules_louer; ?> résultat(s)
+			<form method="GET" action="#">
+				<fieldset class="category">
+					<label for="tri_location">Tri</label>
+					<select name="tri_location" id="tri_location">
+						<option value="trier par" >-- Trier par --</option>
+						<option value="location_annee_croissant" >Années croissantes</option>
+						<option value="location_annee_decroissant">Années décroissantes</option>
+						<option value="location_prix_croissant">Prix croissants</option>
+						<option value="location_prix_decroissant">Prix décroissants</option>
+					</select>
+				</fieldset>
+				<input id="btn_tri_location" name="submit_tri_achat" type="submit" value="Trier maintenant"/>
+			</form>
 			<div class="results">
-				<a href="" title="" class="result">
+			<?php foreach($_SESSION['louer'] as $requete){ ?>	
+				<a href="car-page.php" title="" class="result">
 					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
+						<p><?php echo $requete['marque']. '  '; ?><?php echo $requete['modelFamily']. '  '; ?><?php echo $requete['anneedesortie']; ?><p>
+						<p><?php echo $requete['prix_journalier']; ?> €</p>
 					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
+					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&angle=23" title="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?> alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
 					<div class="result-bottom">
 						<div>
 							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-							Essence
+							<?php echo $requete['moteur']; ?>
 						</div>
 						<div>
 							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							560 ch
+							<?php echo $requete['puissance_ch']. ' ch'; ?>
 						</div>
 						<div>
 							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
+							<?php echo $requete['type']; ?>
 						</div>
 					</div>
 				</a>
-				<a href="" title="" class="result">
-					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
-					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
-					<div class="result-bottom">
-						<div>
-							<img src="/groupe2/vue/assets/images/car/electric.png" alt="">
-							Électrique
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							325 ch
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
-						</div>
-					</div>
-				</a>
-				<a href="" title="" class="result">
-					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
-					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
-					<div class="result-bottom">
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-							Essence
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							560 ch
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
-						</div>
-					</div>
-				</a>
-				<a href="" title="" class="result">
-					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
-					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
-					<div class="result-bottom">
-						<div>
-							<img src="/groupe2/vue/assets/images/car/electric.png" alt="">
-							Électrique
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							325 ch
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
-						</div>
-					</div>
-				</a>
-				<a href="" title="" class="result">
-					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
-					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
-					<div class="result-bottom">
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-							Essence
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							560 ch
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
-						</div>
-					</div>
-				</a>
-				<a href="" title="" class="result">
-					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
-					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
-					<div class="result-bottom">
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-							Essence
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							560 ch
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
-						</div>
-					</div>
-				</a>
-				<a href="" title="" class="result">
-					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
-					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
-					<div class="result-bottom">
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-							Essence
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							560 ch
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
-						</div>
-					</div>
-				</a>
-				<a href="" title="" class="result">
-					<div class="result-top">
-						<p>Marque Modèle Année<p>
-						<p>Prix €</p>
-					</div>
-					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
-					<div class="result-bottom">
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-							Essence
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-							560 ch
-						</div>
-						<div>
-							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
-							6 vitesses
-						</div>
-					</div>
-				</a>
+				<?php } ?>
 			</div>
 			<div class="page-nav">
-				<a href=""><i class="fa-solid fa-arrow-left-long"></i></a>
-				<a href=""><i class="fa-solid fa-arrow-right-long"></i></a>
-				
+			<?php if ($activ_page_louer != 1) : ?>
+				<a href="location.php?page=<?php echo ($activ_page_louer - 1);?>&tri_location=<?php if (isset($tri_location)){echo $tri_location;}; ?>&submit_tri_location="><i class="fa-solid fa-arrow-left-long"></i></a>
+			<?php endif; ?>
+			<?php if ($activ_page_louer < $nb_pages_total_louer) : ?>
+				<a href="location.php?page=<?php echo ($activ_page_louer + 1);?>&tri_location=<?php if (isset($tri_location)){echo $tri_location;}; ?>&submit_tri_location="><i class="fa-solid fa-arrow-right-long"></i></a>
+			<?php endif; ?>
 			</div>
-			<div class="page-nbr">Page 1 sur 1</div>
+			<div class="page-nbr">Page <?php echo $activ_page_louer ?> sur <?php echo $nb_pages_total_louer ?></div>
 		</div>
 	</div>
 	
