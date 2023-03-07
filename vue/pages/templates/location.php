@@ -70,16 +70,16 @@
 		</div>
 		<!--Results-->
 		<div class="main">
-		<?php echo $nb_vehicules_louer; ?> résultat(s)
+			<?php echo $nb_vehicules_louer; ?> résultat(s)
 			<form method="GET" action="#">
 				<fieldset class="category">
 					<label for="tri_location">Tri</label>
 					<select name="tri_location" id="tri_location">
 						<option value="trier par" >-- Trier par --</option>
-						<option value="location_annee_croissant" >Années croissantes</option>
-						<option value="location_annee_decroissant">Années décroissantes</option>
-						<option value="location_prix_croissant">Prix croissants</option>
-						<option value="location_prix_decroissant">Prix décroissants</option>
+						<option value="location_annee_croissant" >Année croissante</option>
+						<option value="location_annee_decroissant">Année décroissante</option>
+						<option value="location_prix_croissant">Prix croissant</option>
+						<option value="location_prix_decroissant">Prix décroissant</option>
 					</select>
 				</fieldset>
 				<input id="btn_tri_location" name="submit_tri_achat" type="submit" value="Trier maintenant"/>

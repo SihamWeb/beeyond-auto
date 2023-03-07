@@ -93,10 +93,10 @@
 					<label for="tri_achat">Tri</label>
 					<select name="tri_achat" id="tri_achat">
 						<option value="trier par" >-- Trier par --</option>
-						<option value="achat_annee_croissant" >Années croissantes</option>
-						<option value="achat_annee_decroissant">Années décroissantes</option>
-						<option value="achat_prix_croissant">Prix croissants</option>
-						<option value="achat_prix_decroissant">Prix décroissants</option>
+						<option value="achat_annee_croissant" >Année croissante</option>
+						<option value="achat_annee_decroissant">Année décroissante</option>
+						<option value="achat_prix_croissant">Prix croissant</option>
+						<option value="achat_prix_decroissant">Prix décroissant</option>
 					</select>
 				</fieldset>
 				<input id="btn_tri_achat" name="submit_tri_achat" type="submit" value="Trier maintenant"/>
