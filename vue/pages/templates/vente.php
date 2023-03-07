@@ -17,7 +17,10 @@
 			</nav>
 			<div id="header-top-right">
 				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-				<a href="" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+				<!-- Si l'utilisateur n'est pas connecté -->
+				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+				<!-- Si l'utilisateur est connecté 
+				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
 			</div>
 		</div>
 		<div id="header-img-container">
@@ -104,7 +107,7 @@
 					<input type="number" id="price" name="prix_vente" min="1" max="10000000" placeholder="€" required>
 				</fieldset>
 			</div>
-			<div class="btn btn-outline" data="Envoyer ma demande">
+			<div class="btn btn-outline btn-dark" data="Envoyer ma demande">
 				<input type="submit" value="">
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>

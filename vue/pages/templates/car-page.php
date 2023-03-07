@@ -17,8 +17,11 @@
 			</nav>
 			<div id="header-top-right">
 				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-				<a href="" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-			</div>
+                <!-- Si l'utilisateur n'est pas connecté -->
+				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+				<!-- Si l'utilisateur est connecté 
+				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+            </div>
 		</div>
 	</header>
 	<div class="content car-content">
