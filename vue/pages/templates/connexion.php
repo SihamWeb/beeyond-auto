@@ -42,7 +42,7 @@
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>
 		</form>
-		<p>Vous n'êtes pas inscrit ? <a href="inscription.php">Créez votre compte !</a></p>
+		<p>Vous n'êtes pas inscrit ? <a href="inscription.php">Créez votre compte !</a></p>
 	</div>
 
 <?php

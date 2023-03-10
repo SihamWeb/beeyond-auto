@@ -4,7 +4,7 @@
 		'host'		=>	'localhost:3306',
 		'dbname'	=>	'beeyondauto',
 		'user'		=>	'beeyondauto',
-		'passwd'	=>	'motdepasse'
+		'passwd'	=>	'[Ty0Jab57rmpYbK8'
 	);
 
 	// Connexion à la base de données

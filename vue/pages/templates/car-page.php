@@ -1,5 +1,8 @@
 <?php
-	include '../structure/inc.header.php';
+    session_start();
+	require_once '../structure/inc.header.php';
+	require_once '../../../modele/modele.php';
+	require_once '../../../controleur/controleur.php';
 ?>
 
 <body>
@@ -16,68 +19,174 @@
 				</ul>
 			</nav>
 			<div id="header-top-right">
-				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+                <a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
                 <!-- Si l'utilisateur n'est pas connecté -->
 				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
 				<!-- Si l'utilisateur est connecté 
 				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
-            </div>
+			</div>
 		</div>
 	</header>
 	<div class="content car-content">
-        <p class="fil-dariane"><a href="achat.php" title="">/ Acheter</a> / <a href="" title="">Nom de la voiture</a></p>
-        <div class="car">
-            <div class="car-left">
-                <h2>125000 <span>€</span></h2>
-                <img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=01&zoomType=fullscreen" class="car-img" alt="">
-                <div>
-                    <h1 class="to-left">Marque modèle</h1>
-                    <p>2018</p>
+    <?php if (isset($_GET['idCarAchat'])) : ?>
+        <?php foreach($_SESSION['car_page_achat'] as $requete){ ?>
+            <p class="fil-dariane"><a href="achat.php" title="Tous les véhicules à vendre">/ Acheter</a> / <a href="car-page.php?idCarAchat=<?php echo $requete['id']; ?>" title="<?php echo $requete['marque']. " " .$requete['modelFamily']; ?>"><?php echo $requete['marque']. " " .$requete['modelFamily']; ?></a></p>
+            <div class="car">
+                <div class="car-left">
+                    <h2><?php echo $requete['prix_vente'] ?> <span>€</span></h2>
+                    <img class="car-img" src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&paintId=pspc0041&angle=01&zoomType=fullscreen" title="Photo d'une <?php echo $requete['marque']." ".$requete['modelFamily'];?>" alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
+                    <div>
+                        <h1 class="to-left"><?php echo $requete['marque'] ?> <?php echo $requete['modelFamily'] ?></h1>
+                        <p><?php echo $requete['anneedesortie'] ?></p>
+                    </div>
+                    <img src="/groupe2/vue/assets/images/background/blurry-circle2.png" alt="" class="blurry-circle blurry-circle-2">
+                    <img src="/groupe2/vue/assets/images/background/lines3.png" alt="" class="line">
                 </div>
-                <img src="/groupe2/vue/assets/images/background/blurry-circle2.png" alt="" class="blurry-circle blurry-circle-2">
-                <img src="/groupe2/vue/assets/images/background/lines3.png" alt="" class="line">
-            </div>
-            <div class="car-right">
-                <div class="car-infos">
-                    <div class="car-column">
-                        <div class="car-info ci-bg ci-accent">
-                            <img src="/groupe2/vue/assets/images/car/car.png" alt="">
-                            Berline
+                <div class="car-right">
+                    <div class="car-infos">
+                        <div class="car-column">
+                            <div class="car-info ci-bg ci-accent">
+                                <img src="/groupe2/vue/assets/images/car/car.png" alt="">
+                                <?php echo $requete['type'] ?>
+                            </div>
+                            <div class="car-info ci-sm ci-white">
+                                <img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
+                                <?php echo $requete['boitedevitesse'] ?>
+                            </div>
                         </div>
-                        <div class="car-info ci-sm ci-white">
-                            <img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-                            Automatique
+                        <div class="car-column">
+                            <div class="car-info ci-sm ci-black">
+                                <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
+                                <?php echo $requete['moteur'] ?>
+                            </div>
+                            <div class="car-info ci-bg ci-yellow">
+                                <img src="/groupe2/vue/assets/images/car/engine.png" alt="">
+                                <?php echo $requete['puissance_ch'] ?> ch
+                            </div>
                         </div>
-                    </div>
-                    <div class="car-column">
-                        <div class="car-info ci-sm ci-black">
-                            <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
-                            Électrique
-                        </div>
-                        <div class="car-info ci-bg ci-yellow">
-                            <img src="/groupe2/vue/assets/images/car/engine.png" alt="">
-                            560 ch
-                        </div>
-                    </div>
-                    <div class="car-column">
-                        <div class="car-info ci-bg ci-white">
-                            <img src="/groupe2/vue/assets/images/car/door.png" alt="">
-                            5 portes
-                        </div>
-                        <div class="car-info ci-sm ci-black">
-                            <img src="/groupe2/vue/assets/images/car/seat.png" alt="">
-                            5 places
+                        <div class="car-column">
+                            <div class="car-info ci-bg ci-white">
+                                <img src="/groupe2/vue/assets/images/car/door.png" alt="">
+                                <?php echo $requete['nombredeportes'] ?> portes
+                            </div>
+                            <div class="car-info ci-sm ci-black">
+                                <img src="/groupe2/vue/assets/images/car/seat.png" alt="">
+                                <?php echo $requete['nombredeplaces'] ?> places
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="car-btns">
-                    <a href="" title="" class="btn btn-outline" data="Ajouter au panier"><i class="cp cp-shopping-cart"></i></a>
-                    <a href="" title="" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
+                    <div class="car-btns">
+                        <a href="" title="" class="btn btn-outline" data="Ajouter au panier"><i class="cp cp-shopping-cart"></i></a>
+                        <a href="" title="" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
+                    </div>
                 </div>
             </div>
         </div>
-	</div>
-	
+        <?php } ?>
+    <?php elseif (isset($_GET['idCarLocation'])) : ?>
+        <?php foreach($_SESSION['car_page_location'] as $requete){ ?>
+            <p class="fil-dariane"><a href="location.php" title="Tous les véhicules à louer">/ Louer</a> / <a href="car-page.php?idCarLocation=<?php echo $requete['id']; ?>" title="<?php echo $requete['marque']. " " .$requete['modelFamily']; ?>"><?php echo $requete['marque']. " " .$requete['modelFamily']; ?></a></p>
+            <div class="car">
+                <div class="car-left">
+                    <h2><?php echo $requete['prix_journalier'] ?> <span>€</span></h2>
+                    <img class="car-img" src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&paintId=pspc0041&angle=01&zoomType=fullscreen" title="Photo d'une <?php echo $requete['marque']." ".$requete['modelFamily'];?>" alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
+                    <div>
+                        <h1 class="to-left"><?php echo $requete['marque'] ?> <?php echo $requete['modelFamily'] ?></h1>
+                        <p><?php echo $requete['anneedesortie'] ?></p>
+                    </div>
+                    <img src="/groupe2/vue/assets/images/background/blurry-circle2.png" alt="" class="blurry-circle blurry-circle-2">
+                    <img src="/groupe2/vue/assets/images/background/lines3.png" alt="" class="line">
+                </div>
+                <div class="car-right">
+                    <div class="car-infos">
+                        <div class="car-column">
+                            <div class="car-info ci-bg ci-accent">
+                                <img src="/groupe2/vue/assets/images/car/car.png" alt="">
+                                <?php echo $requete['type'] ?>
+                            </div>
+                            <div class="car-info ci-sm ci-white">
+                                <img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
+                                <?php echo $requete['boitedevitesse'] ?>
+                            </div>
+                        </div>
+                        <div class="car-column">
+                            <div class="car-info ci-sm ci-black">
+                                <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
+                                <?php echo $requete['moteur'] ?>
+                            </div>
+                            <div class="car-info ci-bg ci-yellow">
+                                <img src="/groupe2/vue/assets/images/car/engine.png" alt="">
+                                <?php echo $requete['puissance_ch'] ?> ch
+                            </div>
+                        </div>
+                        <div class="car-column">
+                            <div class="car-info ci-bg ci-white">
+                                <img src="/groupe2/vue/assets/images/car/door.png" alt="">
+                                <?php echo $requete['nombredeportes'] ?> portes
+                            </div>
+                            <div class="car-info ci-sm ci-black">
+                                <img src="/groupe2/vue/assets/images/car/seat.png" alt="">
+                                <?php echo $requete['nombredeplaces'] ?> places
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Sélectionner le jour de départ : </p><input type="date" id="input-date-debut" car-id="<?php echo $_GET['idPageLocation']; ?>" name="datedebut" value=""  onchange="debutlocation(this.value)">
+                        <p>Sélectionner le jour de fin : </p><input type="date" name="datefin" value="" onchange="finlocation(this.value)">
+                        <p id="resultat_date_debut"></p>
+                        <p id="resultat_date_fin"></p>
+                    </div>
+                    <div class="car-btns">
+                        <a href="" title="" class="btn btn-outline" data="Ajouter au panier"><i class="cp cp-shopping-cart"></i></a>
+                        <a href="" title="" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
+    <?php endif; ?>
 <?php
 	include '../structure/inc.footer.php';
 ?>
+<script>
+
+var resultatDateDebut = document.getElementById("resultat_date_debut");
+var resultatDateFin = document.getElementById("resultat_date_fin");
+
+var inputDateDebut = document.getElementById("input-date-debut");
+var inputDateFin = document.getElementById("resultat_date_fin");
+
+var attributIdCarLocation = inputDateDebut.getAttribute('car-id');
+
+function debutlocation (date) {
+    if (date.length == 0) {
+        resultatDateDebut.innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                resultatDateDebut.innerHTML = 'Date de début souhaitée : ' + this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "../../../controleur/page_produit/page_produit_locationControleur.php?idPageLocation="+attributIdCarLocation+"&choixdatedebut="+date, true);
+        xmlhttp.send();
+    }
+}
+
+function finlocation (date) {
+    if (date.length == 0) {
+        resultatDateFin.innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                resultatDateFin.innerHTML = 'Date de fin souhaitée : ' + this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "../../../controleur/page_produit/page_produit_locationControleur.php?idPageLocation="+attributIdCarLocation+"&choixdatefin="+date, true);
+        xmlhttp.send();
+    }
+}
+</script>

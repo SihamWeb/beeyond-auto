@@ -1,4 +1,5 @@
 <?php
+
 // Inspiration d'un tuto réalisé par Grafikart
 
     // Détermination de la page active
