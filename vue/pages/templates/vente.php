@@ -113,11 +113,11 @@
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>
 			<!--Form feedback messages-->
-			<div class="feedback-msg validate">
+			<div class="feedback-msg validate" style="display: none;">
 				<i class="cp cp-check-mark"></i>
 				Votre demande sera traitée dans les plus brefs délais. Nous vous contacterons pour plus d'informations.
 			</div>
-			<div class="feedback-msg error">
+			<div class="feedback-msg error" style="display: none;">
 				<i class="cp cp-cross"></i>
 				Message d'erreur ici
 			</div>
