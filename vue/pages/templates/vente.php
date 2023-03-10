@@ -1,5 +1,6 @@
 <?php
 	include '../structure/inc.header.php';
+	
 ?>
 
 <body>
@@ -37,7 +38,7 @@
 			<p class="desc section-desc">/ Commencez par remplir notre formulaire</p>
 			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
 		</div>
-		<form action="vente-form.php" method="post" autocomplete="off" class="form-vente">
+		<form action="vente-form.php" method="POST" autocomplete="off" class="form-vente">
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-tags"></i>Marque</legend>
@@ -53,8 +54,8 @@
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-calendar"></i>Année</legend>
-					<label for="year">Année</label>
-					<input type="number" id="year" min="1900" max="2023" step="1" value="2016" required>
+					<label for="year" >Année</label>
+					<input type="number" id="year" name="anneedesortie" min="1900" max="2023" step="1" value="2016" required>
 				</fieldset>
 				<fieldset class="category">
 					<legend><i class="cp cp-info-alt"></i>Type</legend>
