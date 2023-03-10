@@ -69,7 +69,7 @@
 		<img src="/groupe2/vue/assets/images/background/blurry-circle2.png" alt="" class="blurry-circle blurry-circle-2">
 		<img src="/groupe2/vue/assets/images/presentation.png" alt="Concessionnaire BeeyondAuto" class="presentation-img">
 		<div id="presentation-right">
-			<h2 class="to-left">Qui sommes-nous ?</h2>
+			<h2 class="to-left">Qui sommes-nous ?</h2>
 			<p class="desc section-desc">Cela fait maintenant 10 ans que BeeyondAuto se spécialise dans le marché de l'automobile pour vous offrir les meilleurs services de vente et de location.</p>
 			<a href="#" title="Nous contacter" class="btn btn-outline" data="Contactez-nous"><i class="fa-regular fa-comment"></i></a>
 		</div>
@@ -145,7 +145,7 @@
 				<div id="paris" class="selected">Paris</div>
 				<div id="idf">Île-de-France</div>
 			</div>
-			<h2 class="to-right">Où nous trouver ?</h2>
+			<h2 class="to-right">Où nous trouver ?</h2>
 			<p class="desc section-desc">Notre agence principale se situe dans le septième arrondissement de Paris. Une seconde agence ouvrira très prochainement à Fontainebleau en Seine-et-Marne.</p>
 		</div>
 		<img src="/groupe2/vue/assets/images/background/blurry-circle.png" alt="" class="blurry-circle">

@@ -1,6 +1,5 @@
 <?php
 	include '../structure/inc.header.php';
-	
 ?>
 
 <body>
@@ -18,7 +17,7 @@
 			</nav>
 			<div id="header-top-right">
 				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-				<!-- Si l'utilisateur n'est pas connecté -->
+                <!-- Si l'utilisateur n'est pas connecté -->
 				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
 				<!-- Si l'utilisateur est connecté 
 				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
@@ -38,7 +37,7 @@
 			<p class="desc section-desc">/ Commencez par remplir notre formulaire</p>
 			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
 		</div>
-		<form action="vente-form.php" method="POST" autocomplete="off" class="form-vente">
+		<form action="vente-form.php" method="post" autocomplete="off" class="form-vente">
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-tags"></i>Marque</legend>
@@ -54,8 +53,8 @@
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-calendar"></i>Année</legend>
-					<label for="year" >Année</label>
-					<input type="number" id="year" name="anneedesortie" min="1900" max="2023" step="1" value="2016" required>
+					<label for="year">Année</label>
+					<input type="number" id="year" min="1900" max="2023" step="1" value="2016" required>
 				</fieldset>
 				<fieldset class="category">
 					<legend><i class="cp cp-info-alt"></i>Type</legend>
@@ -108,7 +107,7 @@
 					<input type="number" id="price" name="prix_vente" min="1" max="10000000" placeholder="€" required>
 				</fieldset>
 			</div>
-			<div class="btn btn-outline btn-dark" data="Envoyer ma demande">
+			<div class="btn btn-outline" data="Envoyer ma demande">
 				<input type="submit" value="">
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>

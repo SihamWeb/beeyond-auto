@@ -94,4 +94,130 @@
         $requete->closeCursor();
     }
     louer_navigation_a_facettes_portes();
+
+    /*----------------------------------------------------------------------
+    Afficher de manière distincte les moteurs présents dans la bdd
+    ----------------------------------------------------------------------*/
+    function louer_navigation_a_facettes_moteurs() {
+        $_SESSION['louer_moteur'] = array();
+        global $o_bdd;
+
+        $requete = $o_bdd->query('SELECT DISTINCT moteur FROM vehicules_location ORDER BY moteur ASC');
+        while ($data = $requete->fetch())
+        {
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                echo 'La BDD n\'existe pas ou est vide.';
+                break;
+            }
+            else
+            {
+                array_push($_SESSION['louer_moteur'], $data['moteur']);
+            }
+        }
+        $requete->closeCursor();
+    }
+    louer_navigation_a_facettes_moteurs();
+
+    /*----------------------------------------------------------------------
+    Afficher de manière distincte les boitedevitesse présents dans la bdd
+    ----------------------------------------------------------------------*/
+    function louer_navigation_a_facettes_boitedevitesse() {
+        $_SESSION['louer_boitedevitesse'] = array();
+        global $o_bdd;
+
+        $requete = $o_bdd->query('SELECT DISTINCT boitedevitesse FROM vehicules_location ORDER BY boitedevitesse ASC');
+        while ($data = $requete->fetch())
+        {
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                echo 'La BDD n\'existe pas ou est vide.';
+                break;
+            }
+            else
+            {
+                array_push($_SESSION['louer_boitedevitesse'], $data['boitedevitesse']);
+            }
+        }
+        $requete->closeCursor();
+    }
+    louer_navigation_a_facettes_boitedevitesse();
+
+    /*----------------------------------------------------------------------
+    Afficher de manière distincte les anneedesortie présents dans la bdd
+    ----------------------------------------------------------------------*/
+    function louer_navigation_a_facettes_anneedesortie() {
+        $_SESSION['louer_anneedesortie'] = array();
+        global $o_bdd;
+
+        $requete = $o_bdd->query('SELECT DISTINCT anneedesortie FROM vehicules_location ORDER BY anneedesortie ASC');
+        while ($data = $requete->fetch())
+        {
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                echo 'La BDD n\'existe pas ou est vide.';
+                break;
+            }
+            else
+            {
+                array_push($_SESSION['louer_anneedesortie'], $data['anneedesortie']);
+            }
+        }
+        $requete->closeCursor();
+    }
+    louer_navigation_a_facettes_anneedesortie();
+
+    /*----------------------------------------------------------------------
+    Afficher de manière distincte les prix_journalier présents dans la bdd
+    ----------------------------------------------------------------------*/
+    function louer_navigation_a_facettes_prix_journalier() {
+        $_SESSION['louer_prix_journalier'] = array();
+        global $o_bdd;
+
+        $requete = $o_bdd->query('SELECT DISTINCT prix_journalier FROM vehicules_location ORDER BY prix_journalier ASC');
+        while ($data = $requete->fetch())
+        {
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                echo 'La BDD n\'existe pas ou est vide.';
+                break;
+            }
+            else
+            {
+                array_push($_SESSION['louer_prix_journalier'], $data['prix_journalier']);
+            }
+        }
+        $requete->closeCursor();
+    }
+    louer_navigation_a_facettes_prix_journalier();
+
+    /*-----------------------------------------------------------
+    Afficher si le véhicule est disponible de suite à la location
+    -----------------------------------------------------------*/
+
+    $indisponible = 'Indisponible maintenant';
+    $disponible = 'Disponible maintenant';
+
+	// SELECT * FROM vehicules_location JOIN location ON vehicules_location.id = location.idvehicule WHERE "2023-03-08" BETWEEN location.debutlocation AND location.finlocation
+	
+	function IsVehiculesDisponibleLocation() {
+        $_SESSION['louer_vehicules_dispo'] = array();
+        global $o_bdd;
+
+        $requete = $o_bdd->query('SELECT idvehicule FROM location');
+        while ($data = $requete->fetch())
+        {
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                echo 'La BDD n\'existe pas ou est vide.';
+                break;
+            }
+            else
+            {
+                array_push($_SESSION['louer_vehicules_dispo'], $data['idvehicule']);
+            }
+        }
+        $requete->closeCursor();
+    }
+    IsVehiculesDisponibleLocation();
 ?>

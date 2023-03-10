@@ -1,5 +1,6 @@
 <?php
-// METTRE DANS CONTROLEUR UNE SEULE FONCTION POUR PAGINATION LOC ET PAGINATION ACHAT
+// Inspiration d'un tuto réalisé par Grafikart
+
     // Détermination de la page active
     if (isset($_GET['page'])
         && !empty($_GET['page'])){ // Vérification de la présence d'un paramètre GET avec 'page' + vérification s'il est vide ou non

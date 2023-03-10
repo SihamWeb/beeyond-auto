@@ -64,7 +64,7 @@
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>
 		</form>
-		<p>Vous êtes déjà inscrit ? <a href="connexion.php">Connectez-vous !</a></p>
+		<p>Vous êtes déjà inscrit ? <a href="connexion.php">Connectez-vous !</a></p>
 	</div>
 
 <?php
