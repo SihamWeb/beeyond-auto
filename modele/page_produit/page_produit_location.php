@@ -2,52 +2,49 @@
 
 // AFFICHER LA PAGE CAR-PAGE AVEC LES DONNEES DE LA VOITURE SELECTIONNEE
 
-function car_page_location() {
-    $_SESSION['car_page_location'] = array();
+    function car_page_location() {
+        $_SESSION['car_page_location'] = array();
+        
+        global $o_bdd;
     
-    global $o_bdd;
-
-    $requete = $o_bdd->prepare('SELECT * FROM vehicules_location WHERE id = :idcarlocation');
-    $requete -> bindValue(':idcarlocation', $_GET['idCarLocation'], PDO::PARAM_INT);
-    $requete -> execute();
-
-    while ($data = $requete->fetch())
-    {
-        if (!$data) // On teste si la réponse à la requête est vide.
+        $requete = $o_bdd->prepare('SELECT * FROM vehicules_location WHERE id = :idcarlocation');
+        $requete -> bindValue(':idcarlocation', $_GET['idCarLocation'], PDO::PARAM_INT);
+        $requete -> execute();
+    
+        while ($data = $requete->fetch())
         {
-            echo 'La BDD n\'existe pas ou est vide.';
-            break;
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                echo "Aucune voiture n'est à louer";
+                break;
+            }
+            else
+            {
+                array_push($_SESSION['car_page_location'], $data);
+            }
         }
-        else
-        {
-            array_push($_SESSION['car_page_location'], $data);
-        }
+        $requete->closeCursor();
     }
-    $requete->closeCursor();
-}
 
 // SYSTEME DE CHOIX DES DATES DE LOCATION
 
     // CHOIX DATE DE DEBUT DE LOCATION
+
     function choix_date_debut() {
+        global $o_bdd;
         $_SESSION['choixdatedebut'] = array();
         $choixdatedebut = $_GET['choixdatedebut'];
         $idpagelocation = $_GET['idPageLocation'];
-
-        global $o_bdd;
         
-        $requete = $o_bdd->prepare("SELECT * FROM `location` WHERE idvehicule = :idpagelocation AND 'debutlocation' <= ':choixdatedebut' >= 'finlocation'");
-        $requete -> bindValue(':choixdatedebut', $_GET['choixdatedebut'], PDO::PARAM_STR);
-        $requete -> bindValue(':idvehicule', $_GET['idPageLocation'], PDO::PARAM_INT);
-        echo $requete;
-        $requete -> execute();
-
+        $requete = $o_bdd->prepare("SELECT * FROM location WHERE idvehicule = :idpagelocation AND debutlocation <= :choixdatedebut >= finlocation");
+        $requete -> execute([':idpagelocation' => $choixdatedebut, ':choixdatedebut' => $_GET['choixdatedebut']]);
+        
         while ($data = $requete->fetch())
         {
             if (!$data) // On teste si la réponse à la requête est vide.
             {
                 $verification_dates++;
-                echo $_GET['choixdatedebut'];
+                echo $choixdatedebut;
                 break;
             }
             else
@@ -58,26 +55,28 @@ function car_page_location() {
         $requete->closeCursor();
     }
 
+
+
+
+
     // CHOIX DATE DE FIN DE LOCATION
 
     function choix_date_fin() {
         $_SESSION['choixdatefin'] = array();
-        $choixdatedebut = $_GET['choixdatefin'];
+        $choixdatefin = $_GET['choixdatefin'];
         $idpagelocation = $_GET['idPageLocation'];
 
         global $o_bdd;
         
         $requete = $o_bdd->prepare("SELECT * FROM `location` WHERE idvehicule = :idpagelocation AND 'debutlocation' <= ':choixdatefin' >= 'finlocation'");
-        $requete -> bindValue(':choixdatefin', $_GET['choixdatefin'], PDO::PARAM_STR);
-        $requete -> bindValue(':idvehicule', $_GET['idPageLocation'], PDO::PARAM_INT);
-        $requete -> execute();
+        $requete -> execute([':idpagelocation' => $choixdatefin, ':choixdatefin' => $_GET['choixdatefin']]);
 
         while ($data = $requete->fetch())
         {
             if (!$data) // On teste si la réponse à la requête est vide.
             {
                 $verification_dates++;
-                echo $_GET['choixdatefin'];
+                echo $choixdatefin;
                 break;
             }
             else

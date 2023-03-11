@@ -22,8 +22,8 @@ if(isset($_GET) && count($_GET)){
             if (in_array($tri_location, $_tri_location)
             && $tri_location === 'location_annee_croissant') {
             
-                
-                louer_resultat_tri_annee_croissant();	
+                louer_resultat_tri_annee_croissant();
+                	
             }
         }
     }
@@ -48,8 +48,8 @@ if(isset($_GET) && count($_GET)){
             if (in_array($tri_location, $_tri_location)
             && $tri_location === 'location_annee_decroissant') {
             
-                
                 louer_resultat_tri_annee_decroissant();		
+
             }
         }
     }
@@ -73,9 +73,9 @@ if(isset($_GET) && count($_GET)){
 
             if (in_array($tri_location, $_tri_location)
             && $tri_location === 'location_prix_croissant') {
-            
-                
+
                 louer_resultat_tri_prix_croissant();
+
             }
         }
     }
@@ -99,8 +99,6 @@ if(isset($_GET) && count($_GET)){
 
             if (in_array($tri_location, $_tri_location)
             && $tri_location === 'location_prix_decroissant') {
-
-                
 
                 louer_resultat_tri_prix_decroissant();	
 

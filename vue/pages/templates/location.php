@@ -38,8 +38,8 @@
 			<fieldset class="category">
 				<legend><i class="cp cp-tags"></i>Disponibilité</legend>
 				<ul>
-					<li><?php echo $disponible; ?></li>
-					<li><?php echo $indisponible; ?></li>
+					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-1" value="<?php echo $disponible; ?>"><label for="choice_marque-1"><?php echo $disponible. '<br />'; ?></label>
+					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-2" value="<?php echo $indisponible; ?>"><label for="choice_marque-2"><?php echo $indisponible. '<br />'; ?></label>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
@@ -171,23 +171,3 @@
 <?php
 	include '../structure/inc.footer.php';
 ?>
-<script>
-
-// AJAX TRI
-	/*var retourTriLocation = document.getElementsByClassName("results")[0];
-	function showCarslocation(str) {
-        if (str == "") {
-            retourTriLocation.innerHTML = "";
-            return;
-        } else {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status === 0)) {
-                retourTriLocation.innerHTML = xhr.responseText;
-            }
-            };
-            xhr.open("GET","contenu/contenu-location.php?tri_location="+str,true);
-            xhr.send();
-        }
-    }*/
-</script>

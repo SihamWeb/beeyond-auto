@@ -22,8 +22,8 @@
                 <a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
                 <!-- Si l'utilisateur n'est pas connecté -->
 				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-				<!-- Si l'utilisateur est connecté 
-				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				<!-- Si l'utilisateur est connecté -->
+				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>
 			</div>
 		</div>
 	</header>
@@ -131,7 +131,8 @@
                         </div>
                     </div>
                     <div>
-                        <p>Sélectionner le jour de départ : </p><input type="date" id="input-date-debut" car-id="<?php echo $_GET['idPageLocation']; ?>" name="datedebut" value=""  onchange="debutlocation(this.value)">
+                        <p>Sélectionner le jour de départ : </p><input type="date" id="input-date-debut" car-id="<?php echo $_GET['idPageLocation']; ?>" 
+                            name="datedebut" value=""  onchange="debutlocation(this.value)">
                         <p>Sélectionner le jour de fin : </p><input type="date" name="datefin" value="" onchange="finlocation(this.value)">
                         <p id="resultat_date_debut"></p>
                         <p id="resultat_date_fin"></p>
@@ -148,45 +149,3 @@
 <?php
 	include '../structure/inc.footer.php';
 ?>
-<script>
-
-var resultatDateDebut = document.getElementById("resultat_date_debut");
-var resultatDateFin = document.getElementById("resultat_date_fin");
-
-var inputDateDebut = document.getElementById("input-date-debut");
-var inputDateFin = document.getElementById("resultat_date_fin");
-
-var attributIdCarLocation = inputDateDebut.getAttribute('car-id');
-
-function debutlocation (date) {
-    if (date.length == 0) {
-        resultatDateDebut.innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                resultatDateDebut.innerHTML = 'Date de début souhaitée : ' + this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../../../controleur/page_produit/page_produit_locationControleur.php?idPageLocation="+attributIdCarLocation+"&choixdatedebut="+date, true);
-        xmlhttp.send();
-    }
-}
-
-function finlocation (date) {
-    if (date.length == 0) {
-        resultatDateFin.innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                resultatDateFin.innerHTML = 'Date de fin souhaitée : ' + this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../../../controleur/page_produit/page_produit_locationControleur.php?idPageLocation="+attributIdCarLocation+"&choixdatefin="+date, true);
-        xmlhttp.send();
-    }
-}
-</script>

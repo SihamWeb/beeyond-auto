@@ -23,6 +23,7 @@ $verification_dates = 0;
 
     // CHOIX DATE DE DEBUT DE LOCATION
     if(isset($_GET) && count($_GET)){
+        
         if (array_key_exists('choixdatedebut', $_GET) 
         && !empty($_GET['choixdatedebut'])
         && array_key_exists('idPageLocation', $_GET) 
@@ -36,6 +37,7 @@ $verification_dates = 0;
     }
 
     // CHOIX DATE DE FIN DE LOCATION
+    
     if(isset($_GET) && count($_GET)){
 
         if (array_key_exists('choixdatefin', $_GET) 
