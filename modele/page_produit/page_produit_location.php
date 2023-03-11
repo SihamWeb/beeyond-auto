@@ -69,7 +69,7 @@
         global $o_bdd;
         
         $requete = $o_bdd->prepare("SELECT * FROM `location` WHERE idvehicule = :idpagelocation AND 'debutlocation' <= ':choixdatefin' >= 'finlocation'");
-        $requete -> execute([':idpagelocation' => $choixdatefin, ':choixdatefin' => $_GET['choixdatefin']]);
+        $requete -> execute([':idpagelocation' => $idpagelocation, ':choixdatefin' => $choixdatefin]);
 
         while ($data = $requete->fetch())
         {
