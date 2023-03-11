@@ -195,10 +195,8 @@
     Afficher si le véhicule est disponible de suite à la location
     -----------------------------------------------------------*/
 
-    $indisponible = 'Indisponible maintenant';
-    $disponible = 'Disponible maintenant';
-
-	// SELECT * FROM vehicules_location JOIN location ON vehicules_location.id = location.idvehicule WHERE "2023-03-08" BETWEEN location.debutlocation AND location.finlocation
+    $indisponible = 'INDISPONIBLE MAINTENANT';
+    $disponible = 'DISPONIBLE MAINTENANT';
 	
 	function IsVehiculesDisponibleLocation() {
         $_SESSION['louer_vehicules_dispo'] = array();
