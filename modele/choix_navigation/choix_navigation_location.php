@@ -204,7 +204,7 @@
         $_SESSION['louer_vehicules_dispo'] = array();
         global $o_bdd;
 
-        $requete = $o_bdd->query('SELECT idvehicule FROM location');
+        $requete = $o_bdd->query('SELECT idvehicule FROM location WHERE DATE(NOW()) BETWEEN debutlocation AND finlocation');
         while ($data = $requete->fetch())
         {
             if (!$data) // On teste si la réponse à la requête est vide.
