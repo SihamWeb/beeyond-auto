@@ -1108,6 +1108,9 @@ footer a:hover {
 .result {
 	flex: 0 0 0 32%;
 	max-width: 32%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	padding: 25px;
 	background-color: rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
@@ -1452,6 +1455,18 @@ form .btn {
    mon-compte.php
    ---------------------------------------- */
 
+.title-connect {
+	width: 50%;
+	text-align: center;
+}
+
+.title-connect a {
+	background: linear-gradient(to right, #ffc145, #fcea72);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .account-sidebar {
 	min-height: 500px;
 	display: flex;
@@ -1500,8 +1515,8 @@ form .btn {
 	margin-left: 12px;
 }
 
-.settings-content,
-.reservations-content {
+.favs-content,
+.settings-content {
 	display: none;
 }
 
