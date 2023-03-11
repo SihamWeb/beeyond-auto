@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="car-btns">
-                        <a href="" title="" class="btn btn-outline" data="Ajouter au panier"><i class="cp cp-shopping-cart"></i></a>
+                        <a href="" title="" class="btn btn-outline" data="Réserver"><i class="cp cp-shopping-cart"></i></a>
                         <a href="" title="" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
                     </div>
                 </div>

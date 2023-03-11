@@ -1426,7 +1426,8 @@ form .btn {
 	margin-left: 12px;
 }
 
-.settings-content {
+.settings-content,
+.reservations-content {
 	display: none;
 }
 

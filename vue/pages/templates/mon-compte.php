@@ -35,6 +35,7 @@
 				</div>
 				<ul>
 					<li id="favs" class="acc-active"><i class="cp cp-heart-o"></i>Mes favoris</li>
+					<li id="reservations"><i class="cp cp-shopping-cart"></i>Mes réservations</li>
 					<li id="settings"><i class="cp cp-cog-o"></i>Paramètres</li>
 				</ul>
 			</div>
@@ -47,6 +48,56 @@
 			<!--Si favoris vide-->
 			Vous n'avez aucun véhicule dans vos favoris.
 			<!--Si favoris non vide-->
+			<div class="results">
+				<a href="car-page.php" title="" class="result">
+					<div class="result-top">
+						<p>Marque Modèle Année<p>
+						<p>Prix €</p>
+					</div>
+					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
+					<div class="result-bottom">
+						<div>
+							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+							Essence
+						</div>
+						<div>
+							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
+							560 ch
+						</div>
+						<div>
+							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
+							6 vitesses
+						</div>
+					</div>
+				</a>
+				<a href="car-page.php" title="" class="result">
+					<div class="result-top">
+						<p>Marque Modèle Année<p>
+						<p>Prix €</p>
+					</div>
+					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="">
+					<div class="result-bottom">
+						<div>
+							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+							Essence
+						</div>
+						<div>
+							<img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
+							560 ch
+						</div>
+						<div>
+							<img src="/groupe2/vue/assets/images/car/car.png" alt="">
+							6 vitesses
+						</div>
+					</div>
+				</a>
+            </div>
+		</div>
+		<!--Réservations-->
+		<div class="main reservations-content">
+			<!--Si réservations vide-->
+			Vous n'avez réservé aucun véhicule.
+			<!--Si réservations non vide-->
 			<div class="results">
 				<a href="car-page.php" title="" class="result">
 					<div class="result-top">

@@ -48,14 +48,27 @@ $(document).ready(function(){
     $('#favs').click(function() {
         $('.favs-content').css("display", "unset");
         $('.settings-content').css("display", "none");
+        $('.reservations-content').css("display", "none");
         $('#favs').addClass('acc-active');
         $('#settings').removeClass('acc-active');
+        $('#reservations').removeClass('acc-active');
     });
 
     $('#settings').click(function() {
         $('.settings-content').css("display", "unset");
         $('.favs-content').css("display", "none");
+        $('.reservations-content').css("display", "none");
         $('#settings').addClass('acc-active');
         $('#favs').removeClass('acc-active');
+        $('#reservations').removeClass('acc-active');
+    });
+    
+    $('#reservations').click(function() {
+        $('.reservations-content').css("display", "unset");
+        $('.favs-content').css("display", "none");
+        $('.settings-content').css("display", "none");
+        $('#reservations').addClass('acc-active');
+        $('#favs').removeClass('acc-active');
+        $('#settings').removeClass('acc-active');
     });
 })
