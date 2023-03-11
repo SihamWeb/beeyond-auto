@@ -16,7 +16,7 @@
 				</ul>
 			</nav>
 			<div id="header-top-right">
-				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+				<a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
                 <!-- Si l'utilisateur n'est pas connecté -->
 				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
 				<!-- Si l'utilisateur est connecté 
@@ -26,6 +26,8 @@
 	</header>
 	
 	<div class="content">
+		<!--Si l'utilisateur n'est pas connecté
+		<h2 class="to-left title-connect"><a href="connexion.php">Connectez-vous</a> pour accéder à votre compte</h2>-->
 		<!--Sidebar-->
 		<div class="sidebar account-sidebar">
 			<div class="sidebar-top">
@@ -34,8 +36,8 @@
 					<p>Bienvenue,<br><span>pseudo</span></p>
 				</div>
 				<ul>
-					<li id="favs" class="acc-active"><i class="cp cp-heart-o"></i>Mes favoris</li>
-					<li id="reservations"><i class="cp cp-shopping-cart"></i>Mes réservations</li>
+					<li id="reservations" class="acc-active"><i class="cp cp-shopping-cart"></i>Mes réservations</li>
+					<li id="favs"><i class="cp cp-heart-o"></i>Mes favoris</li>
 					<li id="settings"><i class="cp cp-cog-o"></i>Paramètres</li>
 				</ul>
 			</div>

@@ -16,7 +16,7 @@
 				</ul>
 			</nav>
 			<div id="header-top-right">
-				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+				<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
 				<!-- Si l'utilisateur n'est pas connecté -->
 				<a href="templates/connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
 				<!-- Si l'utilisateur est connecté 
