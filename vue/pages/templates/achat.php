@@ -41,7 +41,7 @@
 		<!--Sidebar-->
 		<!--<form method="GET" action="">-->
 			<div class="sidebar">
-			<input type="text" name="search_text" id="search_text" placeholder="Rechercher un titre" class="form-control form-black" />
+			<input type="text" name="search_text" id="search_text" placeholder="Rechercher un véhicule" class="form-control form-black" />
 				<fieldset class="category">
 					<legend><i class="cp cp-new"></i>État</legend>
 					<ul>
@@ -114,20 +114,22 @@
 		</form>-->
 		<!--Results-->
 		<div class="main">
-			<?php //echo $nb_vehicules_achat; ?> résultat(s)
-			<form method="GET" action="">
-				<fieldset class="category">
-					<label for="tri_achat">Tri</label>
-					<select name="tri_achat" id="tri_achat" onchange="showCarsAchat(this.value)">
-						<option value="" >-- Trier par --</option>
-						<option value="achat_annee_croissant" >Années croissantes</option>
-						<option value="achat_annee_decroissant">Années décroissantes</option>
-						<option value="achat_prix_croissant">Prix croissants</option>
-						<option value="achat_prix_decroissant">Prix décroissants</option>
-					</select>
-				</fieldset>
-				<input id="btn_tri_achat" name="submit_tri_achat" type="submit" value="Trier maintenant"/>
-			</form>
+			<div id="results-top">
+				<?php //echo $nb_vehicules_achat; ?> résultat(s)
+				<form method="GET" action="">
+					<fieldset class="category">
+						<label for="tri_achat">Tri</label>
+						<select name="tri_achat" id="tri_achat" onchange="showCarsAchat(this.value)">
+							<option value="" >-- Trier par --</option>
+							<option value="achat_annee_croissant" >Années croissantes</option>
+							<option value="achat_annee_decroissant">Années décroissantes</option>
+							<option value="achat_prix_croissant">Prix croissants</option>
+							<option value="achat_prix_decroissant">Prix décroissants</option>
+						</select>
+					</fieldset>
+					<input id="btn_tri_achat" name="submit_tri_achat" type="submit" value="Trier maintenant"/>
+				</form>
+			</div>
 			<div class="results">
 			<?php foreach($_SESSION['achat'] as $requete){ ?>
 				<a href="car-page.php?idCarAchat=<?php echo $requete['id']; ?>" title="" class="result">

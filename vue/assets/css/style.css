@@ -980,7 +980,7 @@ footer a:hover {
 
 .sidebar {
 	width: 20%;
-	min-width: 210px;
+	min-width: 240px;
     background-color: rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	padding: 30px;
@@ -1013,6 +1013,59 @@ footer a:hover {
 	margin-top: 2px;
 }
 
+.sidebar input[type="checkbox"] {
+	-webkit-appearance: none;
+  	appearance: none;
+	width: 10px;
+	height: 10px;
+  	background-color: transparent;
+  	margin: 0 6px 0 0;
+	border: 1px solid rgb(232, 233, 237, 0.7);
+	border-radius: 1px;
+}
+
+.sidebar input[type="checkbox"]:before {
+	content: '';
+	display: block;
+	width: 5px;
+	height: 5px;
+	margin-top: 1.5px;
+	margin-left: 1.5px;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	background-color: rgb(232, 233, 237, 0.7);
+	transform: scale(0);
+	transform-origin: bottom left;
+	transition: 0.1s ease-in-out;
+  }
+
+.sidebar input[type="checkbox"]:checked:before {
+	transform: scale(1);
+}
+
+.sidebar input[type="text"],
+.sidebar input[type="number"] {
+	width: 100%;
+	background: transparent;
+	border: none;
+	font-family: 'Ubuntu', sans-serif;
+	letter-spacing: 0.3px;
+    font-size: 0.9rem;
+    color: rgba(232, 233, 237, 0.7);
+}
+
+.sidebar input[type="text"] {
+	margin-bottom: 20px;
+}
+
+.sidebar input[type="number"] {
+	margin-top: 15px;
+}
+
+.sidebar input[type="text"]:focus,
+.sidebar input[type="number"]:focus {
+    outline: none;
+}
+
 /* Results
    ---------------------------------------- */
 
@@ -1020,6 +1073,27 @@ footer a:hover {
 	width: 76%;
 	min-height: 300px;
 	padding: 12px 0 0 0;
+}
+
+#results-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#results-top form {
+	display: flex;
+	justify-content: space-between;
+}
+
+#results-top .category {
+	margin: 0;
+	padding: 10px;
+}
+
+#results-top select,
+#results-top input {
+	margin: 0;
 }
 
 .results {
