@@ -109,20 +109,22 @@
 		</div>
 		<!--Results-->
 		<div class="main">
-		<?php echo $nb_vehicules_louer; ?> résultat(s)
-			<form method="GET" action="#">
-				<fieldset class="category">
-					<label for="tri_location">Tri</label>
-					<select name="tri_location" id="tri_location" onchange="showCarslocation(this.value)">
-						<option value="" >-- Trier par --</option>
-						<option value="location_annee_croissant" >Années croissantes</option>
-						<option value="location_annee_decroissant">Années décroissantes</option>
-						<option value="location_prix_croissant">Prix croissants</option>
-						<option value="location_prix_decroissant">Prix décroissants</option>
-					</select>
-				</fieldset>
-				<input id="btn_tri_location" name="submit_tri_location" type="submit" value="Trier maintenant"/>
-			</form>
+			<div id="results-top">
+				<?php echo $nb_vehicules_louer; ?> résultat(s)
+				<form method="GET" action="#">
+					<fieldset class="category">
+						<label for="tri_location">Tri</label>
+						<select name="tri_location" id="tri_location" onchange="showCarslocation(this.value)">
+							<option value="" >-- Trier par --</option>
+							<option value="location_annee_croissant" >Années croissantes</option>
+							<option value="location_annee_decroissant">Années décroissantes</option>
+							<option value="location_prix_croissant">Prix croissants</option>
+							<option value="location_prix_decroissant">Prix décroissants</option>
+						</select>
+					</fieldset>
+					<input id="btn_tri_location" name="submit_tri_location" type="submit" value="Trier maintenant"/>
+				</form>
+			</div>
 			<div class="results">
 			<?php foreach($_SESSION['louer'] as $requete){ ?>	
 				<a href="car-page.php?idCarLocation=<?php echo $requete['id']."&idPageLocation=".$requete['id']; ?>" title="" class="result">
