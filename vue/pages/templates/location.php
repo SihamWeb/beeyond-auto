@@ -142,14 +142,6 @@
 						<p><?php echo $requete['marque']. '  '; ?><?php echo $requete['modelFamily']. '  '; ?><?php echo $requete['anneedesortie']; ?><p>
 						<p><?php echo $requete['prix_journalier']; ?> €</p>
 					</div>
-					<div>
-						<?php
-						if(in_array($requete['id'], $_SESSION['louer_vehicules_dispo'])) : ?>
-							<p><?php echo $indisponible; ?></p>
-						<?php else : ?>
-							<p><?php echo $disponible;?></p>
-						<?php endif; ?>
-					</div>
 					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&angle=23" title="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?> alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
 					<div class="result-bottom">
 						<div>
