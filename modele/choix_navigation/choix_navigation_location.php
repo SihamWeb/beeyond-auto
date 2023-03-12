@@ -195,8 +195,8 @@
     Afficher si le véhicule est disponible de suite à la location
     -----------------------------------------------------------*/
 
-    $indisponible = 'INDISPONIBLE MAINTENANT';
-    $disponible = 'DISPONIBLE MAINTENANT';
+    $indisponible = 'INDISPONIBLE';
+    $disponible = 'DISPONIBLE';
 	
 	function IsVehiculesDisponibleLocation() {
         $_SESSION['louer_vehicules_dispo'] = array();
