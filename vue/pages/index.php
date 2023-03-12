@@ -152,7 +152,7 @@
 				<div id="paris" class="selected">Paris</div>
 				<div id="idf">Île-de-France</div>
 			</div>
-			<h2 class="to-right">Où nous trouver ?</h2>
+			<h2 class="to-right">Où nous trouver ?</h2>
 			<p class="desc section-desc">Notre agence principale se situe dans le septième arrondissement de Paris. Une seconde agence ouvrira très prochainement à Fontainebleau en Seine-et-Marne.</p>
 		</div>
 		<img src="/groupe2/vue/assets/images/background/blurry-circle.png" alt="" class="blurry-circle">

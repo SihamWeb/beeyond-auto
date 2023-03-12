@@ -7,20 +7,27 @@
 	<header class="header-height">
 		<div class="header-top">
 			<a href="../index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logos/logo.png" alt="Logo"></a>
-			<nav>
-				<ul>
-					<li><a href="../index.php">Accueil</a></li>
-					<li><a href="achat.php">Acheter</a></li>
-					<li><a href="vente.php">Vendre</a></li>
-					<li><a href="location.php">Louer</a></li>
-				</ul>
-			</nav>
-			<div id="header-top-right">
-				<a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-				<!-- Si l'utilisateur n'est pas connecté -->
-				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-				<!-- Si l'utilisateur est connecté 
-				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+			<div class="menu">
+				<nav>
+					<ul>
+						<li><a href="../index.php">Accueil</a></li>
+						<li><a href="achat.php">Acheter</a></li>
+						<li><a href="vente.php">Vendre</a></li>
+						<li><a href="location.php">Louer</a></li>
+					</ul>
+				</nav>
+				<div id="header-top-right">
+					<a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<!-- Si l'utilisateur n'est pas connecté -->
+					<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+					<!-- Si l'utilisateur est connecté 
+					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				</div>
+			</div>
+			<div id="hamburger-menu">
+				<span id="line-1"></span>
+				<span id="line-2"></span>
+				<span id="line-3"></span>
 			</div>
 		</div>
 	</header>
