@@ -71,4 +71,23 @@ $(document).ready(function(){
         $('#favs').removeClass('acc-active');
         $('#settings').removeClass('acc-active');
     });
+
+    //Hamburger menu
+    $('#hamburger-menu').click(function() {
+        if ($('.menu').hasClass('responsive-menu')) {
+            $('.menu').removeClass('responsive-menu');
+            $('#hamburger-menu span').css("width", "100%");
+            $('#line-1').css("transform", "unset");
+            $('#line-2').css("display", "unset");
+            $('#line-3').css("transform", "unset");
+            $('.menu').css("display", "none");
+        } else {
+            $('.menu').addClass('responsive-menu');
+            $('#hamburger-menu span').css("width", "92%");
+            $('#line-1').css("transform", "rotate(41deg)");
+            $('#line-2').css("display", "none");
+            $('#line-3').css("transform", "rotate(-41deg)");
+            $('.menu').css("display", "flex");
+        }
+    });
 })
