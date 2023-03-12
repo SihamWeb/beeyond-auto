@@ -43,7 +43,7 @@
 		<!--Sidebar-->
 		<div class="sidebar">
 			<fieldset class="category">
-				<legend><i class="cp cp-tags"></i>Disponibilité</legend>
+				<legend><i class="cp cp-new"></i>Disponibilité</legend>
 				<ul>
 					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-1" value="<?php echo $disponible; ?>"><label for="choice_marque-1"><?php echo $disponible. '<br />'; ?></label>
 					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-2" value="<?php echo $indisponible; ?>"><label for="choice_marque-2"><?php echo $indisponible. '<br />'; ?></label>
@@ -117,7 +117,10 @@
 		<!--Results-->
 		<div class="main">
 			<div id="results-top">
-				<?php echo $nb_vehicules_louer; ?> résultat(s)
+				<div>
+					<i class="cp cp-filter"></i>
+					<?php echo $nb_vehicules_louer; ?> résultat(s)
+				</div>
 				<form method="GET" action="#">
 					<fieldset class="category">
 						<label for="tri_location">Tri</label>
@@ -129,7 +132,7 @@
 							<option value="location_prix_decroissant">Prix décroissants</option>
 						</select>
 					</fieldset>
-					<input id="btn_tri_location" name="submit_tri_location" type="submit" value="Trier maintenant"/>
+					<input id="btn_tri_location" name="submit_tri_location" type="submit" value="Trier">
 				</form>
 			</div>
 			<div class="results">
@@ -137,7 +140,7 @@
 				<a href="car-page.php?idCarLocation=<?php echo $requete['id']."&idPageLocation=".$requete['id']; ?>" title="" class="result">
 					<div class="result-top">
 						<p><?php echo $requete['marque']. '  '; ?><?php echo $requete['modelFamily']. '  '; ?><?php echo $requete['anneedesortie']; ?><p>
-						<p><?php echo $requete['prix_journalier']; ?> €</p>
+						<p><?php echo $requete['prix_journalier']; ?> €</p>
 					</div>
 					<div>
 						<?php

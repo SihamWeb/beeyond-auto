@@ -40,7 +40,7 @@
 				<input type="text" id="username" name="username" minlength="1" maxlength="20" placeholder="Pseudo" required>
 			</fieldset>
 			<fieldset class="category">
-				<legend><i class="fa-solid fa-address-lock"></i>Mot de passe</legend>
+				<legend><i class="fa-solid fa-lock"></i>Mot de passe</legend>
 				<label for="password">Mot de passe</label>
 				<input type="password" id="password" name="motdepasse" placeholder="Mot de passe" required>
 			</fieldset>

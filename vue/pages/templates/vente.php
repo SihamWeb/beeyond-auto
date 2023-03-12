@@ -39,7 +39,7 @@
 		</div>
 	</header>
 	<!--Form-->
-	<div class="content">
+	<div class="content content-vente">
 		<div class="left-content">
 			<p class="desc section-desc">/ Commencez par remplir notre formulaire</p>
 			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>

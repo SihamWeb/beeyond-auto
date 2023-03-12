@@ -966,7 +966,7 @@ footer a:hover {
 	margin-bottom: 0;
 	font-size: 2rem;
 	font-weight: 500;
-	line-height: normal;
+	line-height: 2rem;
 	letter-spacing: normal;
 	text-shadow: 0px 5px 15px rgba(252, 234, 114, 0.2);
 }
@@ -994,6 +994,7 @@ footer a:hover {
    ---------------------------------------- */
 
 .sidebar {
+	display: block;
 	width: 20%;
 	min-width: 240px;
     background-color: rgba(0, 0, 0, 0.1);
@@ -1010,6 +1011,8 @@ footer a:hover {
 }
 
 .category legend {
+	display: flex;
+	align-items: center;
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
 	color: rgb(232, 233, 237, 0.7);
@@ -1090,10 +1093,22 @@ footer a:hover {
 	padding: 12px 0 0 0;
 }
 
+#btn_tri_achat,
+#btn_tri_location {
+	width: fit-content;
+	margin-left: 10px !important;
+}
+
 #results-top {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+#results-top div {
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
 #results-top form {
@@ -1168,6 +1183,10 @@ footer a:hover {
 .result-bottom {
 	display: flex;
 	justify-content: space-between;
+}
+
+.result-bottom div {
+	text-align: center;
 }
 
 .result-bottom img {
@@ -1553,7 +1572,8 @@ form .btn {
 }
 
 .acc-content p {
-	margin: 20px auto 0 auto
+	margin: 20px auto 0 auto;
+	text-align: center;
 }
 
 .acc-content a:hover {
@@ -1564,8 +1584,75 @@ form .btn {
    Responsive
    ---------------------------------------- */
 
-#hamburger-menu {
+#hamburger-menu,
+.cp-filter,
+#results-top .cp-cross {
 	display: none;
+}
+
+@media screen and (min-width: 1750px) {
+	.result-top p:first-child,
+	.result-top p {
+		font-size: 20px;
+	}
+
+	.result-bottom {
+		justify-content: space-around;
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.results {
+		gap: 20px;
+	}
+
+	.result {
+		flex: 0 0 48.5%;
+		max-width: 48.5%;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	.content-vente {
+		flex-direction: column;
+	}
+
+	.content-vente .left-content {
+		width: 60%;
+	}
+
+	.form-vente {
+		min-width: unset;
+	}
+
+	.car {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.car-left {
+		width: 80%;
+	}
+
+	.car-right {
+		width: 540px;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.result {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.result-top p:first-child,
+	.result-top p {
+		font-size: 20px;
+	}
+
+	.result-bottom {
+		justify-content: space-around;
+	}
 }
 
 @media screen and (max-width: 1000px) {
@@ -1746,6 +1833,13 @@ form .btn {
 	}
 }
 
+@media screen and (max-width: 710px) {
+	.form-vente .form-inline {
+		flex-wrap: wrap;
+		row-gap: 0;
+	}
+}
+
 @media screen and (max-width: 700px) {
 	header {
 		gap: 20px;
@@ -1783,16 +1877,102 @@ form .btn {
 		line-height: 27px;
 	}
 
-	@media screen and (max-width: 600px) {
-		#footer-right {
-			grid-template-columns: 90px 130px;
-			grid-template-rows: repeat(2, 1fr);
-			grid-row-gap: 20px;
-		}
-			
-		#footer-right div:last-child {
-			grid-area: 2 / 1 / 3 / 3;
-		}
+	.sidebar {
+		display: none;
+		position: absolute;
+		left: 7vw;
+		background-color: #272B30;
+		z-index: 999;
+	}
+
+	.cp-filter {
+		display: block;
+	}
+
+	#results-top .cp-cross {
+		margin-top: -21px;
+		margin-left: 15px;
+		z-index: 9999;
+	}
+
+	.main {
+		width: 100%;
+	}
+
+	.results {
+		gap: 20px;
+	}
+
+	.content-acc {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.account-sidebar {
+		display: flex;
+		position: unset;
+		align-self: center;
+		height: 320px;
+		min-height: unset;
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	.content-acc .main > p {
+		margin: 0 auto;
+		text-align: center;
 	}
 }
 
+@media screen and (max-width: 625px) {
+	.car-left {
+		width: 100%;
+	}
+
+	.car-right {
+		width: 86vw;
+		max-width: unset;
+	}
+
+	.car-infos {
+		flex-wrap: wrap;
+		gap: 30px;
+		justify-content: center;
+	}
+
+	.car-column:last-child {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.car-btns {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#footer-right {
+		grid-template-columns: 90px 130px;
+		grid-template-rows: repeat(2, 1fr);
+		grid-row-gap: 20px;
+	}
+		
+	#footer-right div:last-child {
+		grid-area: 2 / 1 / 3 / 3;
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.acc-content {
+		width: 86vw;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.sign-up-content .form-inline {
+		flex-wrap: wrap;
+		row-gap: 0;
+	}
+}

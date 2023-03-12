@@ -32,7 +32,7 @@
 		</div>
 	</header>
 	
-	<div class="content">
+	<div class="content content-acc">
 		<!--Si l'utilisateur n'est pas connecté
 		<h2 class="to-left title-connect"><a href="connexion.php">Connectez-vous</a> pour accéder à votre compte</h2>-->
 		<!--Sidebar-->
@@ -55,7 +55,7 @@
 		<!--Favoris-->
 		<div class="main favs-content">
 			<!--Si favoris vide-->
-			Vous n'avez aucun véhicule dans vos favoris.
+			<p>Vous n'avez aucun véhicule dans vos favoris.</p>
 			<!--Si favoris non vide-->
 			<div class="results">
 				<a href="car-page.php" title="" class="result">
@@ -105,7 +105,7 @@
 		<!--Réservations-->
 		<div class="main reservations-content">
 			<!--Si réservations vide-->
-			Vous n'avez réservé aucun véhicule.
+			<p>Vous n'avez réservé aucun véhicule.</p>
 			<!--Si réservations non vide-->
 			<div class="results">
 				<a href="car-page.php" title="" class="result">

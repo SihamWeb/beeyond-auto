@@ -122,7 +122,10 @@
 		<!--Results-->
 		<div class="main">
 			<div id="results-top">
-				<?php //echo $nb_vehicules_achat; ?> résultat(s)
+				<div>
+					<i class="cp cp-filter"></i>
+					<?php //echo $nb_vehicules_achat; ?> résultat(s)
+				</div>
 				<form method="GET" action="">
 					<fieldset class="category">
 						<label for="tri_achat">Tri</label>
@@ -134,7 +137,7 @@
 							<option value="achat_prix_decroissant">Prix décroissants</option>
 						</select>
 					</fieldset>
-					<input id="btn_tri_achat" name="submit_tri_achat" type="submit" value="Trier maintenant"/>
+					<input id="btn_tri_achat" name="submit_tri_achat" type="submit" value="Trier"/>
 				</form>
 			</div>
 			<div class="results">
@@ -142,7 +145,7 @@
 				<a href="car-page.php?idCarAchat=<?php echo $requete['id']; ?>" title="" class="result">
 					<div class="result-top">
 						<p><?php echo $requete['marque']. '  '; ?><?php echo $requete['modelFamily']. '  '; ?><?php echo $requete['anneedesortie']; ?><p>
-						<p><?php echo $requete['prix_vente']; ?> €</p>
+						<p><?php echo $requete['prix_vente']; ?> €</p>
 					</div>
 					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&angle=23" title="Photo d'une <?php echo $requete['marque']." ".$requete['modelFamily'];?>" alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
 					<div class="result-bottom">

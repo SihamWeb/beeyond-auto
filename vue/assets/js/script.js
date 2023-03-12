@@ -90,4 +90,19 @@ $(document).ready(function(){
             $('.menu').css("display", "flex");
         }
     });
+
+    //Filters
+    $('#results-top .cp').click(function() {
+        if ($('#results-top .cp').hasClass('cp-filter')) {
+            $('.sidebar').css("display", "block");
+            $('#results-top .cp').removeClass('cp-filter');
+            $('#results-top .cp').addClass('cp-cross');
+            $('.cp-cross').css("display", "block");
+        } else {
+            $('.sidebar').css("display", "none");
+            $('#results-top .cp').removeClass('cp-cross');
+            $('#results-top .cp').addClass('cp-filter');
+            $('.cp-cross').css("display", "none");
+        }
+    });
 })
