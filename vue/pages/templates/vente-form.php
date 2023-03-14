@@ -2,6 +2,9 @@
 include('../../../modele/inc.connexion.php');
 include ('vente.php');
 
+
+
+
 // Sanitize input parameters
 $marque = filter_var($_POST['marque'], FILTER_SANITIZE_STRING);
 $model = filter_var($_POST['modele'], FILTER_SANITIZE_STRING);

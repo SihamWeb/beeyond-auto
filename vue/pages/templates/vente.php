@@ -1,5 +1,6 @@
 <?php
-	include '../structure/inc.header.php';
+	include ('../structure/inc.header.php');
+	
 ?>
 
 <body>
