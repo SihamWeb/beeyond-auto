@@ -10,20 +10,27 @@
 	<header class="header-height">
 		<div class="header-top">
 			<a href="../index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logos/logo.png" alt="Logo"></a>
-			<nav>
-				<ul>
-					<li><a href="../index.php">Accueil</a></li>
-					<li><a href="achat.php">Acheter</a></li>
-					<li><a href="vente.php">Vendre</a></li>
-					<li><a href="location.php">Louer</a></li>
-				</ul>
-			</nav>
-			<div id="header-top-right">
-                <a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-                <!-- Si l'utilisateur n'est pas connecté -->
-				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-				<!-- Si l'utilisateur est connecté 
-				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+			<div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="../index.php">Accueil</a></li>
+                        <li><a href="achat.php">Acheter</a></li>
+                        <li><a href="vente.php">Vendre</a></li>
+                        <li><a href="location.php">Louer</a></li>
+                    </ul>
+                </nav>
+                <div id="header-top-right">
+                    <a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+                    <!-- Si l'utilisateur n'est pas connecté -->
+                    <a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+                    <!-- Si l'utilisateur est connecté 
+                    <a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+                </div>
+            </div>
+            <div id="hamburger-menu">
+				<span id="line-1"></span>
+				<span id="line-2"></span>
+				<span id="line-3"></span>
 			</div>
 		</div>
 	</header>
@@ -76,7 +83,7 @@
                         </div>
                     </div>
                     <div class="car-btns">
-                        <a href="" title="" class="btn btn-outline" data="Ajouter au panier"><i class="cp cp-shopping-cart"></i></a>
+                        <a href="" title="" class="btn btn-outline" data="Réserver"><i class="cp cp-shopping-cart"></i></a>
                         <a href="" title="" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
                     </div>
                 </div>
@@ -131,7 +138,8 @@
                         </div>
                     </div>
                     <div>
-                        <p>Sélectionner le jour de départ : </p><input type="date" id="input-date-debut" car-id="<?php echo $_GET['idPageLocation']; ?>" name="datedebut" value=""  onchange="debutlocation(this.value)">
+                        <p>Sélectionner le jour de départ : </p><input type="date" id="input-date-debut" car-id="<?php echo $_GET['idPageLocation']; ?>" 
+                            name="datedebut" value=""  onchange="debutlocation(this.value)">
                         <p>Sélectionner le jour de fin : </p><input type="date" name="datefin" value="" onchange="finlocation(this.value)">
                         <p id="resultat_date_debut"></p>
                         <p id="resultat_date_fin"></p>
@@ -148,45 +156,3 @@
 <?php
 	include '../structure/inc.footer.php';
 ?>
-<script>
-
-var resultatDateDebut = document.getElementById("resultat_date_debut");
-var resultatDateFin = document.getElementById("resultat_date_fin");
-
-var inputDateDebut = document.getElementById("input-date-debut");
-var inputDateFin = document.getElementById("resultat_date_fin");
-
-var attributIdCarLocation = inputDateDebut.getAttribute('car-id');
-
-function debutlocation (date) {
-    if (date.length == 0) {
-        resultatDateDebut.innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                resultatDateDebut.innerHTML = 'Date de début souhaitée : ' + this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../../../controleur/page_produit/page_produit_locationControleur.php?idPageLocation="+attributIdCarLocation+"&choixdatedebut="+date, true);
-        xmlhttp.send();
-    }
-}
-
-function finlocation (date) {
-    if (date.length == 0) {
-        resultatDateFin.innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                resultatDateFin.innerHTML = 'Date de fin souhaitée : ' + this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "../../../controleur/page_produit/page_produit_locationControleur.php?idPageLocation="+attributIdCarLocation+"&choixdatefin="+date, true);
-        xmlhttp.send();
-    }
-}
-</script>

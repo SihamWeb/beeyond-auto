@@ -7,20 +7,27 @@
 	<header>
 		<div class="header-top">
 			<a href="index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logos/logo.png" alt="Logo"></a>
-			<nav>
-				<ul>
-					<li><a href="index.php" class="active">Accueil</a></li>
-					<li><a href="/groupe2/vue/pages/templates/achat.php">Acheter</a></li>
-					<li><a href="/groupe2/vue/pages/templates/vente.php">Vendre</a></li>
-					<li><a href="/groupe2/vue/pages/templates/location.php">Louer</a></li>
-				</ul>
-			</nav>
-			<div id="header-top-right">
-				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-				<!-- Si l'utilisateur n'est pas connecté -->
-				<a href="templates/connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-				<!-- Si l'utilisateur est connecté 
-				<a href="templates/mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+			<div class="menu">
+				<nav>
+					<ul>
+						<li><a href="index.php" class="active">Accueil</a></li>
+						<li><a href="/groupe2/vue/pages/templates/achat.php">Acheter</a></li>
+						<li><a href="/groupe2/vue/pages/templates/vente.php">Vendre</a></li>
+						<li><a href="/groupe2/vue/pages/templates/location.php">Louer</a></li>
+					</ul>
+				</nav>
+				<div id="header-top-right">
+					<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<!-- Si l'utilisateur n'est pas connecté -->
+					<a href="templates/connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+					<!-- Si l'utilisateur est connecté 
+					<a href="templates/mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				</div>
+			</div>
+			<div id="hamburger-menu">
+				<span id="line-1"></span>
+				<span id="line-2"></span>
+				<span id="line-3"></span>
 			</div>
 		</div>
 		<div class="header-content">
@@ -41,7 +48,7 @@
 				</div>
 			</div>	
 			<div class="header-right">
-				<img src="/groupe2/vue/assets/images/header-img.jpeg" alt="Voiture" id="header-img">
+				<img src="/groupe2/vue/assets/images/header-img2.jpg" alt="Voiture" id="header-img">
 				<div class="header-card price-range">
 					<p>Adapté à votre budget</p>
 					<img src="/groupe2/vue/assets/images/price-range.png" alt="Gamme de prix">
@@ -69,7 +76,7 @@
 		<img src="/groupe2/vue/assets/images/background/blurry-circle2.png" alt="" class="blurry-circle blurry-circle-2">
 		<img src="/groupe2/vue/assets/images/presentation.png" alt="Concessionnaire BeeyondAuto" class="presentation-img">
 		<div id="presentation-right">
-			<h2 class="to-left">Qui sommes-nous ?</h2>
+			<h2 class="to-left">Qui sommes-nous ?</h2>
 			<p class="desc section-desc">Cela fait maintenant 10 ans que BeeyondAuto se spécialise dans le marché de l'automobile pour vous offrir les meilleurs services de vente et de location.</p>
 			<a href="#" title="Nous contacter" class="btn btn-outline" data="Contactez-nous"><i class="fa-regular fa-comment"></i></a>
 		</div>
@@ -145,7 +152,7 @@
 				<div id="paris" class="selected">Paris</div>
 				<div id="idf">Île-de-France</div>
 			</div>
-			<h2 class="to-right">Où nous trouver ?</h2>
+			<h2 class="to-right">Où nous trouver ?</h2>
 			<p class="desc section-desc">Notre agence principale se situe dans le septième arrondissement de Paris. Une seconde agence ouvrira très prochainement à Fontainebleau en Seine-et-Marne.</p>
 		</div>
 		<img src="/groupe2/vue/assets/images/background/blurry-circle.png" alt="" class="blurry-circle">

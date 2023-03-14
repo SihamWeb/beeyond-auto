@@ -1,9 +1,8 @@
-document.addEventListener('DOMContentLoaded', function(){
 
 /**-------- PAGE ACHAT -----------**/
 
     // TRI
-    var retourTriAchat = document.getElementsByClassName("results")[0];
+    /*var retourTriAchat = document.getElementsByClassName("results")[0];
     function showCarsAchat(str) {
         if (str == "") {
             retourTriAchat.innerHTML = "";
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
             xhr.open("GET","contenu/contenu-achat.php?tri_achat="+str,true);
             xhr.send();
         }
-    }
+    }*/
 
     // PAGINATION
     
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
 /**-------- PAGE LOCATION -----------**/
 
     // TRI
-    var retourTriLocation = document.getElementsByClassName("results")[0];
+    /*var retourTriLocation = document.getElementsByClassName("results")[0];
     function showCarsLocation(str) {
         if (str == "") {
             retourTriLocation.innerHTML = "";
@@ -41,9 +40,49 @@ document.addEventListener('DOMContentLoaded', function(){
             xhr.open("GET","contenu/contenu-location.php?tri_location="+str,true);
             xhr.send();
         }
-    }
+    }*/
 
     // PAGINATION
+    
+    // DEUX TENTATIVES AJAX PAGINATION
+	/*$(document).ready(function() {
+		$(".page-link").click(function(){
+			var id = $(this).attr("data-id");
+			var select_id = $(this).parent().attr("id");
+			$.ajax({
+				url: "contenu/contenu-achat.php",
+				type: "GET",
+				data: {
+					page : id
+				},
+				cache: false,
+				success: function(dataResult){
+					$("#page-nav").html(dataResult);
+					$(".pageitem").removeClass("active");
+					$("#"+select_id).addClass("active");
+				}
+			});
+		});
+    });*/
+
+	/*$(".page-linkNext").click(function(){
+		var id = $(".page-linkNext").attr("data-id");
+	var select_id = $(".page-linkNext").parent().attr("id");
+
+		$.ajax({
+			url: "contenu/contenu-achat.php",
+			type: "GET",
+			data: {
+				page : id
+			},
+			cache: false,
+			success: function(dataResult){
+				$(".results").html(dataResult);
+				$(".pageitem").removeClass("active");
+				$("#"+select_id).addClass("active");
+			}
+		});
+	});*/
 
 /**-------- PAGE CAR-PAGE (PRODUIT) -----------**/
 
@@ -88,5 +127,4 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
-})
     

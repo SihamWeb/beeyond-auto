@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 26 fév. 2023 à 14:20
+-- Généré le : sam. 11 mars 2023 à 20:39
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.12
 
@@ -49,12 +49,24 @@ CREATE TABLE IF NOT EXISTS `location` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `idvehicule` int NOT NULL,
-  `debutlocation` datetime NOT NULL,
-  `finlocation` datetime NOT NULL,
+  `debutlocation` date NOT NULL,
+  `finlocation` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idvehicule` (`idvehicule`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `location`
+--
+
+INSERT INTO `location` (`id`, `username`, `idvehicule`, `debutlocation`, `finlocation`) VALUES
+(1, '', 5, '2023-03-06', '2023-03-06'),
+(2, '', 3, '2023-03-06', '2023-03-06'),
+(3, '', 22, '2023-03-07', '2023-03-10'),
+(5, '', 5, '2023-03-10', '2023-03-14'),
+(6, '', 1, '2023-03-11', '2023-06-30'),
+(7, '', 7, '2023-03-09', '2023-04-30');
 
 -- --------------------------------------------------------
 

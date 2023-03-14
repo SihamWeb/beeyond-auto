@@ -14,7 +14,7 @@ function car_page_achat() {
     {
         if (!$data) // On teste si la réponse à la requête est vide.
         {
-            echo 'La BDD n\'existe pas ou est vide.';
+            echo 'Acune voiture n\'est à vendre';
             break;
         }
         else

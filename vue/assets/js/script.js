@@ -48,14 +48,61 @@ $(document).ready(function(){
     $('#favs').click(function() {
         $('.favs-content').css("display", "unset");
         $('.settings-content').css("display", "none");
+        $('.reservations-content').css("display", "none");
         $('#favs').addClass('acc-active');
         $('#settings').removeClass('acc-active');
+        $('#reservations').removeClass('acc-active');
     });
 
     $('#settings').click(function() {
         $('.settings-content').css("display", "unset");
         $('.favs-content').css("display", "none");
+        $('.reservations-content').css("display", "none");
         $('#settings').addClass('acc-active');
         $('#favs').removeClass('acc-active');
+        $('#reservations').removeClass('acc-active');
+    });
+    
+    $('#reservations').click(function() {
+        $('.reservations-content').css("display", "unset");
+        $('.favs-content').css("display", "none");
+        $('.settings-content').css("display", "none");
+        $('#reservations').addClass('acc-active');
+        $('#favs').removeClass('acc-active');
+        $('#settings').removeClass('acc-active');
+    });
+
+    //Hamburger menu
+    $('#hamburger-menu').click(function() {
+        if ($('.menu').hasClass('responsive-menu')) {
+            $('.menu').removeClass('responsive-menu');
+            $('#hamburger-menu span').css("width", "100%");
+            $('#line-1').css("transform", "unset");
+            $('#line-2').css("display", "unset");
+            $('#line-3').css("transform", "unset");
+            $('.menu').css("display", "none");
+        } else {
+            $('.menu').addClass('responsive-menu');
+            $('#hamburger-menu span').css("width", "92%");
+            $('#line-1').css("transform", "rotate(41deg)");
+            $('#line-2').css("display", "none");
+            $('#line-3').css("transform", "rotate(-41deg)");
+            $('.menu').css("display", "flex");
+        }
+    });
+
+    //Filters
+    $('#results-top .cp').click(function() {
+        if ($('#results-top .cp').hasClass('cp-filter')) {
+            $('.sidebar').css("display", "block");
+            $('#results-top .cp').removeClass('cp-filter');
+            $('#results-top .cp').addClass('cp-cross');
+            $('.cp-cross').css("display", "block");
+        } else {
+            $('.sidebar').css("display", "none");
+            $('#results-top .cp').removeClass('cp-cross');
+            $('#results-top .cp').addClass('cp-filter');
+            $('.cp-cross').css("display", "none");
+        }
     });
 })

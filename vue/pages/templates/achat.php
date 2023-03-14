@@ -13,20 +13,27 @@
 	<header class="header-height">
 		<div class="header-top">
 			<a href="../index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logos/logo.png" alt="Logo"></a>
-			<nav>
-				<ul>
-					<li><a href="../index.php">Accueil</a></li>
-					<li><a href="achat.php" class="active">Acheter</a></li>
-					<li><a href="vente.php">Vendre</a></li>
-					<li><a href="location.php">Louer</a></li>
-				</ul>
-			</nav>
-			<div id="header-top-right">
-				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-                <!-- Si l'utilisateur n'est pas connecté -->
-				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-				<!-- Si l'utilisateur est connecté 
-				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+			<div class="menu">
+				<nav>
+					<ul>
+						<li><a href="../index.php">Accueil</a></li>
+						<li><a href="achat.php" class="active">Acheter</a></li>
+						<li><a href="vente.php">Vendre</a></li>
+						<li><a href="location.php">Louer</a></li>
+					</ul>
+				</nav>
+				<div id="header-top-right">
+					<a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<!-- Si l'utilisateur n'est pas connecté -->
+					<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+					<!-- Si l'utilisateur est connecté 
+					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				</div>
+			</div>
+			<div id="hamburger-menu">
+				<span id="line-1"></span>
+				<span id="line-2"></span>
+				<span id="line-3"></span>
 			</div>
 		</div>
 		<div id="header-img-container">
@@ -41,7 +48,7 @@
 		<!--Sidebar-->
 		<!--<form method="GET" action="">-->
 			<div class="sidebar">
-			<input type="text" name="search_text" id="search_text" placeholder="Rechercher un titre" class="form-control form-black" />
+			<input type="text" name="search_text" id="search_text" placeholder="Rechercher un véhicule" class="form-control form-black" />
 				<fieldset class="category">
 					<legend><i class="cp cp-new"></i>État</legend>
 					<ul>
@@ -114,26 +121,31 @@
 		</form>-->
 		<!--Results-->
 		<div class="main">
-			<?php //echo $nb_vehicules_achat; ?> résultat(s)
-			<form method="GET" action="">
-				<fieldset class="category">
-					<label for="tri_achat">Tri</label>
-					<select name="tri_achat" id="tri_achat" onchange="showCarsAchat(this.value)">
-						<option value="" >-- Trier par --</option>
-						<option value="achat_annee_croissant" >Années croissantes</option>
-						<option value="achat_annee_decroissant">Années décroissantes</option>
-						<option value="achat_prix_croissant">Prix croissants</option>
-						<option value="achat_prix_decroissant">Prix décroissants</option>
-					</select>
-				</fieldset>
-				<input id="btn_tri_achat" name="submit_tri_achat" type="submit" value="Trier maintenant"/>
-			</form>
+			<div id="results-top">
+				<div>
+					<i class="cp cp-filter"></i>
+					<?php //echo $nb_vehicules_achat; ?> résultat(s)
+				</div>
+				<form method="GET" action="">
+					<fieldset class="category">
+						<label for="tri_achat">Tri</label>
+						<select name="tri_achat" id="tri_achat" onchange="showCarsAchat(this.value)">
+							<option value="" >-- Trier par --</option>
+							<option value="achat_annee_croissant" >Années croissantes</option>
+							<option value="achat_annee_decroissant">Années décroissantes</option>
+							<option value="achat_prix_croissant">Prix croissants</option>
+							<option value="achat_prix_decroissant">Prix décroissants</option>
+						</select>
+					</fieldset>
+					<input id="btn_tri_achat" name="submit_tri_achat" type="submit" value="Trier"/>
+				</form>
+			</div>
 			<div class="results">
 			<?php foreach($_SESSION['achat'] as $requete){ ?>
 				<a href="car-page.php?idCarAchat=<?php echo $requete['id']; ?>" title="" class="result">
 					<div class="result-top">
 						<p><?php echo $requete['marque']. '  '; ?><?php echo $requete['modelFamily']. '  '; ?><?php echo $requete['anneedesortie']; ?><p>
-						<p><?php echo $requete['prix_vente']; ?> €</p>
+						<p><?php echo $requete['prix_vente']; ?> €</p>
 					</div>
 					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&angle=23" title="Photo d'une <?php echo $requete['marque']." ".$requete['modelFamily'];?>" alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
 					<div class="result-bottom">
@@ -169,64 +181,3 @@
 	include '../structure/inc.footer.php';
 	
 ?>
-<script>
-
-// AJAX TRI
-	/*var retourTriAchat = document.getElementsByClassName("results")[0];
-	function showCarsAchat(str) {
-        if (str == "") {
-            retourTriAchat.innerHTML = "";
-            return;
-        } else {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status === 0)) {
-					retourTriAchat.innerHTML = xhr.responseText;
-				}
-            };
-            xhr.open("GET","contenu/contenu-achat.php?tri_achat="+str,true);
-            xhr.send();
-        }
-	}*/
-
-// DEUX TENTATIVES AJAX PAGINATION
-	/*$(document).ready(function() {
-		$(".page-link").click(function(){
-			var id = $(this).attr("data-id");
-			var select_id = $(this).parent().attr("id");
-			$.ajax({
-				url: "contenu/contenu-achat.php",
-				type: "GET",
-				data: {
-					page : id
-				},
-				cache: false,
-				success: function(dataResult){
-					$("#page-nav").html(dataResult);
-					$(".pageitem").removeClass("active");
-					$("#"+select_id).addClass("active");
-				}
-			});
-		});
-    });*/
-
-	/*$(".page-linkNext").click(function(){
-		var id = $(".page-linkNext").attr("data-id");
-	var select_id = $(".page-linkNext").parent().attr("id");
-
-		$.ajax({
-			url: "contenu/contenu-achat.php",
-			type: "GET",
-			data: {
-				page : id
-			},
-			cache: false,
-			success: function(dataResult){
-				$(".results").html(dataResult);
-				$(".pageitem").removeClass("active");
-				$("#"+select_id).addClass("active");
-			}
-		});
-	});*/
-    
-</script>

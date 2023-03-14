@@ -8,20 +8,27 @@
 	<header class="header-height">
 		<div class="header-top">
 			<a href="../index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logos/logo.png" alt="Logo"></a>
-			<nav>
-				<ul>
-					<li><a href="../index.php">Accueil</a></li>
-					<li><a href="achat.php">Acheter</a></li>
-					<li><a href="vente.php">Vendre</a></li>
-					<li><a href="location.php" class="active">Louer</a></li>
-				</ul>
-			</nav>
-			<div id="header-top-right">
-				<a href="" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-                <!-- Si l'utilisateur n'est pas connecté -->
-				<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-				<!-- Si l'utilisateur est connecté 
-				<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+			<div class="menu">
+				<nav>
+					<ul>
+						<li><a href="../index.php">Accueil</a></li>
+						<li><a href="achat.php">Acheter</a></li>
+						<li><a href="vente.php">Vendre</a></li>
+						<li><a href="location.php" class="active">Louer</a></li>
+					</ul>
+				</nav>
+				<div id="header-top-right">
+					<a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<!-- Si l'utilisateur n'est pas connecté -->
+					<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+					<!-- Si l'utilisateur est connecté 
+					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				</div>
+			</div>
+			<div id="hamburger-menu">
+				<span id="line-1"></span>
+				<span id="line-2"></span>
+				<span id="line-3"></span>
 			</div>
 		</div>
 		<div id="header-img-container">
@@ -36,10 +43,10 @@
 		<!--Sidebar-->
 		<div class="sidebar">
 			<fieldset class="category">
-				<legend><i class="cp cp-tags"></i>Disponibilité</legend>
+				<legend><i class="cp cp-new"></i>Disponibilité</legend>
 				<ul>
-					<li><?php echo $disponible; ?></li>
-					<li><?php echo $indisponible; ?></li>
+					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-1" value="<?php echo $disponible; ?>"><label for="choice_marque-1"><?php echo $disponible. '<br />'; ?></label>
+					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-2" value="<?php echo $indisponible; ?>"><label for="choice_marque-2"><?php echo $indisponible. '<br />'; ?></label>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
@@ -109,34 +116,31 @@
 		</div>
 		<!--Results-->
 		<div class="main">
-		<?php echo $nb_vehicules_louer; ?> résultat(s)
-			<form method="GET" action="#">
-				<fieldset class="category">
-					<label for="tri_location">Tri</label>
-					<select name="tri_location" id="tri_location" onchange="showCarslocation(this.value)">
-						<option value="" >-- Trier par --</option>
-						<option value="location_annee_croissant" >Années croissantes</option>
-						<option value="location_annee_decroissant">Années décroissantes</option>
-						<option value="location_prix_croissant">Prix croissants</option>
-						<option value="location_prix_decroissant">Prix décroissants</option>
-					</select>
-				</fieldset>
-				<input id="btn_tri_location" name="submit_tri_location" type="submit" value="Trier maintenant"/>
-			</form>
+			<div id="results-top">
+				<div>
+					<i class="cp cp-filter"></i>
+					<?php echo $nb_vehicules_louer; ?> résultat(s)
+				</div>
+				<form method="GET" action="#">
+					<fieldset class="category">
+						<label for="tri_location">Tri</label>
+						<select name="tri_location" id="tri_location" onchange="showCarslocation(this.value)">
+							<option value="" >-- Trier par --</option>
+							<option value="location_annee_croissant" >Années croissantes</option>
+							<option value="location_annee_decroissant">Années décroissantes</option>
+							<option value="location_prix_croissant">Prix croissants</option>
+							<option value="location_prix_decroissant">Prix décroissants</option>
+						</select>
+					</fieldset>
+					<input id="btn_tri_location" name="submit_tri_location" type="submit" value="Trier">
+				</form>
+			</div>
 			<div class="results">
 			<?php foreach($_SESSION['louer'] as $requete){ ?>	
 				<a href="car-page.php?idCarLocation=<?php echo $requete['id']."&idPageLocation=".$requete['id']; ?>" title="" class="result">
 					<div class="result-top">
 						<p><?php echo $requete['marque']. '  '; ?><?php echo $requete['modelFamily']. '  '; ?><?php echo $requete['anneedesortie']; ?><p>
-						<p><?php echo $requete['prix_journalier']; ?> €</p>
-					</div>
-					<div>
-						<?php
-						if(in_array($requete['id'], $_SESSION['louer_vehicules_dispo'])) : ?>
-							<p><?php echo $indisponible; ?></p>
-						<?php else : ?>
-							<p><?php echo $disponible;?></p>
-						<?php endif; ?>
+						<p><?php echo $requete['prix_journalier']; ?> €</p>
 					</div>
 					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&angle=23" title="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?> alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
 					<div class="result-bottom">
@@ -171,23 +175,3 @@
 <?php
 	include '../structure/inc.footer.php';
 ?>
-<script>
-
-// AJAX TRI
-	/*var retourTriLocation = document.getElementsByClassName("results")[0];
-	function showCarslocation(str) {
-        if (str == "") {
-            retourTriLocation.innerHTML = "";
-            return;
-        } else {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status === 0)) {
-                retourTriLocation.innerHTML = xhr.responseText;
-            }
-            };
-            xhr.open("GET","contenu/contenu-location.php?tri_location="+str,true);
-            xhr.send();
-        }
-    }*/
-</script>
