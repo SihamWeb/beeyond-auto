@@ -38,4 +38,21 @@ if ($stmt->errorCode() !== '00000') {
 }
 
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   // Process form submission here
+   // Check for errors
+   $has_error = true; // Change this based on your error-checking logic
+   
+   if (!$has_error) {
+      // Error, return error message
+      echo '<script>document.querySelector(".feedback-msg.error").style.display = "block";</script>';
+   } else {
+        // No error, return success message
+      echo '<script>document.querySelector(".feedback-msg.validate").style.display = "block";</script>';
+
+      
+   }
+}
+
+
 ?>
