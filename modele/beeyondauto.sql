@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 11 mars 2023 à 20:39
+-- Généré le : mar. 14 mars 2023 à 19:29
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.12
 
@@ -80,8 +80,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `prenom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `mail` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `motdepasse` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photodeprofil` longblob NOT NULL,
+  `motdepasse` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -89,8 +88,8 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`username`, `nom`, `prenom`, `mail`, `motdepasse`, `photodeprofil`) VALUES
-('', '', '', '', '', '');
+INSERT INTO `utilisateurs` (`username`, `nom`, `prenom`, `mail`, `motdepasse`) VALUES
+('', '', '', '', '');
 
 -- --------------------------------------------------------
 

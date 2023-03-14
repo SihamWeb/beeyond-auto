@@ -1,5 +1,6 @@
 <?php
-	include 'structure/inc.header.php';
+	session_start();
+	include 'structure/inc.header.php'; 
 ?>
 
 <body>
@@ -17,11 +18,14 @@
 					</ul>
 				</nav>
 				<div id="header-top-right">
+				<?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
+					<!-- Si l'utilisateur est connecté -->
 					<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<a href="templates/mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>
+				<?php else : ?>
 					<!-- Si l'utilisateur n'est pas connecté -->
 					<a href="templates/connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-					<!-- Si l'utilisateur est connecté 
-					<a href="templates/mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				<?php endif; ?>
 				</div>
 			</div>
 			<div id="hamburger-menu">

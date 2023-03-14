@@ -20,11 +20,14 @@
                     </ul>
                 </nav>
                 <div id="header-top-right">
-                    <a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-                    <!-- Si l'utilisateur n'est pas connecté -->
-                    <a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-                    <!-- Si l'utilisateur est connecté 
-                    <a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+                <?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
+					<!-- Si l'utilisateur est connecté -->
+					<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>
+				<?php else : ?>
+					<!-- Si l'utilisateur n'est pas connecté -->
+					<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+				<?php endif; ?>
                 </div>
             </div>
             <div id="hamburger-menu">

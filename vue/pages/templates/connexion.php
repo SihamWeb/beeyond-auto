@@ -1,5 +1,8 @@
 <?php
+	session_start();
 	include '../structure/inc.header.php';
+	include_once '../../../controleur/controleur.php';
+	include_once '../../../modele/modele.php';
 ?>
 
 <body>
@@ -17,11 +20,14 @@
 					</ul>
 				</nav>
 				<div id="header-top-right">
-					<a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+				<?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
+					<!-- Si l'utilisateur est connecté -->
+					<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>
+				<?php else : ?>
 					<!-- Si l'utilisateur n'est pas connecté -->
 					<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-					<!-- Si l'utilisateur est connecté 
-					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				<?php endif; ?>
 				</div>
 			</div>
 			<div id="hamburger-menu">
@@ -33,19 +39,20 @@
 	</header>
 	
 	<div class="content acc-content">
+	<?php if (isset($login_incorrect)) { echo $login_incorrect; }?>
 		<form method="post" action="">
 			<fieldset class="category">
 				<legend><i class="fa-solid fa-circle-user"></i>Pseudo</legend>
 				<label for="username">Pseudo</label>
-				<input type="text" id="username" name="username" minlength="1" maxlength="20" placeholder="Pseudo" required>
+				<input type="text" id="username" name="username" minlength="3" maxlength="25" placeholder="Pseudo">
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="fa-solid fa-lock"></i>Mot de passe</legend>
 				<label for="password">Mot de passe</label>
-				<input type="password" id="password" name="motdepasse" placeholder="Mot de passe" required>
+				<input type="password" id="password" name="motdepasse" placeholder="Mot de passe">
 			</fieldset>
 			<div class="btn btn-outline btn-dark" data="Se connecter">
-				<input type="submit" value="">
+				<input type="submit" value="" name="submit_connexion">
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>
 		</form>
