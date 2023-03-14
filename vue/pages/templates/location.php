@@ -2,6 +2,7 @@
 	session_start();
 	include '../structure/inc.header.php';
 	include '../../../modele/modele.php';
+	include '../../../controleur/controleur.php';
 ?>
 
 <body>
