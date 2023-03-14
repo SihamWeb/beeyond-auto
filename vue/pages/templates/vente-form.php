@@ -6,23 +6,25 @@ include ('vente.php');
 
 
 // Sanitize input parameters
-$marque = filter_var($_POST['marque'], FILTER_SANITIZE_STRING);
-$model = filter_var($_POST['modele'], FILTER_SANITIZE_STRING);
-$date = filter_var($_POST['anneedesortie'], FILTER_SANITIZE_STRING);
+$marque = filter_var($_POST['marque'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$model = filter_var($_POST['model'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$date = filter_var($_POST['annedesortie'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $anneedesortie = date("Y" , strtotime($date));
-$type = filter_var($_POST['type'], FILTER_SANITIZE_STRING);
-$moteur = filter_var($_POST['moteur'], FILTER_SANITIZE_STRING);
-$nombredeportes = filter_var($_POST['nombredeportes'], FILTER_SANITIZE_NUMBER_INT);
-$nombredeplaces = filter_var($_POST['nombredeplaces'], FILTER_SANITIZE_NUMBER_INT);
+$type = filter_var($_POST['type'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$moteur = filter_var($_POST['moteur'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$nombredeportes = filter_var($_POST['nombredeportes'], FILTER_VALIDATE_INT);
+$nombredeplaces = filter_var($_POST['nombredeplaces'], FILTER_VALIDATE_INT);
 $prix_vente = filter_var($_POST['prix_vente'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
 // Prepare SQL query with parameterized placeholders
-$sql = "INSERT INTO vehicules_occasion (marque, modele, anneedesortie, type, carburant, nombredeportes, nombredeplaces, prix_vente ) VALUES (:marque, :modele, :anneedesortie, :type, :moteur, :nombredeportes, :nombredeplaces, :prix_vente)";
+$sql = "INSERT INTO vehicules (marque, modelFamily, anneedesortie, type, moteur, nombredeportes, nombredeplaces, prix_vente ) VALUES (:marque, :modelFamily, :anneedesortie, :type, :moteur, :nombredeportes, :nombredeplaces, :prix_vente)";
 $stmt = $o_bdd->prepare($sql);
+
+
 
 // Bind sanitized input parameters to the prepared statement
 $stmt->bindParam(':marque', $marque);
-$stmt->bindParam(':modele', $model);
+$stmt->bindParam(':modelFamily', $model);
 $stmt->bindParam(':anneedesortie', $anneedesortie);
 $stmt->bindParam(':type', $type);
 $stmt->bindParam(':moteur', $moteur);

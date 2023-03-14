@@ -55,14 +55,14 @@
 				<fieldset class="category">
 					<legend><i class="cp cp-car"></i>Modèle</legend>
 					<label for="model">Modèle</label>
-					<input type="text" id="model" name="modele" minlength="2" maxlength="20" placeholder="exemple : A1" required>
+					<input type="text" id="model" name="model" minlength="2" maxlength="20" placeholder="exemple : A1" required>
 				</fieldset>
 			</div>
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-calendar"></i>Année</legend>
-					<label for="year">Année</label>
-					<input type="number" id="year" min="1900" max="2023" step="1" value="2016" required>
+					<label for="year" >Année</label>
+					<input type="number" name="annedesortie" id="year" min="1900" max="2023" step="1" value="2016" required>
 				</fieldset>
 				<fieldset class="category">
 					<legend><i class="cp cp-info-alt"></i>Type</legend>
