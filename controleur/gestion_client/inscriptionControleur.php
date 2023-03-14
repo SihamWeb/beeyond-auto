@@ -1,5 +1,7 @@
 <?php
 
+require '../../../modele/inc.connexion.php';
+
 if (isset($_POST['submit_inscription'])) { // Clique sur le bouton de soumission
 
     $prenom = strip_tags($_POST['prenom']);

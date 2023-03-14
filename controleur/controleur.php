@@ -1,7 +1,5 @@
 <?php
 
-    require_once '../../../modele/inc.connexion.php';
-
     // TRI
     require_once 'tri/tri_achatControleur.php';
     require_once 'tri/tri_locationControleur.php';
