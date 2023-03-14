@@ -8,4 +8,8 @@
     require_once 'page_produit/page_produit_achatControleur.php';
     require_once 'page_produit/page_produit_locationControleur.php';
 
+    // GESTION CLIENT
+    require_once 'gestion_client/inscriptionControleur.php';
+    require_once 'gestion_client/connexionControleur.php';
+
 ?>

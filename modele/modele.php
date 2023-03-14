@@ -22,7 +22,6 @@ require_once 'inc.connexion.php';
 		require_once 'page_produit/page_produit_achat.php';
 		
 
-
 // PAGE LOCATION
 	
 	// SIDEBAR CHOIX DE NAVIGATION
@@ -41,6 +40,17 @@ require_once 'inc.connexion.php';
 
 	// PAGE PRODUIT
 
-	require_once 'page_produit/page_produit_location.php';
+		require_once 'page_produit/page_produit_location.php';
+
+
+// GESTION CLIENT
+
+	// INSCRIPTION
+
+		require_once 'gestion_client/inscription.php';
+
+	// CONNEXION
+		
+		require_once 'gestion_client/connexion.php';
 
 ?>

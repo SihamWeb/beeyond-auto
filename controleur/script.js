@@ -43,7 +43,7 @@
     }*/
 
     // PAGINATION
-    
+
     // DEUX TENTATIVES AJAX PAGINATION
 	/*$(document).ready(function() {
 		$(".page-link").click(function(){

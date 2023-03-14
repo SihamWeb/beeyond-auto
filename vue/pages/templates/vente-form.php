@@ -2,9 +2,6 @@
 include('../../../modele/inc.connexion.php');
 include ('vente.php');
 
-
-
-
 // Sanitize input parameters
 $marque = filter_var($_POST['marque'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $model = filter_var($_POST['model'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -61,5 +58,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 ?>
-
-

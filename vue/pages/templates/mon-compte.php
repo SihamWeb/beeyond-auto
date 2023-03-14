@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include '../structure/inc.header.php';
 ?>
 
@@ -17,11 +18,14 @@
 					</ul>
 				</nav>
 				<div id="header-top-right">
-					<a href="mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+				<?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
+					<!-- Si l'utilisateur est connecté -->
+					<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
+					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>
+				<?php else : ?>
 					<!-- Si l'utilisateur n'est pas connecté -->
 					<a href="connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
-					<!-- Si l'utilisateur est connecté 
-					<a href="mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>-->
+				<?php endif; ?>
 				</div>
 			</div>
 			<div id="hamburger-menu">
@@ -33,8 +37,7 @@
 	</header>
 	
 	<div class="content content-acc">
-		<!--Si l'utilisateur n'est pas connecté
-		<h2 class="to-left title-connect"><a href="connexion.php">Connectez-vous</a> pour accéder à votre compte</h2>-->
+	<?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) : ?>
 		<!--Sidebar-->
 		<div class="sidebar account-sidebar">
 			<div class="sidebar-top">
@@ -200,6 +203,10 @@
 				</div>
 			</form>
 		</div>
+		<?php else :  ?>
+		<!--Si l'utilisateur n'est pas connecté-->
+		<h2 class="to-left title-connect"><a href="connexion.php">Connectez-vous</a> pour accéder à votre compte</h2>
+		<?php endif; ?>
 	</div>
 <?php
 	include '../structure/inc.footer.php';
