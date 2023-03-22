@@ -39,21 +39,20 @@
 	</header>
 	
 	<div class="content acc-content">
-	<?php if (isset($login_incorrect)) { echo $login_incorrect; }?>
-		<form method="post" action="">
+		<div id="msg"></div>
+		<form method="post" action="" id="submit">
 			<fieldset class="category">
 				<legend><i class="fa-solid fa-circle-user"></i>Pseudo</legend>
 				<label for="username">Pseudo</label>
-				<input type="text" id="username" name="username" minlength="3" maxlength="25" placeholder="Pseudo">
+				<input value="" type="text" id="username" name="username" minlength="3" maxlength="25" placeholder="Pseudo" oninput="connexionUser()">
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="fa-solid fa-lock"></i>Mot de passe</legend>
 				<label for="password">Mot de passe</label>
-				<input type="password" id="password" name="motdepasse" placeholder="Mot de passe">
+				<input value="" type="password" id="password" name="motdepasse" placeholder="Mot de passe" oninput="connexionUser()">
 			</fieldset>
-			<div class="btn btn-outline btn-dark" data="Se connecter">
-				<input type="submit" value="" name="submit_connexion">
-				<i class="fa-solid fa-arrow-right-long"></i>
+			<div class="car-btns" id="submit_connexion">
+				<a title="Se connecter"  class="btn btn-outline btn-dark" data="Se connecter" onclick="connect (); return false;"><i class="cp cp-shopping-cart"></i></a>
 			</div>
 		</form>
 		<p>Vous n'êtes pas inscrit ? <a href="inscription.php">Créez votre compte !</a></p>

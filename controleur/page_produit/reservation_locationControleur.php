@@ -1,6 +1,8 @@
-<?php 
+<?php
 
-// SYSTEME DE CHOIX DES DATES DE LOCATION
+session_start();
+
+$retourmsg = array();
 
 if(isset($_POST) && count($_POST)){
 
@@ -29,16 +31,14 @@ if(isset($_POST) && count($_POST)){
 
                 $resultat_choixdatedebut = $_SESSION['choixdatedebut'];
 
-                if ($resultat_choixdatedebut != 'Indisponible, veuillez choisir une autre date de départ'){
-
-                    if (
-                        array_key_exists('choixdatefin', $_POST) 
-                        && !empty($_POST['choixdatefin'])
-                    ){
+                if (
+                    array_key_exists('choixdatefin', $_POST) 
+                    && !empty($_POST['choixdatefin'])
+                ){
 
                     if ($_POST['choixdatefin'] >= date('Y-m-d')){
 
-                        include_once '../../modele/page_produit/page_produit_location.php';
+                        include_once '../../modele/page_produit/reservation_location.php';
                     
                         choix_date_fin();
         
@@ -46,12 +46,27 @@ if(isset($_POST) && count($_POST)){
 
                         if ($_POST['choixdatefin'] > $_POST['choixdatedebut']){
 
-                            $resultat_coherencedates = '';
-                            $resultat_choixdatefin = $_SESSION['choixdatefin'];
+                            include_once '../../modele/page_produit/reservation_location.php';
+                            
+                            ajoutReservationLocationBDD();
 
-                            if ($resultat_choixdatefin != 'Indisponible, veuillez choisir une autre date de retour'){
-                                $success = 1;
-                                $retourmsg["success"] = $success;
+                            if($_SESSION['reponse'] = 1){
+
+                                informations_voiture_location();
+                            
+                                if (!is_array($_SESSION['reservation_location'])){
+                                    $_SESSION['reservation_location'] = array();
+                                } else {
+                                    $_SESSION['reservation_location'][] = $_SESSION['voiture_reservation_location'];
+                
+                                    $retourmsg['reservation'] = $_SESSION['reservation_location'];
+                                    $retourmsg['msg_success'] = 'Votre véhicule a bien été réservé !';
+                                }
+
+                            } else {
+
+                                $retourmsg['msg_echec'] = 'Echec de la réservation, veuillez réessayez !';
+
                             }
 
                         } else {
@@ -72,8 +87,6 @@ if(isset($_POST) && count($_POST)){
                     $resultat_choixdatefin = 'Saisissez une date de retour';
 
                 }
-
-                }
             
             } else {
 
@@ -89,18 +102,7 @@ if(isset($_POST) && count($_POST)){
     }
 }
 
-global $resultat_choixdatedebut;
-global $resultat_choixdatefin;
-global $resultat_coherencedates;
-
-array_push($retourmsg['msgdebut'], $resultat_choixdatedebut);
-array_push($retourmsg['msgfin'], $resultat_choixdatefin);
-array_push($retourmsg['coherencedates'], $resultat_coherencedates);
-
 echo json_encode ($retourmsg);
-    
-    
-
 
 
 ?>

@@ -12,9 +12,11 @@ $moteur = filter_var($_POST['moteur'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $nombredeportes = filter_var($_POST['nombredeportes'], FILTER_VALIDATE_INT);
 $nombredeplaces = filter_var($_POST['nombredeplaces'], FILTER_VALIDATE_INT);
 $prix_vente = filter_var($_POST['prix_vente'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+$puissance_ch = filter_var($_POST['puissance_ch'], FILTER_VALIDATE_INT);
+$etat = 'OCCASION';
 
 // Prepare SQL query with parameterized placeholders
-$sql = "INSERT INTO vehicules (marque, modelFamily, anneedesortie, type, moteur, nombredeportes, nombredeplaces, prix_vente ) VALUES (:marque, :modelFamily, :anneedesortie, :type, :moteur, :nombredeportes, :nombredeplaces, :prix_vente)";
+$sql = "INSERT INTO vehicules (marque, modelFamily, anneedesortie, type, moteur, nombredeportes, nombredeplaces, prix_vente, etat, puissance_ch ) VALUES (:marque, :modelFamily, :anneedesortie, :type, :moteur, :nombredeportes, :nombredeplaces, :prix_vente, :etat, :puissance_ch)";
 $stmt = $o_bdd->prepare($sql);
 
 
@@ -28,6 +30,8 @@ $stmt->bindParam(':moteur', $moteur);
 $stmt->bindParam(':nombredeportes', $nombredeportes);
 $stmt->bindParam(':nombredeplaces', $nombredeplaces);
 $stmt->bindParam(':prix_vente', $prix_vente);
+$stmt->bindParam(':etat', $etat);
+$stmt->bindParam(':puissance_ch', $puissance_ch);
 
 // Execute the prepared statement
 $stmt->execute();
@@ -55,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
    }
 }
+
 
 
 ?>

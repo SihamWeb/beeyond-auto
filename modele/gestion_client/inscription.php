@@ -3,7 +3,7 @@
 // Requête pour l'ajout d'utilisateur dans la BDD
 
 function addNewUser(){
-    include '../../../modele/inc.connexion.php';
+    include '../../modele/inc.connexion.php';
     $new_user = $o_bdd->prepare('INSERT INTO utilisateurs (username, nom, prenom, mail, motdepasse) VALUES (:username, :nom, :prenom, :mail, :motdepasse)');
     $hashed_motdepasse = password_hash($_POST['motdepasse'], PASSWORD_DEFAULT);
     $new_user->execute(array(

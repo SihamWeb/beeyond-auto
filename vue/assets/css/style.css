@@ -1031,7 +1031,7 @@ footer a:hover {
 	margin-top: 2px;
 }
 
-.sidebar input[type="checkbox"] {
+.sidebar input[type="radio"] {
 	-webkit-appearance: none;
   	appearance: none;
 	width: 10px;
@@ -1042,7 +1042,7 @@ footer a:hover {
 	border-radius: 1px;
 }
 
-.sidebar input[type="checkbox"]:before {
+.sidebar input[type="radio"]:before {
 	content: '';
 	display: block;
 	width: 5px;
@@ -1056,7 +1056,7 @@ footer a:hover {
 	transition: 0.1s ease-in-out;
   }
 
-.sidebar input[type="checkbox"]:checked:before {
+.sidebar input[type="radio"]:checked:before {
 	transform: scale(1);
 }
 
@@ -1105,10 +1105,16 @@ footer a:hover {
 	align-items: center;
 }
 
-#results-top div {
+#results-top > div {
 	display: flex;
 	align-items: center;
 	gap: 10px;
+}
+
+#results-top > div > div {
+	display: flex;
+	align-items: center;
+    gap: 3px;
 }
 
 #results-top form {
@@ -1119,6 +1125,10 @@ footer a:hover {
 #results-top .category {
 	margin: 0;
 	padding: 10px;
+}
+
+#results-top form label {
+	display: none;
 }
 
 #results-top select,
@@ -1240,7 +1250,7 @@ footer a:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-form label {
+.form-vente label {
 	display: none;
 }
 
@@ -1291,6 +1301,7 @@ form .btn {
 .feedback-msg {
 	display: flex;
 	align-items: center;
+	width: 100%;
 	margin-top: 20px;
 	padding: 15px;
 	border-radius: 6px;
@@ -1475,6 +1486,16 @@ form .btn {
 	opacity: 0.8;
 }
 
+#reservation_achat .category,
+#reservation_location .category {
+	margin-bottom: 0;
+}
+
+.results_reservation_msg {
+	margin-top: 10px;
+	font-weight: 500;
+}
+
 .car-btns {
 	display: flex;
 	justify-content: space-between;
@@ -1554,6 +1575,10 @@ form .btn {
 	display: none;
 }
 
+.settings-content form label {
+	display: none;
+}
+
 /* ----------------------------------------
    connexion.php, inscription.php
    ---------------------------------------- */
@@ -1578,6 +1603,24 @@ form .btn {
 
 .acc-content a:hover {
 	color: #fcea72;
+}
+
+#inscription label,
+.acc-content form label {
+	display: none;
+}
+
+#msg,
+#prenom_msg,
+#nom_msg,
+#mail_msg,
+#username_msg,
+#username_exist,
+#motdepasse_msg,
+#confmdp_msg {
+	margin-bottom: 14px;
+	color: #d35959;
+	font-weight: 500;
 }
 
 /* ----------------------------------------

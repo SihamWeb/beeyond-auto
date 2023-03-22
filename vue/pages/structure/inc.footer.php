@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <div>
-                <h2>Contact</h2>
+                <h2 id="contactus">Contact</h2>
                 <ul>
                     <li>01 70 97 61 11</li>
                     <li>01 60 52 43 22</li>

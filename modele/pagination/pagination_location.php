@@ -22,6 +22,7 @@
 
     // Fonction pagination
     $_SESSION['louer'] = array();
+
     global $o_bdd;
 
     $requete = $o_bdd->prepare('SELECT * FROM vehicules_location LIMIT :premier_article_louer, :nb_vehicules_louer_par_page');

@@ -85,17 +85,32 @@
                             </div>
                         </div>
                     </div>
+                    <?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
+                    <form method="post" action="" id='reservation_achat'>
+                        <fieldset class="category">
+                            <legend><i class="cp cp-add-o"></i>Quantité</legend>
+                            <input type="number" min="0" name="quantite" id="quantite" car-id-achat="<?php echo strip_tags($_GET['idCarAchat']); ?>" 
+                                car-user="<?php echo $_SESSION['utilisateurs']['username']?>" name="quantite" value=""  oninput="verificationQuantite(this.value)">
+                        </fieldset>
+                        <div class="results_reservation_msg">
+                            <div id="resultat_quantite"></div>
+                            <div id="resultat_reservation_achat"></div>
+                        </div>
+                    </form>
                     <div class="car-btns">
-                        <a href="" title="" class="btn btn-outline" data="Réserver"><i class="cp cp-shopping-cart"></i></a>
-                        <a href="" title="" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
+                        <a title="Réserver" id="reserver" class="btn btn-outline" data="Réserver" onclick="reservation()"><i class="cp cp-shopping-cart"></i></a>
+                        <a title="Ajouté aux favoris" class="btn" onclick="favorisAchat()"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
                     </div>
+                    <?php else : ?>
+                        <h2 class=""><a href="connexion.php">Connectez-vous</a> pour réserver et ajouter aux favoris</h2>
+		            <?php endif; ?>
                 </div>
             </div>
         </div>
         <?php } ?>
     <?php elseif (isset($_GET['idCarLocation'])) : ?>
         <?php foreach($_SESSION['car_page_location'] as $requete){ ?>
-            <p class="fil-dariane"><a href="location.php" title="Tous les véhicules à louer">/ Louer</a> / <a href="car-page.php?idCarLocation=<?php echo $requete['id']; ?>" title="<?php echo $requete['marque']. " " .$requete['modelFamily']; ?>"><?php echo $requete['marque']. " " .$requete['modelFamily']; ?></a></p>
+            <p class="fil-dariane"><a href="location.php" title="Tous les véhicules à louer">/ Louer</a> / <a href="car-page.php?idCarLocation=<?php echo $requete['id']."&idPageLocation=".$requete['id']; ?>" title="<?php echo $requete['marque']. " " .$requete['modelFamily']; ?>"><?php echo $requete['marque']. " " .$requete['modelFamily']; ?></a></p>
             <div class="car">
                 <div class="car-left">
                     <h2><?php echo $requete['prix_journalier'] ?> <span>€</span></h2>
@@ -140,17 +155,33 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <p>Sélectionner le jour de départ : </p><input type="date" id="input-date-debut" car-id="<?php echo $_GET['idPageLocation']; ?>" 
-                            name="datedebut" value=""  onchange="debutlocation(this.value)">
-                        <p>Sélectionner le jour de fin : </p><input type="date" name="datefin" value="" onchange="finlocation(this.value)">
-                        <p id="resultat_date_debut"></p>
-                        <p id="resultat_date_fin"></p>
-                    </div>
+                    <?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
+                    <form method="post" action="" id='reservation_location'>
+                        <div class="form-inline">
+                            <fieldset class="category">
+                                <legend><i class="cp cp-calendar"></i>Départ</legend>
+                                <input type="date" name="datedebut" id="input-date-debut" car-id="<?php echo strip_tags($_GET['idPageLocation']); ?>" 
+                                    name="datedebut" value=""  onchange="verificationDateLocation(this.value)">
+                            </fieldset>
+                            <fieldset class="category">
+                                <legend><i class="cp cp-calendar"></i>Fin</legend>
+                                <input type="date" name="datefin" value="" id="input-date-fin" onchange="verificationDateLocation(this.value)" car-user="<?php echo $_SESSION['utilisateurs']['username']?>">
+                            </fieldset>
+                        </div>
+                        <div class="results_reservation_msg">
+                            <div id="resultat_date_debut"></div>
+                            <div id="resultat_date_fin"></div>
+                            <div id="resultat_coherence_dates"></div>
+                            <div id="resultat_reservation_location"></div>
+                        </div>
+                    </form>
                     <div class="car-btns">
-                        <a href="" title="" class="btn btn-outline" data="Ajouter au panier"><i class="cp cp-shopping-cart"></i></a>
-                        <a href="" title="" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
+                        <a title="Réserver" class="btn btn-outline" data="Réserver" onclick="reservationLocation();"><i class="cp cp-shopping-cart"></i></a>
+                        <a onclick="favorisLocation();" title="Ajouté aux favoris" class="btn"><i class="cp cp-heart"></i>Ajouter aux favoris</a>
                     </div>
+                    <?php else : ?>
+                        <h2 class=""><a href="connexion.php">Connectez-vous</a> pour réserver et ajouter aux favoris</h2>
+		            <?php endif; ?>
                 </div>
             </div>
         </div>

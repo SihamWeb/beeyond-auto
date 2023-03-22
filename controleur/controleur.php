@@ -5,11 +5,9 @@
     require_once 'tri/tri_locationControleur.php';
 
     // PAGE_PRODUIT
-    require_once 'page_produit/page_produit_achatControleur.php';
-    require_once 'page_produit/page_produit_locationControleur.php';
+    /** Non inclus ici pour ne pas afficher les echo json_encode en haut de certaines pages  **/
+    require_once 'page_produit/car-pageControleur.php';
 
     // GESTION CLIENT
-    require_once 'gestion_client/inscriptionControleur.php';
-    require_once 'gestion_client/connexionControleur.php';
-
+    /** Non inclus ici pour ne pas afficher les echo json_encode en haut de certaines pages  **/
 ?>

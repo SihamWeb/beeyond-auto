@@ -1,9 +1,9 @@
 <?php
 
 // AFFICHER LA PAGE CAR-PAGE AVEC LES DONNEES DE LA VOITURE SELECTIONNEE
+    $_SESSION['car_page_location'] = array();
 
     function car_page_location() {
-        $_SESSION['car_page_location'] = array();
         
         global $o_bdd;
     
@@ -28,63 +28,118 @@
 
 // SYSTEME DE CHOIX DES DATES DE LOCATION
 
-    // CHOIX DATE DE DEBUT DE LOCATION
+    // VOITURE DANS TABLEAU LOCATION
+    $_SESSION['verificationvoiturelocation'] = '';
 
-    function choix_date_debut() {
+    function verification_voiture_location() {
+
         global $o_bdd;
-        $_SESSION['choixdatedebut'] = array();
-        $choixdatedebut = $_GET['choixdatedebut'];
-        $idpagelocation = $_GET['idPageLocation'];
+
+        $idpagelocation = $_POST['idPageLocation'];
+
+        $sql = 'SELECT * FROM location WHERE idvehicule = :idpagelocation';
         
-        $requete = $o_bdd->prepare("SELECT * FROM location WHERE idvehicule = :idpagelocation AND debutlocation <= :choixdatedebut >= finlocation");
-        $requete -> execute([':idpagelocation' => $idpagelocation, ':choixdatedebut' => $choixdatedebut]);
+        include_once '../../modele/inc.connexion.php';
+        $requete = $o_bdd->prepare($sql);
+        $requete -> execute([':idpagelocation' => $idpagelocation]);
         
-        while ($data = $requete->fetch())
-        {
+        $data = $requete->fetch();
             if (!$data) // On teste si la réponse à la requête est vide.
             {
-                $verification_dates++;
-                echo $choixdatedebut;
-                break;
+                $_SESSION['verificationvoiturelocation'] = 0;
             }
             else
             {
-                echo 'Veuillez choisir une autre date de départ';
+                $_SESSION['verificationvoiturelocation'] = 1;
             }
-        }
+        $requete->closeCursor();
+    }
+
+    // CHOIX DATE DE DEBUT DE LOCATION
+    $_SESSION['choixdatedebut'] = '';
+
+    function choix_date_debut() {
+
+        global $o_bdd;
+
+        $choixdatedebut = $_POST['choixdatedebut'];
+        $idpagelocation = $_POST['idPageLocation'];
+
+        $sql = 'SELECT * FROM location WHERE idvehicule = :idpagelocation && :choixdatedebut BETWEEN debutlocation AND finlocation';
+        
+        include_once '../../modele/inc.connexion.php';
+        $requete = $o_bdd->prepare($sql);
+        $requete -> execute([':idpagelocation' => $idpagelocation, ':choixdatedebut' => $choixdatedebut]);
+        
+        $data = $requete->fetch();
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                $_SESSION['choixdatedebut'] = 'Date de début souhaitée : '.$choixdatedebut;
+            }
+            else
+            {
+                $_SESSION['choixdatedebut'] = 'Indisponible, veuillez choisir une autre date de départ';
+            }
         $requete->closeCursor();
     }
 
 
-
-
-
     // CHOIX DATE DE FIN DE LOCATION
+    $_SESSION['choixdatefin'] = '';
 
     function choix_date_fin() {
-        $_SESSION['choixdatefin'] = array();
-        $choixdatefin = $_GET['choixdatefin'];
-        $idpagelocation = $_GET['idPageLocation'];
+        
+        $choixdatefin = $_POST['choixdatefin'];
+        $idpagelocation = $_POST['idPageLocation'];
 
         global $o_bdd;
-        
-        $requete = $o_bdd->prepare("SELECT * FROM `location` WHERE idvehicule = :idpagelocation AND 'debutlocation' <= ':choixdatefin' >= 'finlocation'");
-        $requete -> execute([':idpagelocation' => $idpagelocation, ':choixdatefin' => $choixdatefin]);
 
-        while ($data = $requete->fetch())
-        {
+        $sql = 'SELECT * FROM location WHERE idvehicule = :idpagelocation && :choixdatefin BETWEEN debutlocation AND finlocation';
+        
+        include_once '../../modele/inc.connexion.php';
+        $requete = $o_bdd->prepare($sql);
+        $requete -> execute([':idpagelocation' => $idpagelocation, ':choixdatefin' => $choixdatefin]);
+        
+        $data = $requete->fetch();
             if (!$data) // On teste si la réponse à la requête est vide.
             {
-                $verification_dates++;
-                echo $choixdatefin;
-                break;
+                $_SESSION['choixdatefin'] = 'Date de fin souhaitée : '.$choixdatefin;
             }
             else
             {
-                echo 'Veuillez choisir une autre date de retour';
+                $_SESSION['choixdatefin'] = 'Indisponible, veuillez choisir une autre date de retour';
             }
-        }
         $requete->closeCursor();
+                
+    }
+
+    // AJOUT DANS LES RESERVATIONS
+    $_SESSION['ajoutreservationlocation'] = '';
+
+    function ajout_reservation_location() {
+        
+        $choixdatefin = $_POST['choixdatefin'];
+        $idpagelocation = $_POST['idPageLocation'];
+
+        global $o_bdd;
+
+        $sql = 'SELECT * FROM location WHERE idvehicule = :idpagelocation && :choixdatefin BETWEEN debutlocation AND finlocation';
+        
+        include_once '../../modele/inc.connexion.php';
+        $requete = $o_bdd->prepare($sql);
+        $requete -> execute([':idpagelocation' => $idpagelocation, ':choixdatefin' => $choixdatefin]);
+        
+        $data = $requete->fetch();
+            if (!$data) // On teste si la réponse à la requête est vide.
+            {
+                $_SESSION['choixdatefin'] = $choixdatefin;
+            }
+            else
+            {
+                $_SESSION['choixdatefin'] = 'Veuillez choisir une autre date de retour';
+            }
+        $requete->closeCursor();
+                
     }
 
 ?>

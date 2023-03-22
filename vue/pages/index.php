@@ -21,10 +21,10 @@
 				<?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
 					<!-- Si l'utilisateur est connecté -->
 					<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon panier" class="btn"><i class="cp cp-shopping-cart-o"></i></a>
-					<a href="templates/mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>
+					<a href="/groupe2/vue/pages/templates/mon-compte.php" title="Mon compte" class="btn btn-outline" data="Mon compte"><i class="fa-regular fa-user"></i></a>
 				<?php else : ?>
 					<!-- Si l'utilisateur n'est pas connecté -->
-					<a href="templates/connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
+					<a href="/groupe2/vue/pages/templates/connexion.php" title="Se connecter" class="btn btn-outline" data="Se connecter"><i class="fa-regular fa-user"></i></a>
 				<?php endif; ?>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 		<div id="presentation-right">
 			<h2 class="to-left">Qui sommes-nous ?</h2>
 			<p class="desc section-desc">Cela fait maintenant 10 ans que BeeyondAuto se spécialise dans le marché de l'automobile pour vous offrir les meilleurs services de vente et de location.</p>
-			<a href="#" title="Nous contacter" class="btn btn-outline" data="Contactez-nous"><i class="fa-regular fa-comment"></i></a>
+			<a href="#contactus" title="Nous contacter" class="btn btn-outline" data="Contactez-nous"><i class="fa-regular fa-comment"></i></a>
 		</div>
 	</section>
 	<!--Services-->
@@ -118,7 +118,7 @@
 	<section id="models">
 		<div class="title">
 			<h2 class="to-left">Notre gamme de véhicules</h2>
-			<a href="" title="Tous nos modèles" class="btn btn-outline" data="Tous nos modèles"><i class="fa-solid fa-arrow-right"></i></a>
+			<a href="templates/achat.php#modeles" title="Tous nos modèles" class="btn btn-outline" data="Tous nos modèles"><i class="fa-solid fa-arrow-right"></i></a>
 		</div>
 		<p class="desc section-desc">Choisissez parmi tous nos modèles</p>
 		<div class="models">

@@ -46,90 +46,92 @@
 	</header>
 	<div class="content">
 		<!--Sidebar-->
-		<div class="sidebar">
+		<form method="" action="" onchange='facettesLocation(this.value)'class="sidebar">
+			<input type="text" name="search_text" id="search_text" placeholder="Rechercher un véhicule" class="form-control form-black" />
 			<fieldset class="category">
 				<legend><i class="cp cp-new"></i>Disponibilité</legend>
 				<ul>
-					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-1" value="<?php echo $disponible; ?>"><label for="choice_marque-1"><?php echo $disponible. '<br />'; ?></label>
-					<input type="checkbox" name="choice_disponibilite[]" id="choice_marque-2" value="<?php echo $indisponible; ?>"><label for="choice_marque-2"><?php echo $indisponible. '<br />'; ?></label>
+					<li><input type="radio" name="choice_disponibilite[]" id="choice_marque-1" value="" checked><label for="choice_marque-1">TOUTES</label></li>
+					<li><input type="radio" name="choice_disponibilite[]" id="choice_marque-2" value="<?php echo $disponible; ?>"><label for="choice_marque-1"><?php echo $disponible. '<br />'; ?></label></li>
+					<li><input type="radio" name="choice_disponibilite[]" id="choice_marque-3" value="<?php echo $indisponible; ?>"><label for="choice_marque-2"><?php echo $indisponible. '<br />'; ?></label></li>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-tags"></i>Marque</legend>
 				<ul>
-					<?php $i = 1; foreach($_SESSION['louer_marque'] as $requete){ ?>
-					<input type="checkbox" name="choice_marque[]" id="choice_marque-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_marque-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label>
-					<!--<li><?php echo $requete; ?></li>-->
+					<li><input type="radio" name="choice_marque[]" id="choice_marque-1" value="" checked><label for="choice_marque-1">TOUTES</label></li>
+					<?php $i = 2; foreach($_SESSION['louer_marque'] as $requete){ ?>
+					<li><input type="radio" name="choice_marque[]" id="choice_marque<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_marque-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label></li>
 					<?php $i++; } ?>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-car"></i>Type</legend>
 				<ul>
-					<?php $i = 1; foreach($_SESSION['louer_type'] as $requete){ ?>
-					<input type="checkbox" name="choice_type[]" id="choice_type-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_type-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label>
-					<!--<li><?php echo $requete; ?></li>-->
+					<li><input type="radio" name="choice_type[]" id="choice_type-1" value="" checked><label for="choice_type-1">TOUS</label></li>
+					<?php $i = 2; foreach($_SESSION['louer_type'] as $requete){ ?>
+					<li><input type="radio" name="choice_type[]" id="choice_type-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_type-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label></li>
 					<?php $i++; } ?>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-car"></i>Moteur</legend>
 				<ul>
-					<?php $i = 1; foreach($_SESSION['louer_moteur'] as $requete){ ?>
-					<input type="checkbox" name="choice_type[]" id="choice_type-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_type-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label>
-					<!--<li><?php echo $requete; ?></li>-->
+					<li><input type="radio" name="choice_moteur[]" id="choice_moteur-1" value="" checked><label for="choice_type-1">TOUS</label></li>
+					<?php $i = 2; foreach($_SESSION['louer_moteur'] as $requete){ ?>
+					<li><input type="radio" name="choice_moteur[]" id="choice_moteur-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_type-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label></li>
 					<?php $i++; } ?>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-enter"></i>Boite de vitesse</legend>
 				<ul>
-					<?php $i = 1; foreach($_SESSION['louer_boitedevitesse'] as $requete){ ?>
-					<input type="checkbox" name="choice_type[]" id="choice_type-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_type-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label>
-					<!--<li><?php echo $requete; ?></li>-->
+					<li><input type="radio" name="choice_boitedevitesse[]" id="choice_boitedevitesse-1" value="" checked><label for="choice_type-1">TOUTES</label></li>
+					<?php $i = 2; foreach($_SESSION['louer_boitedevitesse'] as $requete){ ?>
+					<li><input type="radio" name="choice_boitedevitesse[]" id="choice_boitedevitesse-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_type-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label></li>
 					<?php $i++; } ?>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-user"></i>Capacité</legend>
 				<ul>
-					<?php $i = 1; foreach($_SESSION['louer_place'] as $requete){ ?>
-					<input type="checkbox" name="choice_place[]" id="choice_place-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_place-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label>
-					<!--<li><?php echo $requete; ?></li>-->
+					<li><input type="radio" name="choice_place[]" id="choice_place-1" value="" checked><label for="choice_place-1">TOUTES</label></li>
+					<?php $i = 2; foreach($_SESSION['louer_place'] as $requete){ ?>
+					<li><input type="radio" name="choice_place[]" id="choice_place-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_place-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label></li>
 					<?php $i++; } ?>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-enter"></i>Portes</legend>
 				<ul>
-					<?php $i = 1; foreach($_SESSION['louer_porte'] as $requete){ ?>
-					<input type="checkbox" name="choice_porte[]" id="choice_porte-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_porte-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label>
-					<!--<li><?php echo $requete; ?></li>-->
+					<li><input type="radio" name="choice_porte[]" id="choice_porte-1" value="" checked><label for="choice_porte-1">TOUTES</label></li>
+					<?php $i = 2; foreach($_SESSION['louer_porte'] as $requete){ ?>
+					<li><input type="radio" name="choice_porte[]" id="choice_porte-<?php echo $i; ?>" value="<?php echo $requete; ?>"><label for="choice_porte-<?php echo $i; ?>"><?php echo $requete. '<br />'; ?></label></li>
 					<?php $i++; } ?>
 				</ul>
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-enter"></i>Année</legend>
-				<input type="number" name="annee_min_location" placeholder="Minimum">
-				<input type="number" name="annee_max_location" placeholder="Maximum">
+				<input type="number" name="annee_min" placeholder="Minimum">
+				<input type="number" name="annee_max" placeholder="Maximum">
 			</fieldset>
 			<fieldset class="category">
 				<legend><i class="cp cp-enter"></i>Prix</legend>
-				<input type="number" name="prix_min_location" placeholder="Minimum">
-				<input type="number" name="prix_max_location" placeholder="Maximum">
+				<input type="number" name="prix_min" placeholder="Minimum">
+				<input type="number" name="prix_max" placeholder="Maximum">
 			</fieldset>
-		</div>
+		</form>
 		<!--Results-->
 		<div class="main">
 			<div id="results-top">
 				<div>
 					<i class="cp cp-filter"></i>
-					<?php echo $nb_vehicules_louer; ?> résultat(s)
+					<div><p id='nombre_resultat'><?php echo $nb_vehicules_louer; ?></p>résultat(s)</div>
 				</div>
 				<form method="GET" action="#">
 					<fieldset class="category">
 						<label for="tri_location">Tri</label>
-						<select name="tri_location" id="tri_location" onchange="showCarslocation(this.value)">
+						<select name="tri_location" id="tri_location" onchange="facettesLocation(this.value)">
 							<option value="" >-- Trier par --</option>
 							<option value="location_annee_croissant" >Années croissantes</option>
 							<option value="location_annee_decroissant">Années décroissantes</option>
@@ -137,7 +139,6 @@
 							<option value="location_prix_decroissant">Prix décroissants</option>
 						</select>
 					</fieldset>
-					<input id="btn_tri_location" name="submit_tri_location" type="submit" value="Trier">
 				</form>
 			</div>
 			<div class="results">
@@ -163,17 +164,16 @@
 						</div>
 					</div>
 				</a>
-				<?php } ?>
+			<?php } ?>
 			</div>
+			<div class="results"></div>
 			<div class="page-nav">
-			<?php if ($activ_page_louer != 1) : ?>
-				<a href="location.php?page=<?php echo ($activ_page_louer - 1);?>&tri_location=<?php if (isset($tri_location)){echo $tri_location;}; ?>&submit_tri_location="><i class="fa-solid fa-arrow-left-long"></i></a>
-			<?php endif; ?>
-			<?php if ($activ_page_louer < $nb_pages_total_louer) : ?>
-				<a href="location.php?page=<?php echo ($activ_page_louer + 1);?>&tri_location=<?php if (isset($tri_location)){echo $tri_location;}; ?>&submit_tri_location="><i class="fa-solid fa-arrow-right-long"></i></a>
-			<?php endif; ?>
+				<input type="radio" name="pagination[]" id="pagination1" value="1" checked onclick="facettesLocation(this.value)"><label for="pagination-1">1</label></input>
+				<input type="radio" name="pagination[]" id="pagination2" value="2" onclick="facettesLocation(this.value)"><label for="pagination-2">2</label></input>
+				<input type="radio" name="pagination[]" id="pagination3" value="3" onclick="facettesLocation(this.value)"><label for="pagination-3">3</label></input>
+				<input type="radio" name="pagination[]" id="pagination4" value="4" onclick="facettesLocation(this.value)"><label for="pagination-4">4</label></input>
 			</div>
-			<div class="page-nbr">Page <?php echo $activ_page_louer ?> sur <?php echo $nb_pages_total_louer ?></div>
+			<div class="page-nav"></div>
 		</div>
 	</div>
 	

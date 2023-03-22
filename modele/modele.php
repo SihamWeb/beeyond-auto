@@ -49,8 +49,4 @@ require_once 'inc.connexion.php';
 
 		require_once 'gestion_client/inscription.php';
 
-	// CONNEXION
-		
-		require_once 'gestion_client/connexion.php';
-
 ?>

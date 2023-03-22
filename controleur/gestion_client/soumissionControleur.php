@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $retour_msg = array();
 
@@ -27,7 +28,7 @@ if ($_POST && count($_POST)) { // Vérification si le formulaire a bien été tr
 
             $retour_msg['msg'] = "";
 
-            $_SESSION['utilisateurs'] = array();
+            $utilisateurConnect = array();
 
             global $o_bdd;
 
@@ -41,7 +42,7 @@ if ($_POST && count($_POST)) { // Vérification si le formulaire a bien été tr
             $data_login = $verif_login->fetch();
 
             if ($data_login){
-                $_SESSION['utilisateurs'] = $data_login;
+                $utilisateurConnect = $data_login;
             }
 
             if (
@@ -65,6 +66,10 @@ if ($_POST && count($_POST)) { // Vérification si le formulaire a bien été tr
 
                     $retour_msg['msg'] = "";
                     $retour_msg['correct'] = 1;
+                    
+                    $_SESSION['utilisateurs'] = $utilisateurConnect;
+
+                    $retour_msg['utilisateurs'] = $_SESSION['utilisateurs'];
 
                 } else {
 
@@ -89,7 +94,6 @@ if ($_POST && count($_POST)) { // Vérification si le formulaire a bien été tr
 
     }
 }
-
 
 echo json_encode($retour_msg);
 

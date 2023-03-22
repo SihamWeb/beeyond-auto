@@ -46,14 +46,14 @@
 	<div class="content content-vente">
 		<div class="left-content">
 			<p class="desc section-desc">/ Commencez par remplir notre formulaire</p>
-			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
+			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
 		</div>
 		<form action="vente-form.php" method="post" autocomplete="off" class="form-vente">
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-tags"></i>Marque</legend>
 					<label for="brand">Marque</label>
-					<input type="text" id="brand" name="marque" minlength="2" maxlength="20" placeholder="exemple : Audi" required>
+					<input type="text" id="brand" name="marque" minlength="2" maxlength="20" placeholder="exemple : Audi" required>
 				</fieldset>
 				<fieldset class="category">
 					<legend><i class="cp cp-car"></i>Modèle</legend>
@@ -98,9 +98,9 @@
 			</div>
 			<div class="form-inline">
 				<fieldset class="category">
-					<legend><i class="cp cp-watch"></i>Vitesses</legend>
-					<label for="gearbox">Vitesses</label>
-					<input type="number" id="gearbox" name="boitedevitesse" min="5" max="8" value="5" required>
+					<legend><i class="cp cp-watch"></i>Puissance (ch)</legend>
+					<label for="gearbox">Puissance (ch)</label>
+					<input type="number" id="gearbox" name="puissance_ch" min="5" value="100" required>
 				</fieldset>
 				<fieldset class="category">
 					<legend><i class="cp cp-enter"></i>Portes</legend>
@@ -135,7 +135,7 @@
 		<!--Signed out message
 		<div class="signed-out">
 			<p class="desc section-desc">/ Connectez-vous pour commencer à vendre</p>
-			<h2 class="to-left">Toujours pas inscrit ?<br>Créez-vous un compte en 2 minutes !</h2>
+			<h2 class="to-left">Toujours pas inscrit ?<br>Créez-vous un compte en 2 minutes !</h2>
 			<div>
 				<a href="#services" title="En savoir plus" class="btn btn-outline" data="S'inscrire"></a>
 				<a href="#" title="Nous contacter" class="btn">Connexion</a>

@@ -1,7 +1,7 @@
 <?php
 	// Paramètres de connexion
 	$_db = array(
-		'host'		=>	'localhost:3306',
+		'host'		=>	'localhost:8889',
 		'dbname'	=>	'beeyondauto',
 		'user'		=>	'beeyondauto',
 		'passwd'	=>	'[Ty0Jab57rmpYbK8'

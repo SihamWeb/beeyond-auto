@@ -25,4 +25,32 @@ function car_page_achat() {
     $requete->closeCursor();
 }
 
+// VERIFICATION STOCK
+
+function verification_stock(){
+
+    $attributIdCarAchat = $_POST['attributIdCarAchat'];
+
+    global $o_bdd;
+
+    $sql = 'SELECT * FROM vehicules WHERE id = :attributIdCarAchat';
+    
+    include_once '../../modele/inc.connexion.php';
+    $requete = $o_bdd->prepare($sql);
+    $requete -> execute([':attributIdCarAchat' => strip_tags($attributIdCarAchat)]);
+    
+    $data = $requete->fetch();
+        if (!$data) // On teste si la réponse à la requête est vide.
+        {
+            $_SESSION['quantite'] = 0;
+        }
+        else
+        {
+            $_SESSION['quantite'] = $data;
+        }
+    
+        $requete->closeCursor();
+
+}
+
 ?>
