@@ -1605,6 +1605,10 @@ form .btn {
 	color: #fcea72;
 }
 
+#inscription_ok .feedback-msg {
+	margin-top: 0;
+}
+
 #inscription label,
 .acc-content form label {
 	display: none;

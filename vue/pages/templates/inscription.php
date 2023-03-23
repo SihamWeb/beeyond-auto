@@ -38,11 +38,13 @@
 	</header>
 	
 	<div class="content acc-content sign-up-content" id="inscription_ok">
-		<p>Votre inscription a bien été prise en compte !<a href="connexion.php"> Connectez-vous !</a></p>
+		<div class=" feedback-msg validate">
+			<i class="cp cp-check-mark"></i><div>Votre inscription a bien été prise en compte !<a href="connexion.php"> Connectez-vous !</a></div>
+		</div>
 	</div>
 
 	<div class="content acc-content sign-up-content" id="inscription_en_cours">
-		<form method="post" action="" id="inscription">
+		<form method="post" action="" id="inscription" autocomplete="off">
 			<div id="prenom_msg">Saisissez un prénom contenant entre 2 et 30 lettres</div>
 			<div id="nom_msg">Saisissez un nom contenant entre 2 et 30 lettres</div>
 			<div class="form-inline">
