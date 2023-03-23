@@ -42,7 +42,6 @@
 			<i class="cp cp-check-mark"></i><div>Votre inscription a bien été prise en compte !<a href="connexion.php"> Connectez-vous !</a></div>
 		</div>
 	</div>
-
 	<div class="content acc-content sign-up-content" id="inscription_en_cours">
 		<form method="post" action="" id="inscription" autocomplete="off">
 			<div id="prenom_msg">Saisissez un prénom contenant entre 2 et 30 lettres</div>

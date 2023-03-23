@@ -51,7 +51,11 @@
 			var tableauHTML = "";
 			
 			for (var i = 0; i < resultats.length; i++) {
-				tableauHTML += '<a href="car-page.php?idCarAchat='+ resultats[i].id +'" title="" class="result"><div class="result-top"><p>' + resultats[i].marque + ' ' + resultats[i].modelFamily + ' ' + resultats[i].anneedesortie + '</p><p>' + resultats[i].prix_vente +' €</p></div><img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make='+resultats[i].marque+'&modelFamily='+resultats[i].modelFamily+'&modelRange='+resultats[i].modelRange+'&modelVariant='+resultats[i].modelVariant+'&angle=23" title="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'" alt="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'"><div class="result-bottom"><div><img src="/groupe2/vue/assets/images/car/gas.png" alt="">'+ resultats[i].moteur +'</div><div><img src="/groupe2/vue/assets/images/car/gauge.png" alt="">'+ resultats[i].puissance_ch +' ch</div><div><img src="/groupe2/vue/assets/images/car/car.png" alt="">'+ resultats[i].type +'</div></div></a>';
+                if (resultats[i].moteur === 'ELECTRIQUE'){
+                    tableauHTML += '<a href="car-page.php?idCarAchat='+ resultats[i].id +'" title="" class="result"><div class="result-top"><p>' + resultats[i].marque + ' ' + resultats[i].modelFamily + ' ' + resultats[i].anneedesortie + '</p><p>' + resultats[i].prix_vente +' €</p></div><img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make='+resultats[i].marque+'&modelFamily='+resultats[i].modelFamily+'&modelRange='+resultats[i].modelRange+'&modelVariant='+resultats[i].modelVariant+'&angle=23" title="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'" alt="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'"><div class="result-bottom"><div><img src="/groupe2/vue/assets/images/car/electric.png" alt="">'+ resultats[i].moteur +'</div><div><img src="/groupe2/vue/assets/images/car/gauge.png" alt="">'+ resultats[i].puissance_ch +' ch</div><div><img src="/groupe2/vue/assets/images/car/car.png" alt="">'+ resultats[i].type +'</div></div></a>';
+                } else {
+                    tableauHTML += '<a href="car-page.php?idCarAchat='+ resultats[i].id +'" title="" class="result"><div class="result-top"><p>' + resultats[i].marque + ' ' + resultats[i].modelFamily + ' ' + resultats[i].anneedesortie + '</p><p>' + resultats[i].prix_vente +' €</p></div><img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make='+resultats[i].marque+'&modelFamily='+resultats[i].modelFamily+'&modelRange='+resultats[i].modelRange+'&modelVariant='+resultats[i].modelVariant+'&angle=23" title="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'" alt="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'"><div class="result-bottom"><div><img src="/groupe2/vue/assets/images/car/gas.png" alt="">'+ resultats[i].moteur +'</div><div><img src="/groupe2/vue/assets/images/car/gauge.png" alt="">'+ resultats[i].puissance_ch +' ch</div><div><img src="/groupe2/vue/assets/images/car/car.png" alt="">'+ resultats[i].type +'</div></div></a>';
+                }
 			}
 
 			results.innerHTML = tableauHTML;
@@ -145,7 +149,11 @@
             var tableauHTML = "";
             
             for (var i = 0; i < resultats.length; i++) {
-                tableauHTML += '<a href="car-page.php?idCarLocation='+ resultats[i].id +'&idPageLocation='+ resultats[i].id +'" title="" class="result"><div class="result-top"><p>' + resultats[i].marque + ' ' + resultats[i].modelFamily + ' ' + resultats[i].anneedesortie + '</p><p>' + resultats[i].prix_journalier +' €</p></div><img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make='+resultats[i].marque+'&modelFamily='+resultats[i].modelFamily+'&modelRange='+resultats[i].modelRange+'&modelVariant='+resultats[i].modelVariant+'&angle=23" title="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'" alt="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'"><div class="result-bottom"><div><img src="/groupe2/vue/assets/images/car/gas.png" alt="">'+ resultats[i].moteur +'</div><div><img src="/groupe2/vue/assets/images/car/gauge.png" alt="">'+ resultats[i].puissance_ch +' ch</div><div><img src="/groupe2/vue/assets/images/car/car.png" alt="">'+ resultats[i].type +'</div></div></a>';
+                if (resultats[i].moteur === 'ELECTRIQUE'){
+                    tableauHTML += '<a href="car-page.php?idCarLocation='+ resultats[i].id +'&idPageLocation='+ resultats[i].id +'" title="" class="result"><div class="result-top"><p>' + resultats[i].marque + ' ' + resultats[i].modelFamily + ' ' + resultats[i].anneedesortie + '</p><p>' + resultats[i].prix_journalier +' €</p></div><img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make='+resultats[i].marque+'&modelFamily='+resultats[i].modelFamily+'&modelRange='+resultats[i].modelRange+'&modelVariant='+resultats[i].modelVariant+'&angle=23" title="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'" alt="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'"><div class="result-bottom"><div><img src="/groupe2/vue/assets/images/car/electric.png" alt="">'+ resultats[i].moteur +'</div><div><img src="/groupe2/vue/assets/images/car/gauge.png" alt="">'+ resultats[i].puissance_ch +' ch</div><div><img src="/groupe2/vue/assets/images/car/car.png" alt="">'+ resultats[i].type +'</div></div></a>';
+                } else {
+                    tableauHTML += '<a href="car-page.php?idCarLocation='+ resultats[i].id +'&idPageLocation='+ resultats[i].id +'" title="" class="result"><div class="result-top"><p>' + resultats[i].marque + ' ' + resultats[i].modelFamily + ' ' + resultats[i].anneedesortie + '</p><p>' + resultats[i].prix_journalier +' €</p></div><img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make='+resultats[i].marque+'&modelFamily='+resultats[i].modelFamily+'&modelRange='+resultats[i].modelRange+'&modelVariant='+resultats[i].modelVariant+'&angle=23" title="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'" alt="Photo d\'une '+resultats[i].marque+' '+resultats[i].modelFamily+'"><div class="result-bottom"><div><img src="/groupe2/vue/assets/images/car/gas.png" alt="">'+ resultats[i].moteur +'</div><div><img src="/groupe2/vue/assets/images/car/gauge.png" alt="">'+ resultats[i].puissance_ch +' ch</div><div><img src="/groupe2/vue/assets/images/car/car.png" alt="">'+ resultats[i].type +'</div></div></a>';
+                }
             }
 
             results.innerHTML = tableauHTML;
@@ -161,9 +169,9 @@
                 nbvehiculestotale = resultats2[0].nb_vehicules_louer;
                 
                 var nbpagestotales = Math.ceil(nbvehiculestotale/nbvehiculesparpage);
-                
+                console.log(nbpagestotales);
                 afficherResultats(resultats.louer);
-
+                
                 nombreResults.innerHTML = nbvehiculestotale;
             }
         }
@@ -240,7 +248,9 @@
                                 var retour = JSON.parse(this.responseText);
                 
                                 if (retour.msg_success){
-                
+                                    
+                                    resultatDateDebut.style.display='none';
+                                    resultatDateFin.style.display='none';
                                     resultat_reservation_location.style.display = 'flex';
                                     resultat_reservation_location.innerHTML = retour.msg_success;
                 
@@ -321,6 +331,7 @@
     // ACHAT	
 
     function verificationQuantite(){
+
         var quantite = document.querySelector('input[name=quantite]');
         var attributIdCarAchat = quantite.getAttribute('car-id-achat');
         var btnReservation = document.getElementById('reserver');
@@ -349,7 +360,8 @@
                                 var retour = JSON.parse(this.responseText);
                 
                                 if (retour.msg_success){
-                
+                                    
+                                    resultaQuantite.style.display='none';
                                     resultat_reservation.style.display = 'flex';
                                     resultat_reservation.innerHTML = retour.msg_success;
                 

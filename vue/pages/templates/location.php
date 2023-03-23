@@ -151,7 +151,11 @@
 					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&angle=23" title="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?> alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
 					<div class="result-bottom">
 						<div>
-							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+							<?php if ($requete['moteur'] === 'ELECTRIQUE') : ?>
+                                <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
+                            <?php else : ?>
+                                <img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+                            <?php endif; ?>
 							<?php echo $requete['moteur']; ?>
 						</div>
 						<div>
@@ -172,6 +176,9 @@
 				<input type="radio" name="pagination[]" id="pagination2" value="2" onclick="facettesLocation(this.value)"><label for="pagination-2">2</label></input>
 				<input type="radio" name="pagination[]" id="pagination3" value="3" onclick="facettesLocation(this.value)"><label for="pagination-3">3</label></input>
 				<input type="radio" name="pagination[]" id="pagination4" value="4" onclick="facettesLocation(this.value)"><label for="pagination-4">4</label></input>
+			</div>
+			<div class="page-nav">
+			
 			</div>
 			<div class="page-nav"></div>
 		</div>

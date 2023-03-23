@@ -152,7 +152,11 @@
 					<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=<?php echo $requete['marque'];?>&modelFamily=<?php echo $requete['modelFamily'];?>&modelRange=<?php echo $requete['modelRange'];?>&modelVariant=<?php echo $requete['modelVariant'];?>&angle=23" title="Photo d'une <?php echo $requete['marque']." ".$requete['modelFamily'];?>" alt="Photo d'une <?php echo $requete['marque']; echo $requete['modelFamily'];?>">
 					<div class="result-bottom">
 						<div>
-							<img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+							<?php if ($requete['moteur'] === 'ELECTRIQUE') : ?>
+                                <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
+                            <?php else : ?>
+                                <img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+                            <?php endif; ?>
 							<?php echo $requete['moteur']; ?>
 						</div>
 						<div>

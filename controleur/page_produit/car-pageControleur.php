@@ -34,4 +34,8 @@ if(isset($_GET) && count($_GET)){
     }
 }
 
+// AFFICHER UNE ICONE SPECIFIQUE POUR LES VOITURES ELECTRIQUE
+
+
+
 ?>

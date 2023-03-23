@@ -3,12 +3,12 @@ include('../../../modele/inc.connexion.php');
 include ('vente.php');
 
 // Sanitize input parameters
-$marque = filter_var($_POST['marque'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$model = filter_var($_POST['model'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$marque = filter_var(strtoupper($_POST['marque']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$model = filter_var(strtoupper($_POST['model']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $date = filter_var($_POST['annedesortie'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $anneedesortie = date("Y" , strtotime($date));
-$type = filter_var($_POST['type'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$moteur = filter_var($_POST['moteur'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$type = filter_var(strtoupper($_POST['type']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$moteur = filter_var(strtoupper($_POST['moteur']), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $nombredeportes = filter_var($_POST['nombredeportes'], FILTER_VALIDATE_INT);
 $nombredeplaces = filter_var($_POST['nombredeplaces'], FILTER_VALIDATE_INT);
 $prix_vente = filter_var($_POST['prix_vente'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);

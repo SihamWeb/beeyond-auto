@@ -200,6 +200,7 @@
 		global $sql;
 		global $sqlnbvehiculestotales;
 		$triachat = strip_tags ($_POST["triachat"]);
+		$sql .= " ORDER BY anneedesortie ASC";
 		$sqlnbvehiculestotales .= " ORDER BY anneedesortie ASC";
 	}
 

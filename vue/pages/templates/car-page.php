@@ -66,7 +66,11 @@
                         </div>
                         <div class="car-column">
                             <div class="car-info ci-sm ci-black">
+                            <?php if ($requete['moteur'] === 'ELECTRIQUE') : ?>
                                 <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
+                            <?php else : ?>
+                                <img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+                            <?php endif; ?>
                                 <?php echo $requete['moteur'] ?>
                             </div>
                             <div class="car-info ci-bg ci-yellow">
@@ -136,7 +140,11 @@
                         </div>
                         <div class="car-column">
                             <div class="car-info ci-sm ci-black">
+                            <?php if ($requete['moteur'] === 'ELECTRIQUE') : ?>
                                 <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
+                            <?php else : ?>
+                                <img src="/groupe2/vue/assets/images/car/gas.png" alt="">
+                            <?php endif; ?>
                                 <?php echo $requete['moteur'] ?>
                             </div>
                             <div class="car-info ci-bg ci-yellow">

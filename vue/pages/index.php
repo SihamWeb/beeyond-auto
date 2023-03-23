@@ -118,7 +118,7 @@
 	<section id="models">
 		<div class="title">
 			<h2 class="to-left">Notre gamme de véhicules</h2>
-			<a href="templates/achat.php#modeles" title="Tous nos modèles" class="btn btn-outline" data="Tous nos modèles"><i class="fa-solid fa-arrow-right"></i></a>
+			<a href="/groupe2/vue/pages/templates/achat.php#modeles" title="Tous nos modèles" class="btn btn-outline" data="Tous nos modèles"><i class="fa-solid fa-arrow-right"></i></a>
 		</div>
 		<p class="desc section-desc">Choisissez parmi tous nos modèles</p>
 		<div class="models">
