@@ -122,26 +122,26 @@
 		</div>
 		<p class="desc section-desc">Choisissez parmi tous nos modèles</p>
 		<div class="models">
-			<a href="#" title="SUV" class="model">
+			<div class="model">
 				<h3>SUV</h3>
 				<img src="https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=volkswagen&modelFamily=atlas&paintId=pspc0041&angle=23" alt="SUV">
-			</a>
-			<a href="#" title="Berline" class="model">
+			</div>
+			<div class="model">
 				<h3>Berline</h3>
 				<img src="https://cdn-01.imagin.studio/getImage?&customer=frbeeyond-auto1&make=alfa-romeo&modelFamily=giulia&paintId=pspc0041&angle=23" alt="Berline">
-			</a>
-			<a href="#" title="Électrique" class="model">
+			</div>
+			<div class="model">
 				<h3>Électrique</h3>
 				<img src="https://cdn-08.imagin.studio/getImage?&customer=frbeeyond-auto1&make=mercedes&modelFamily=eqs&paintId=pspc0041&angle=23" alt="Électrique">
-			</a>
-			<a href="#" title="Luxe" class="model">
+			</div>
+			<div class="model">
 				<h3>Luxe</h3>
 				<img src="https://cdn-08.imagin.studio/getImage?&customer=frbeeyond-auto1&make=genesis&modelFamily=g90&paintId=pspc0041&angle=23" alt="Luxe">
-			</a>
-			<a href="#" title="Cabriolet" class="model">
+			</div>
+			<div class="model">
 				<h3>Cabriolet</h3>
 				<img src="https://cdn-01.imagin.studio/getImage?&customer=frbeeyond-auto&make=abarth&modelFamily=124-spider&paintId=pspc0041&angle=23" alt="Cabriolet">
-			</a>
+			</div>
 		</div>
 	</section>
 	<!--Map-->
