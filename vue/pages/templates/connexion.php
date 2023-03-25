@@ -51,8 +51,8 @@
 				<label for="password">Mot de passe</label>
 				<input value="" type="password" id="password" name="motdepasse" placeholder="Mot de passe" oninput="connexionUser()">
 			</fieldset>
-			<div class="car-btns" id="submit_connexion">
-				<a title="Se connecter"  class="btn btn-outline btn-dark" data="Se connecter" onclick="connect (); return false;"><i class="cp cp-shopping-cart"></i></a>
+			<div id="submit_connexion">
+				<a title="Se connecter"  class="btn btn-outline btn-dark" data="Se connecter" onclick="connect (); return false;"><i class="cp cp-arrow-right"></i></a>
 			</div>
 		</form>
 		<p>Vous n'êtes pas inscrit ? <a href="inscription.php">Créez votre compte !</a></p>

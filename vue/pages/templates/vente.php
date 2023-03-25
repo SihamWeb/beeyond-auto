@@ -98,7 +98,7 @@
 			</div>
 			<div class="form-inline">
 				<fieldset class="category">
-					<legend><i class="cp cp-watch"></i>Puissance (ch)</legend>
+					<legend><i class="cp cp-watch"></i>Puissance</legend>
 					<label for="gearbox">Puissance (ch)</label>
 					<input type="number" id="gearbox" name="puissance_ch" min="5" value="100" required>
 				</fieldset>
