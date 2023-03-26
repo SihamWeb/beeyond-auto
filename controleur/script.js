@@ -495,6 +495,10 @@ var connexion = document.getElementById('submit_connexion');
 		xhr.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var retour = JSON.parse(this.responseText);
+				
+				if(retour.msg){
+					msg.innerHTML = retour.msg;
+				}
 
 				if(retour.utilisateurs){
 					window.location.replace('mon-compte.php');
