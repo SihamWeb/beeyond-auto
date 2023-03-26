@@ -6,6 +6,8 @@ $retourmsg = array();
 
 if(isset($_POST) && count($_POST)){
 
+    $_SESSION['favoris_location'] = array();
+
     if(
         array_key_exists('idPageLocation', $_POST) 
         && !empty($_POST['idPageLocation']) 

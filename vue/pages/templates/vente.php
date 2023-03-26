@@ -1,11 +1,14 @@
 <?php
 	session_start();
 	include '../structure/inc.header.php';
+	include '../../../modele/modele.php';
+	include '../../../controleur/controleur.php';
 ?>
 
 <body>
 	<!--Header-->
 	<header class="header-height">
+
 		<div class="header-top">
 			<a href="../index.php" title="Accueil"><img src="/groupe2/vue/assets/images/logos/logo.png" alt="Logo"></a>
 			<div class="menu">
@@ -43,17 +46,18 @@
 		</div>
 	</header>
 	<!--Form-->
+	<?php if($_SESSION && count($_SESSION) && array_key_exists('utilisateurs', $_SESSION) && !empty($_SESSION['utilisateurs'])) :  ?>
 	<div class="content content-vente">
 		<div class="left-content">
 			<p class="desc section-desc">/ Commencez par remplir notre formulaire</p>
-			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
+			<h2 class="to-left">Quel véhicule souhaitez-vous vendre ?</h2>
 		</div>
-		<form action="vente-form.php" method="post" autocomplete="off" class="form-vente">
+		<form id="form_vente" action="" method="post" autocomplete="off" class="form-vente" >
 			<div class="form-inline">
 				<fieldset class="category">
 					<legend><i class="cp cp-tags"></i>Marque</legend>
 					<label for="brand">Marque</label>
-					<input type="text" id="brand" name="marque" minlength="2" maxlength="20" placeholder="exemple : Audi" required>
+					<input type="text" id="brand" name="marque" minlength="2" maxlength="20" placeholder="exemple : Audi" required>
 				</fieldset>
 				<fieldset class="category">
 					<legend><i class="cp cp-car"></i>Modèle</legend>
@@ -119,7 +123,7 @@
 				</fieldset>
 			</div>
 			<div class="btn btn-outline" data="Envoyer ma demande">
-				<input type="submit" value="">
+				<input name="btn" type="submit" value="">
 				<i class="fa-solid fa-arrow-right-long"></i>
 			</div>
 			<!--Form feedback messages-->
@@ -131,18 +135,30 @@
 				<i class="cp cp-cross"></i>
 				Message d'erreur ici
 			</div>
+			<?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				// Process form submission here
+				// Check for errors
+				$has_error = true; // Change this based on your error-checking logic
+				
+				if (!$has_error) {
+					// Error, return error message
+					echo '<script>document.querySelector(".feedback-msg.error").style.display = "block";</script>';
+				} else {
+						// No error, return success message
+					echo '<script>document.querySelector(".feedback-msg.validate").style.display = "block";</script>';
+					
+				}
+			}
+			?>
+			
+			
 		</form>
-		<!--Signed out message
-		<div class="signed-out">
-			<p class="desc section-desc">/ Connectez-vous pour commencer à vendre</p>
-			<h2 class="to-left">Toujours pas inscrit ?<br>Créez-vous un compte en 2 minutes !</h2>
-			<div>
-				<a href="#services" title="En savoir plus" class="btn btn-outline" data="S'inscrire"></a>
-				<a href="#" title="Nous contacter" class="btn">Connexion</a>
-			</div>
-		</div>-->
 	</div>
+	<?php else : ?>
+	<div class="content content-acc">
+		<h2 class="to-left title-connect"><a href="connexion.php">Connectez-vous</a> pour vendre votre véhicule</h2>
+	</div>
+	<?php endif; 
 
-<?php
-	include '../structure/inc.footer.php';
+include '../structure/inc.footer.php';
 ?>

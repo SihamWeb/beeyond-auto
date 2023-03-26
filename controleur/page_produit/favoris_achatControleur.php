@@ -5,6 +5,8 @@ $retourmsg = array();
 
 if(isset($_POST) && count($_POST)){
 
+    $_SESSION['favoris_achat'] = array();
+
     if(
         array_key_exists('idCarAchat', $_POST) 
         && !empty($_POST['idCarAchat']) 

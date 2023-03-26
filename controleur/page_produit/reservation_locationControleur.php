@@ -6,6 +6,8 @@ $retourmsg = array();
 
 if(isset($_POST) && count($_POST)){
 
+    $_SESSION['reservation_location'] = array();
+
     $retourmsg = array(
         'msgdebut' => array(),
         'msgfin' => array(),

@@ -49,4 +49,8 @@ require_once 'inc.connexion.php';
 
 		require_once 'gestion_client/inscription.php';
 
+// VENTE 
+
+require_once 'vente-form/vente-form.php';
+
 ?>
