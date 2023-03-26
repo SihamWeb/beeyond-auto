@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 26 mars 2023 à 09:43
+-- Généré le : dim. 26 mars 2023 à 15:37
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.12
 
@@ -68,13 +68,8 @@ INSERT INTO `location` (`id`, `username`, `idvehicule`, `debutlocation`, `finloc
 (3, '', 22, '2023-03-07', '2023-03-10'),
 (6, '', 1, '2023-03-11', '2023-06-30'),
 (8, '', 1, '2023-08-18', '2023-08-25'),
-(15, 'sissou', 5, '2023-03-23', '2023-03-24'),
-(18, 'sissou', 6, '2023-03-24', '2023-03-25'),
-(19, 'sissou', 8, '2023-03-30', '2023-03-31'),
-(20, 'sissou', 1, '2023-07-27', '2023-08-17'),
-(22, 'sissou', 3, '2023-03-30', '2023-03-31'),
-(23, 'Maxime2', 4, '2023-03-31', '2023-04-02'),
-(24, 'Maxime2', 6, '2023-03-27', '2023-03-28');
+(18, '', 6, '2023-03-24', '2023-03-25'),
+(19, '', 8, '2023-03-30', '2023-03-31');
 
 -- --------------------------------------------------------
 
@@ -97,9 +92,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`username`, `nom`, `prenom`, `mail`, `motdepasse`) VALUES
-('', '', '', '', ''),
-('Maxime2', 'nom', 'Maxime', 'm@gmail.com', '$2y$10$EAIpJO2dGuL0iYY7AEsGZuB00coVdrMXRg.GJ1CnRkYZe/3R/mIGu'),
-('sissou', 'charef', 'Siham', 's@gmail.com', '$2y$10$juApE2oNGmwYo3bYTdkzKe7hBm0kvBFQlq0PJ6fZHqJsMUfmB7b0q');
+('', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -125,7 +118,6 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
   `stock` int NOT NULL,
   `prix_vente` int NOT NULL,
   `etat` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'NEUF',
-  `image_occasion` blob NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -134,47 +126,47 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
 -- Déchargement des données de la table `vehicules`
 --
 
-INSERT INTO `vehicules` (`id`, `username`, `marque`, `modelFamily`, `modelRange`, `modelVariant`, `type`, `moteur`, `puissance_ch`, `boitedevitesse`, `nombredeportes`, `nombredeplaces`, `anneedesortie`, `stock`, `prix_vente`, `etat`, `image_occasion`) VALUES
-(1, '', 'AUDI', 'A6', 'A6', 'SA', 'BERLINE', 'DIESEL', 560, 'AUTOMATIQUE', 5, 5, 2018, 3, 60000, 'NEUF', ''),
-(2, '', 'AUDI', 'A6', 'RS6', 'ES', 'BREAK', 'ESSENCE', 600, 'AUTOMATIQUE', 5, 5, 2020, 1, 125000, 'NEUF', ''),
-(3, '', 'AUDI', 'A3', 'A3', 'CA', 'BERLINE', 'ESSENCE', 300, 'MANUELLE', 3, 2, 2019, 0, 30000, 'NEUF', ''),
-(4, '', 'AUDI', 'Q5-SPORTBACK', 'SQ5-SPORTBACK', 'OD', 'SUV', 'DIESEL', 341, 'AUTOMATIQUE', 5, 5, 2021, 5, 80000, 'NEUF', ''),
-(5, '', 'AUDI', 'A1', 'S1', 'HA', 'CITADINE', 'ESSENCE', 231, 'MANUELLE', 3, 5, 2017, 2, 15000, 'NEUF', ''),
-(6, '', 'ABARTH', '500', '500', 'CA', 'CITADINE', 'ESSENCE', 165, 'AUTOMATIQUE', 3, 4, 2018, 0, 15200, 'NEUF', ''),
-(7, '', 'ABARTH', '124-SPIDER', '124-SPIDER', 'CA', 'CABRIOLET', 'ESSENCE', 170, 'MANUELLE', 2, 2, 2018, 7, 27500, 'NEUF', ''),
-(8, '', 'BMW', 'Z4', 'Z4', 'CA', 'CABRIOLET', 'ESSENCE', 197, 'AUTOMATIQUE', 3, 2, 2023, 4, 52300, 'NEUF', ''),
-(9, '', 'BMW', 'I8', 'I8', 'CO', 'BERLINE', 'HYBRIDE', 374, 'AUTOMATIQUE', 3, 2, 2018, 0, 134800, 'NEUF', ''),
-(10, '', 'BMW', 'SERIES-1', 'SERIES-1', 'CH', 'BERLINE', 'DIESEL', 170, 'AUTOMATIQUE', 5, 5, 2019, 4, 24675, 'NEUF', ''),
-(11, '', 'FORD', 'B-MAX', 'B-MAX', 'HA', 'MONOSPACE', 'ESSENCE', 105, 'AUTOMATIQUE', 5, 5, 2016, 1, 7799, 'NEUF', ''),
-(12, '', 'FORD', 'F-150', 'F-150', 'PU', 'RANGER', 'DIESEL', 375, 'AUTOMATIQUE', 2, 3, 2019, 2, 36985, 'NEUF', ''),
-(13, '', 'FORD', 'TRANSIT-CUSTOM', 'TRANSIT-CUSTOM', 'CC', 'SOCIETE', 'DIESEL', 131, 'MANUELLE', 5, 3, 2019, 3, 14300, 'NEUF', ''),
-(14, '', 'FORD', 'ECOSPORT', 'ECOSPORT', 'OD', 'SUV', 'ESSENCE', 125, 'MANUELLE', 5, 5, 2019, 2, 13700, 'NEUF', ''),
-(15, '', 'FORD', 'RANGER', 'WILDTRACK', 'PU', 'RANGER', 'DIESEL', 240, 'AUTOMATIQUE', 4, 4, 2023, 6, 50650, 'NEUF', ''),
-(16, '', 'CITROEN', 'C1', 'C1', 'MC', 'CITADINE', 'ESSENCE', 72, 'MANUELLE', 3, 4, 2019, 2, 10500, 'NEUF', ''),
-(17, '', 'CITROEN', 'C3-AIRCROSS', 'C3-AIRCROSS', 'OD', 'SUV', 'ESSENCE', 130, 'MANUELLE', 5, 5, 2021, 9, 23400, 'NEUF', ''),
-(18, '', 'CITROEN', 'C4', 'C4', 'HA', 'BERLINE', 'ELECTRIQUE', 136, 'AUTOMATIQUE', 5, 5, 2021, 1, 25250, 'NEUF', ''),
-(19, '', 'TESLA', 'MODEL-3', 'MODEL-3', 'SA', 'LUXE', 'ELECTRIQUE', 325, 'AUTOMATIQUE', 5, 5, 2021, 1, 58100, 'NEUF', ''),
-(20, '', 'TESLA', 'MODEL-S', 'MODEL-S', 'HA', 'LUXE', 'ELECTRIQUE', 422, 'AUTOMATIQUE', 5, 5, 2020, 1, 69990, 'NEUF', ''),
-(21, '', 'BUGATTI', 'CHIRON', 'CHIRON', 'CO', 'LUXE', 'ESSENCE', 1600, 'AUTOMATIQUE', 2, 2, 2020, 3, 2800250, 'NEUF', ''),
-(22, '', 'JAGUAR', 'F-PACE', 'F-PACE', 'OD', 'SUV', 'ESSENCE', 250, 'AUTOMATIQUE', 5, 5, 2020, 8, 47250, 'NEUF', ''),
-(23, '', 'JAGUAR', 'XE', 'XE', 'SA', 'BERLINE', 'DIESEL', 180, 'AUTOMATIQUE', 5, 5, 2019, 2, 32999, 'NEUF', ''),
-(24, '', 'ASTON-MARTIN', 'RAPIDE', 'RAPIDE-S', 'CO', 'LUXE', 'ESSENCE', 560, 'AUTOMATIQUE', 4, 4, 2015, 1, 139899, 'NEUF', ''),
-(25, '', 'FIAT', '500X', '500X', 'OD', 'SUV', 'HYBRIDE', 131, 'AUTOMATIQUE', 5, 5, 2022, 13, 35370, 'NEUF', ''),
-(26, '', 'ALPHA-ROMEO', '4C', '4C', 'CO', 'COUPÉ', 'Essence ', 157, 'AUTOMATIQUE', 3, 2, 2018, 1, 63200, 'NEUF', ''),
-(27, '', 'CITROEN ', 'AMI', 'AMI', 'MC', 'CITADINE', 'ELECTRIQUE', 90, 'AUTOMATIQUE', 2, 2, 2021, 3, 6900, 'NEUF', ''),
-(28, '', 'CITROEN', 'BERLINGO', 'BERLINGO', 'CV', 'UTILITAIRE', 'ELECTRIQUE', 135, 'AUTOMATIQUE', 5, 3, 2019, 5, 39240, 'NEUF', ''),
-(29, '', 'CITROEN ', 'JUMPY', 'JUMPY', 'BU', 'MONOSPACE', 'ELECTRIQUE', 200, 'AUTOMATIQUE', 5, 7, 2020, 2, 51400, 'NEUF', ''),
-(30, '', 'CUPRA', 'ATECA', 'ATECA', 'OD', 'SUV', 'ESSENCE', 300, 'AUTOMATIQUE', 5, 5, 2019, 2, 42500, 'NEUF', ''),
-(34, '', 'CUPRA ', 'FORMENTOR', 'FORMENTOR', 'OD', 'SUV', 'ESSENCE ', 500, 'AUTOMATIQUE', 5, 5, 2021, 2, 63755, 'NEUF', ''),
-(35, '', 'CUPRA', 'LEON', 'LEON', 'ES', 'SUV', 'ESSENCE', 200, 'AUTOMATIQUE', 5, 5, 2021, 3, 39480, 'NEUF', ''),
-(36, '', 'HONDA', 'CIVIC', 'CIVIC', 'CO', 'BERLINE', 'ESSENCE', 230, 'AUTOMATIQUE', 3, 5, 2020, 3, 32400, 'NEUF', ''),
-(37, '', 'VOLVO', 'V60', 'V60', 'CE', 'SUV', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2020, 1, 70500, 'NEUF', ''),
-(38, '', 'VOLVO', 'XC90', 'XC90', 'OD', 'SUV', 'DIESEL', 420, 'AUTOMATIQUE', 5, 5, 2020, 1, 90532, 'NEUF', ''),
-(39, '', 'VOLKSWAGEN', 'POLO', 'POLO', 'CH', 'COMPACTE', 'ESSENCE', 220, 'AUTOMATIQUE', 5, 5, 2020, 6, 35000, 'NEUF', ''),
-(40, '', 'VOLKSWAGEN ', 'ARTEON', 'ARTEON', 'ES', 'BREAK', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2021, 2, 55200, 'NEUF', ''),
-(41, '', 'JEEP', 'AVENGER', 'AVENGER', 'OD', 'SUV', 'ELECTRIQUE', 420, 'AUTOMATIQUE', 5, 5, 2023, 0, 65320, 'NEUF', ''),
-(42, '', 'HYUNDAI', 'VELOSTER', 'VELOSTER', 'CO', 'COUP', 'ESSENCE', 190, 'AUTOMATIQUE', 3, 5, 2019, 2, 23320, 'NEUF', ''),
-(43, '', 'KIA ', 'SPORTAGE', 'SPORTAGE', 'OD', 'SUV', 'DIESEL', 250, 'AUTOMATIQUE', 5, 5, 2022, 1, 41500, 'NEUF', '');
+INSERT INTO `vehicules` (`id`, `username`, `marque`, `modelFamily`, `modelRange`, `modelVariant`, `type`, `moteur`, `puissance_ch`, `boitedevitesse`, `nombredeportes`, `nombredeplaces`, `anneedesortie`, `stock`, `prix_vente`, `etat`) VALUES
+(1, '', 'AUDI', 'A6', 'A6', 'SA', 'BERLINE', 'DIESEL', 560, 'AUTOMATIQUE', 5, 5, 2018, 3, 60000, 'NEUF'),
+(2, '', 'AUDI', 'A6', 'RS6', 'ES', 'BREAK', 'ESSENCE', 600, 'AUTOMATIQUE', 5, 5, 2020, 1, 125000, 'NEUF'),
+(3, '', 'AUDI', 'A3', 'A3', 'CA', 'BERLINE', 'ESSENCE', 300, 'MANUELLE', 3, 2, 2019, 0, 30000, 'NEUF'),
+(4, '', 'AUDI', 'Q5-SPORTBACK', 'SQ5-SPORTBACK', 'OD', 'SUV', 'DIESEL', 341, 'AUTOMATIQUE', 5, 5, 2021, 5, 80000, 'NEUF'),
+(5, '', 'AUDI', 'A1', 'S1', 'HA', 'CITADINE', 'ESSENCE', 231, 'MANUELLE', 3, 5, 2017, 2, 15000, 'NEUF'),
+(6, '', 'ABARTH', '500', '500', 'CA', 'CITADINE', 'ESSENCE', 165, 'AUTOMATIQUE', 3, 4, 2018, 0, 15200, 'NEUF'),
+(7, '', 'ABARTH', '124-SPIDER', '124-SPIDER', 'CA', 'CABRIOLET', 'ESSENCE', 170, 'MANUELLE', 2, 2, 2018, 7, 27500, 'NEUF'),
+(8, '', 'BMW', 'Z4', 'Z4', 'CA', 'CABRIOLET', 'ESSENCE', 197, 'AUTOMATIQUE', 3, 2, 2023, 4, 52300, 'NEUF'),
+(9, '', 'BMW', 'I8', 'I8', 'CO', 'BERLINE', 'HYBRIDE', 374, 'AUTOMATIQUE', 3, 2, 2018, 0, 134800, 'NEUF'),
+(10, '', 'BMW', 'SERIES-1', 'SERIES-1', 'CH', 'BERLINE', 'DIESEL', 170, 'AUTOMATIQUE', 5, 5, 2019, 4, 24675, 'NEUF'),
+(11, '', 'FORD', 'B-MAX', 'B-MAX', 'HA', 'MONOSPACE', 'ESSENCE', 105, 'AUTOMATIQUE', 5, 5, 2016, 1, 7799, 'NEUF'),
+(12, '', 'FORD', 'F-150', 'F-150', 'PU', 'RANGER', 'DIESEL', 375, 'AUTOMATIQUE', 2, 3, 2019, 2, 36985, 'NEUF'),
+(13, '', 'FORD', 'TRANSIT-CUSTOM', 'TRANSIT-CUSTOM', 'CC', 'SOCIETE', 'DIESEL', 131, 'MANUELLE', 5, 3, 2019, 3, 14300, 'NEUF'),
+(14, '', 'FORD', 'ECOSPORT', 'ECOSPORT', 'OD', 'SUV', 'ESSENCE', 125, 'MANUELLE', 5, 5, 2019, 2, 13700, 'NEUF'),
+(15, '', 'FORD', 'RANGER', 'WILDTRACK', 'PU', 'RANGER', 'DIESEL', 240, 'AUTOMATIQUE', 4, 4, 2023, 6, 50650, 'NEUF'),
+(16, '', 'CITROEN', 'C1', 'C1', 'MC', 'CITADINE', 'ESSENCE', 72, 'MANUELLE', 3, 4, 2019, 2, 10500, 'NEUF'),
+(17, '', 'CITROEN', 'C3-AIRCROSS', 'C3-AIRCROSS', 'OD', 'SUV', 'ESSENCE', 130, 'MANUELLE', 5, 5, 2021, 9, 23400, 'NEUF'),
+(18, '', 'CITROEN', 'C4', 'C4', 'HA', 'BERLINE', 'ELECTRIQUE', 136, 'AUTOMATIQUE', 5, 5, 2021, 1, 25250, 'NEUF'),
+(19, '', 'TESLA', 'MODEL-3', 'MODEL-3', 'SA', 'LUXE', 'ELECTRIQUE', 325, 'AUTOMATIQUE', 5, 5, 2021, 1, 58100, 'NEUF'),
+(20, '', 'TESLA', 'MODEL-S', 'MODEL-S', 'HA', 'LUXE', 'ELECTRIQUE', 422, 'AUTOMATIQUE', 5, 5, 2020, 1, 69990, 'NEUF'),
+(21, '', 'BUGATTI', 'CHIRON', 'CHIRON', 'CO', 'LUXE', 'ESSENCE', 1600, 'AUTOMATIQUE', 2, 2, 2020, 3, 2800250, 'NEUF'),
+(22, '', 'JAGUAR', 'F-PACE', 'F-PACE', 'OD', 'SUV', 'ESSENCE', 250, 'AUTOMATIQUE', 5, 5, 2020, 8, 47250, 'NEUF'),
+(23, '', 'JAGUAR', 'XE', 'XE', 'SA', 'BERLINE', 'DIESEL', 180, 'AUTOMATIQUE', 5, 5, 2019, 2, 32999, 'NEUF'),
+(24, '', 'ASTON-MARTIN', 'RAPIDE', 'RAPIDE-S', 'CO', 'LUXE', 'ESSENCE', 560, 'AUTOMATIQUE', 4, 4, 2015, 1, 139899, 'NEUF'),
+(25, '', 'FIAT', '500X', '500X', 'OD', 'SUV', 'HYBRIDE', 131, 'AUTOMATIQUE', 5, 5, 2022, 13, 35370, 'NEUF'),
+(26, '', 'ALPHA-ROMEO', '4C', '4C', 'CO', 'COUPÉ', 'Essence ', 157, 'AUTOMATIQUE', 3, 2, 2018, 1, 63200, 'NEUF'),
+(27, '', 'CITROEN ', 'AMI', 'AMI', 'MC', 'CITADINE', 'ELECTRIQUE', 90, 'AUTOMATIQUE', 2, 2, 2021, 3, 6900, 'NEUF'),
+(28, '', 'CITROEN', 'BERLINGO', 'BERLINGO', 'CV', 'UTILITAIRE', 'ELECTRIQUE', 135, 'AUTOMATIQUE', 5, 3, 2019, 5, 39240, 'NEUF'),
+(29, '', 'CITROEN ', 'JUMPY', 'JUMPY', 'BU', 'MONOSPACE', 'ELECTRIQUE', 200, 'AUTOMATIQUE', 5, 7, 2020, 2, 51400, 'NEUF'),
+(30, '', 'CUPRA', 'ATECA', 'ATECA', 'OD', 'SUV', 'ESSENCE', 300, 'AUTOMATIQUE', 5, 5, 2019, 2, 42500, 'NEUF'),
+(34, '', 'CUPRA ', 'FORMENTOR', 'FORMENTOR', 'OD', 'SUV', 'ESSENCE ', 500, 'AUTOMATIQUE', 5, 5, 2021, 2, 63755, 'NEUF'),
+(35, '', 'CUPRA', 'LEON', 'LEON', 'ES', 'SUV', 'ESSENCE', 200, 'AUTOMATIQUE', 5, 5, 2021, 3, 39480, 'NEUF'),
+(36, '', 'HONDA', 'CIVIC', 'CIVIC', 'CO', 'BERLINE', 'ESSENCE', 230, 'AUTOMATIQUE', 3, 5, 2020, 3, 32400, 'NEUF'),
+(37, '', 'VOLVO', 'V60', 'V60', 'CE', 'SUV', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2020, 1, 70500, 'NEUF'),
+(38, '', 'VOLVO', 'XC90', 'XC90', 'OD', 'SUV', 'DIESEL', 420, 'AUTOMATIQUE', 5, 5, 2020, 1, 90532, 'NEUF'),
+(39, '', 'VOLKSWAGEN', 'POLO', 'POLO', 'CH', 'COMPACTE', 'ESSENCE', 220, 'AUTOMATIQUE', 5, 5, 2020, 6, 35000, 'NEUF'),
+(40, '', 'VOLKSWAGEN ', 'ARTEON', 'ARTEON', 'ES', 'BREAK', 'DIESEL', 350, 'AUTOMATIQUE', 5, 5, 2021, 2, 55200, 'NEUF'),
+(41, '', 'JEEP', 'AVENGER', 'AVENGER', 'OD', 'SUV', 'ELECTRIQUE', 420, 'AUTOMATIQUE', 5, 5, 2023, 0, 65320, 'NEUF'),
+(42, '', 'HYUNDAI', 'VELOSTER', 'VELOSTER', 'CO', 'COUP', 'ESSENCE', 190, 'AUTOMATIQUE', 3, 5, 2019, 2, 23320, 'NEUF'),
+(43, '', 'KIA ', 'SPORTAGE', 'SPORTAGE', 'OD', 'SUV', 'DIESEL', 250, 'AUTOMATIQUE', 5, 5, 2022, 1, 41500, 'NEUF');
 
 -- --------------------------------------------------------
 
