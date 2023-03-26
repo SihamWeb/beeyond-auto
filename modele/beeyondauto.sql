@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 22 mars 2023 à 12:33
+-- Généré le : dim. 26 mars 2023 à 09:43
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.1.12
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -37,16 +38,7 @@ CREATE TABLE IF NOT EXISTS `achat` (
   PRIMARY KEY (`id`),
   KEY `idvehicule` (`idvehicule`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `achat`
---
-
-INSERT INTO `achat` (`id`, `username`, `idvehicule`, `dateachat`, `quantite`) VALUES
-(19, 'sissou', 22, '2023-03-22', 1),
-(29, 'sissou', 9, '2023-03-22', 1),
-(30, 'sissou', 16, '2023-03-22', 1);
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -64,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   PRIMARY KEY (`id`),
   KEY `idvehicule` (`idvehicule`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `location`
@@ -74,14 +66,15 @@ INSERT INTO `location` (`id`, `username`, `idvehicule`, `debutlocation`, `finloc
 (1, '', 5, '2023-03-06', '2023-03-06'),
 (2, '', 3, '2023-03-06', '2023-03-06'),
 (3, '', 22, '2023-03-07', '2023-03-10'),
-(5, '', 5, '2023-03-10', '2023-03-14'),
 (6, '', 1, '2023-03-11', '2023-06-30'),
 (8, '', 1, '2023-08-18', '2023-08-25'),
 (15, 'sissou', 5, '2023-03-23', '2023-03-24'),
-(16, 'sissou', 5, '2023-04-20', '2023-04-22'),
-(17, 'sissou', 5, '2023-04-15', '2023-04-18'),
 (18, 'sissou', 6, '2023-03-24', '2023-03-25'),
-(19, 'sissou', 8, '2023-03-30', '2023-03-31');
+(19, 'sissou', 8, '2023-03-30', '2023-03-31'),
+(20, 'sissou', 1, '2023-07-27', '2023-08-17'),
+(22, 'sissou', 3, '2023-03-30', '2023-03-31'),
+(23, 'Maxime2', 4, '2023-03-31', '2023-04-02'),
+(24, 'Maxime2', 6, '2023-03-27', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -105,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`username`, `nom`, `prenom`, `mail`, `motdepasse`) VALUES
 ('', '', '', '', ''),
-('selin', 'lami', 'selin', 'selin@outlook.fr', '$2y$10$TtExuq6fl9RYnxo38GZBiOB9G40TjRt5KlIOyL3DTLu6DMHMILkAS'),
+('Maxime2', 'nom', 'Maxime', 'm@gmail.com', '$2y$10$EAIpJO2dGuL0iYY7AEsGZuB00coVdrMXRg.GJ1CnRkYZe/3R/mIGu'),
 ('sissou', 'charef', 'Siham', 's@gmail.com', '$2y$10$juApE2oNGmwYo3bYTdkzKe7hBm0kvBFQlq0PJ6fZHqJsMUfmB7b0q');
 
 -- --------------------------------------------------------
@@ -135,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
   `image_occasion` blob NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `vehicules`
@@ -148,7 +141,7 @@ INSERT INTO `vehicules` (`id`, `username`, `marque`, `modelFamily`, `modelRange`
 (4, '', 'AUDI', 'Q5-SPORTBACK', 'SQ5-SPORTBACK', 'OD', 'SUV', 'DIESEL', 341, 'AUTOMATIQUE', 5, 5, 2021, 5, 80000, 'NEUF', ''),
 (5, '', 'AUDI', 'A1', 'S1', 'HA', 'CITADINE', 'ESSENCE', 231, 'MANUELLE', 3, 5, 2017, 2, 15000, 'NEUF', ''),
 (6, '', 'ABARTH', '500', '500', 'CA', 'CITADINE', 'ESSENCE', 165, 'AUTOMATIQUE', 3, 4, 2018, 0, 15200, 'NEUF', ''),
-(7, '', 'ABARTH', '124-SPIDER', '124-SPIDER', 'CA', 'CABRIOLET', 'ESSENCE', 170, 'MANUELLE', 2, 2, 2018, 10, 27500, 'NEUF', ''),
+(7, '', 'ABARTH', '124-SPIDER', '124-SPIDER', 'CA', 'CABRIOLET', 'ESSENCE', 170, 'MANUELLE', 2, 2, 2018, 7, 27500, 'NEUF', ''),
 (8, '', 'BMW', 'Z4', 'Z4', 'CA', 'CABRIOLET', 'ESSENCE', 197, 'AUTOMATIQUE', 3, 2, 2023, 4, 52300, 'NEUF', ''),
 (9, '', 'BMW', 'I8', 'I8', 'CO', 'BERLINE', 'HYBRIDE', 374, 'AUTOMATIQUE', 3, 2, 2018, 0, 134800, 'NEUF', ''),
 (10, '', 'BMW', 'SERIES-1', 'SERIES-1', 'CH', 'BERLINE', 'DIESEL', 170, 'AUTOMATIQUE', 5, 5, 2019, 4, 24675, 'NEUF', ''),
@@ -261,6 +254,7 @@ ALTER TABLE `location`
 --
 ALTER TABLE `vehicules`
   ADD CONSTRAINT `vehicules_ibfk_1` FOREIGN KEY (`username`) REFERENCES `utilisateurs` (`username`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
