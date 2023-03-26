@@ -176,7 +176,7 @@
             <?php
                     }
                 } else {
-                    echo "<p>Vous n'avez pas de vehicules reservés</p>";
+                    echo "<p>Vous n'avez pas de véhicules reservés</p>";
                 }
 			?>
         </div>
