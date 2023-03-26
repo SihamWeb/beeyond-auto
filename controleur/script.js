@@ -454,7 +454,6 @@ var connexion = document.getElementById('submit_connexion');
 		var username = document.querySelector('input[name=username]').value;
 		var password = document.getElementById('password').value;
 		var msg = document.getElementById("msg");
-		var submitConnexion = document.getElementById('submit');
 
 		var xhr = new XMLHttpRequest();
 		
@@ -468,7 +467,6 @@ var connexion = document.getElementById('submit_connexion');
 
 				if (retour.correct){
 					msg.style.display = 'none';
-					connexion.style.display = "flex";
 				}
 			}	
 		};                    
@@ -485,7 +483,6 @@ var connexion = document.getElementById('submit_connexion');
 	};
 
 	function connect (){
-		var submitConnexion = document.getElementById('submit');
 		var username = document.querySelector('input[name=username]').value;
 		var password = document.getElementById('password').value;
 		
@@ -495,14 +492,13 @@ var connexion = document.getElementById('submit_connexion');
 		xhr.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var retour = JSON.parse(this.responseText);
-				
-				if(retour.msg){
+
+                if(retour.msg){
 					msg.innerHTML = retour.msg;
 				}
 
 				if(retour.utilisateurs){
-					window.location.replace('mon-compte.php');
-					msg.innerHTML = retour.utilisateurs['username'];
+                    window.location.replace('mon-compte.php');
 				}
 			}	
 		};                    
