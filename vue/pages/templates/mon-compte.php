@@ -86,12 +86,10 @@
 					$etat = $vehicle['etat'];
 
 					$image_url = 'https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=' . strtolower($marque) . '&modelFamily=' . strtolower($model) . '&angle=23';?>
-            
-            <p>VOS FAVORIS EN ACHAT</p>
-			
+            			
             <?php foreach ($_SESSION['favoris_achat'] as $vehicle) { ?>
             <div class="results">
-                <a href="car-page.php?idCarAchat=<?php echo $vehicle['id']; ?>" title="" class="result" style="max-width: none;">
+                <a href="car-page.php?idCarAchat=<?php echo $vehicle['id']; ?>" title="" class="result">
                     <div class="result-top">
                         <p><?php echo $vehicle['marque'] . ' ' . $vehicle['modelFamily'] . ' ' . $vehicle['anneedesortie']; ?>
                         <p>
@@ -121,65 +119,7 @@
             <?php
 					}
 				} else {
-					echo "<p>Vous n'avez pas de favoris en achat</p>";
-				}
-				?>
-
-        </div>
-        <div class="main favs-content">
-
-            <?php
-				if (!empty($_SESSION['favoris_location'])) {
-					$vehicle = $_SESSION['favoris_location'][0];
-
-					$marque = $vehicle['marque'];
-					$model = $vehicle['modelFamily'];
-					$annee = $vehicle['anneedesortie'];
-					
-					$moteur = $vehicle['moteur'];
-					$puissance_ch = $vehicle['puissance_ch'];
-					$boite_de_vitesse = $vehicle['boitedevitesse'];
-					$nombre_de_portes = $vehicle['nombredeportes'];
-					$nombre_de_places = $vehicle['nombredeplaces'];
-					
-
-					$image_url = 'https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=' . strtolower($marque) . '&modelFamily=' . strtolower($model) . '&angle=23';?>
-
-            <p>VOS FAVORIS EN LOCATION</p>
-            
-			<?php foreach ($_SESSION['favoris_location'] as $vehicle) { ?>
-            <div class="results">
-                <a href="car-page.php?idCarLocation=<?php echo $vehicle['id']."&idPageLocation=".$vehicle['id']; ?>" title="" style="max-width: none;" class="result">
-                    <div class="result-top">
-                        <p><?php echo $vehicle['marque'] . ' ' . $vehicle['modelFamily'] . ' ' . $vehicle['anneedesortie']; ?>
-                        <p>
-                        <p><?php echo $vehicle['prix_journalier']; ?> €</p>
-                    </div>
-                    <img src="<?php echo $image_url; ?>" alt="">
-                    <div class="result-bottom">
-                        <div>
-                            <?php if ($vehicle['moteur'] === 'ELECTRIQUE') : ?>
-                                <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
-                            <?php else : ?>
-                                <img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-                            <?php endif; ?>
-                            <?php echo $vehicle['moteur']; ?>
-                        </div>
-                        <div>
-                            <img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-                            <?php echo $vehicle['puissance_ch']; ?> ch
-                        </div>
-                        <div>
-                            <img src="/groupe2/vue/assets/images/car/car.png" alt="">
-                            <?php echo $vehicle['boitedevitesse']; ?>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <?php
-					}
-				} else {
-					echo "<p>Vous n'avez pas de favoris en location</p>";
+					echo "<p>Vous n'avez pas de véhicules en favoris</p>";
 				}
 				?>
 
@@ -204,11 +144,9 @@
 
                     $image_url = 'https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=' . strtolower($marque) . '&modelFamily=' . strtolower($model) . '&angle=23';?>
 
-            <p>VOS RESERVATION EN ACHAT</p>
-
             <?php foreach ($_SESSION['reservation_achat'] as $vehicle) { ?>
             <div class="results">
-                <a href="car-page.php?idCarAchat=<?php echo $vehicle['id']; ?>" title="" class="result" style="max-width: none;">
+                <a href="car-page.php?idCarAchat=<?php echo $vehicle['id']; ?>" title="" class="result">
                     <div class="result-top">
                         <p><?php echo $vehicle['marque'] . ' ' . $vehicle['modelFamily'] . ' ' . $vehicle['anneedesortie']; ?>
                         <p>
@@ -238,61 +176,7 @@
             <?php
                     }
                 } else {
-                    echo "<p>Vous n'avez pas de vehicules reservés en achat</p>";
-                }
-			?>
-        </div>
-
-        <div class="main reservations-content">
-            <?php
-                if (!empty($_SESSION['reservation_location'])) {
-                    $vehicle2 = $_SESSION['reservation_location'][0];
-
-                    $marque = $vehicle2['marque'];
-                    $model = $vehicle2['modelFamily'];
-                    $annee = $vehicle2['anneedesortie'];
-                    $moteur = $vehicle2['moteur'];
-                    $puissance_ch = $vehicle2['puissance_ch'];
-                    $boite_de_vitesse = $vehicle2['boitedevitesse'];
-                    $nombre_de_portes = $vehicle2['nombredeportes'];
-                    $nombre_de_places = $vehicle2['nombredeplaces'];
-
-                    $image_url = 'https://cdn.imagin.studio/getImage?&customer=frbeeyond-auto&make=' . strtolower($marque) . '&modelFamily=' . strtolower($model) . '&angle=23';?>
-
-            <p>VOS RESERVATION EN LOCATION</p>
-
-            <?php foreach ($_SESSION['reservation_location'] as $vehicle) { ?>
-            <div class="results">
-                <a href="car-page.php?idCarLocation=<?php echo $vehicle['id']."&idPageLocation=".$vehicle['id']; ?>" title="" class="result" style="max-width: none;">
-                    <div class="result-top">
-                        <p><?php echo $vehicle['marque'] . ' ' . $vehicle['modelFamily'] . ' ' . $vehicle['anneedesortie']; ?>
-                        <p>
-                    </div>
-                    <img src="<?php echo $image_url; ?>" alt="">
-                    <div class="result-bottom">
-                        <div>
-                            <?php if ($vehicle['moteur'] === 'ELECTRIQUE') : ?>
-                                <img src="/groupe2/vue/assets/images/car/electric.png" alt="">
-                            <?php else : ?>
-                                <img src="/groupe2/vue/assets/images/car/gas.png" alt="">
-                            <?php endif; ?>
-                            <?php echo $vehicle['moteur']; ?>
-                        </div>
-                        <div>
-                            <img src="/groupe2/vue/assets/images/car/gauge.png" alt="">
-                            <?php echo $vehicle['puissance_ch']; ?> ch
-                        </div>
-                        <div>
-                            <img src="/groupe2/vue/assets/images/car/car.png" alt="">
-                            <?php echo $vehicle['boitedevitesse']; ?>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <?php
-                    }
-                } else {
-                    echo "<p>Vous n'avez pas de vehicules reservés en location</p>";
+                    echo "<p>Vous n'avez pas de vehicules reservés</p>";
                 }
 			?>
         </div>
